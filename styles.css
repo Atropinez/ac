@@ -316,6 +316,51 @@ body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:#111;background
   opacity: 0.6;
 }
 
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .specialty-item {
+    flex: 0 0 calc(50% - 10px);
+  }
+  
+  .slider-arrow-left {
+    left: -20px;
+  }
+  
+  .slider-arrow-right {
+    right: -20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .specialties-slider-wrapper {
+    width: calc(100% - 40px); /* Уменьшаем отступы для мобильных */
+  }
+  
+  .specialty-item {
+    flex: 0 0 100%;
+  }
+  
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .slider-arrow-left {
+    left: -15px;
+  }
+  
+  .slider-arrow-right {
+    right: -15px;
+  }
+  
+  .specialties-section h2 {
+    font-size: 28px;
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
 /* Стили для секции "Новости" */
 .news-section {
   background-color: #fff;  /* Белый фон */

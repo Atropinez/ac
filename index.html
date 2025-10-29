@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Аэрокосмический колледж — Главная</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -10,8 +10,7 @@
 
   <!-- ======== КОМПАКТНОЕ МЕНЮ СОЦИАЛЬНЫХ СЕТЕЙ ======== -->
 <div class="social-menu">
-
-  <!--Ярлык VK-->
+  <!-- ВК с выпадающим меню -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
       <img src="vk-icon.png" alt="VK">
@@ -24,7 +23,7 @@
     </div>
   </div>
 
-   <!--Ярлык YouTube-->
+  <!-- ЮТ с выпадающим меню -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
       <img src="yt-icon.png" alt="VK">
@@ -35,7 +34,7 @@
     </div>
   </div>
   
-  <!--Ярлык Telegram-->
+  <!-- Телеграм с выпадающим меню -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
       <img src="telegram-icon.png" alt="Telegram">
@@ -47,8 +46,15 @@
   </div>
 </div>
 
- <!-- ======== Шапка ======== -->
-  
+  <!-- ======== ШАПКА ======== -->
+<header class="site-header">
+  <div class="header-left">
+    <img src="logo.png" alt="Логотип" class="logo">
+    <div class="title-wrap">
+      <div class="org-name">Аэрокосмический колледж при СибГУ им. М.Ф. Решетнёва</div>
+      <div class="org-sub">Университет Решетнёва</div>
+    </div>
+
     <!-- Кнопка смены языка -->
 <div class="language-switcher">
   <button class="header-btn language-btn">RU</button>
@@ -68,41 +74,21 @@
   </div>
 </div>
     
-    <!--КНОПКИ И ПРАВЫЙ БЛОК ОТДЕЛЬНО-->
+    <!-- ВЫНОСИМ КНОПКИ И ПРАВЫЙ БЛОК ОТДЕЛЬНО -->
   <div class="header-right-content">
-    <div class="header-buttons-wrapper">
 
-      <!-- ПЕРВАЯ ГРУППА КНОПОК -->
-      <div class="header-buttons-group1">
-        <a href="#" class="header-btn">КОНТАКТЫ</a>
-        <a href="#" class="header-btn">РАСПИСАНИЕ</a>
-        <a href="#" class="header-btn">АБИТУРИЕНТУ</a>
-        <a href="#" class="header-btn">СТУДЕНТУ</a>
-      </div>
-      
-      <!-- ВТОРАЯ ГРУППА КНОПОК -->
-      <div class="header-buttons-group2">
-        <a href="#" class="header-btn">СПОРТ</a>
-        <a href="#" class="header-btn">О КОЛЛЕДЖЕ</a>
-        <a href="#" class="header-btn">ФОТО</a>
-        <a href="#" class="header-btn">НОВОСТИ</a>
-      </div>
-      
-      <!-- ТРЕТЬЯ ГРУППА КНОПОК -->
-      <div class="header-buttons-group3">
-        <a href="#" class="header-btn">БИБЛИОТЕКА</a>
-        <a href="#" class="header-btn">ОБРАЗОВАНИЕ</a>
-        <a href="#" class="header-btn">ВАКАНСИИ</a>
-        <a href="#" class="header-btn">ДОКУМЕНТЫ</a>
-      </div>
-      
-      <!--БЛОК СПРАВА ОТ КНОПОК-->
+      <div class="header-buttons-wrapper">
+  <!-- БОЛЬШАЯ НЕКЛИКАБЕЛЬНАЯ КНОПКА -->
+  <div class="header-overlay-button">
+  </div>
+
+      <!-- БЛОК СПРАВА ОТ КНОПОК -->
       <div class="header-right-block"></div>
     </div>
   </div>
 </header>
 
-  <!-- ========Меню под шапкой======== -->
+  <!-- ======== СЕРАЯ ПАНЕЛЬ МЕНЮ ======== -->
    
 <div class="subnav">
   <ul>
@@ -162,11 +148,12 @@
       <p>Ваш путь к профессиональному обучению и карьере в аэрокосмической отрасли!</p>
     </div>
   </div>
-  <div class="banner-right"> <!--Изображение ГУ-->
+  <div class="banner-right">
+    <!-- Фон с изображением -->
   </div>
 </section>
 
-<!-- ========Меню под баннером======== -->
+<!-- ======== НОВОЕ СЕРОЕ МЕНЮ ======== -->
 <div class="subnav">
   <ul>
     <li><a href="#">Студенту</a></li>
@@ -178,16 +165,16 @@
   </ul>
 </div>
 
-<!-- ========Специальности======== -->
+<!-- ======== СЕКЦИЯ С ПРЕСТИЖНЫМИ СПЕЦИАЛЬНОСТЯМИ ======== -->
 <section class="specialties-section">
   <h2>Специальности</h2>
   <div class="specialties-slider-container">
     <button class="slider-arrow slider-arrow-left" aria-label="Предыдущие специальности">
       <span>‹</span>
     </button>
+    
     <div class="specialties-slider-wrapper">
       <div class="specialties-slider">
-
         <!-- Специальность 1 -->
         <div class="specialty-item">
           <div class="image-container">
@@ -343,15 +330,18 @@
         </div>
       </div>
     </div>
+    
     <button class="slider-arrow slider-arrow-right" aria-label="Следующие специальности">
       <span>›</span>
     </button>
   </div>
+  
   <div class="slider-dots">
+    <!-- Точки будут добавляться через JavaScript -->
   </div>
 </section>
 
-<!-- ========Новости======== -->
+<!-- ======== СЕКЦИЯ С НОВОСТЯМИ ======== -->
 <section class="news-section">
   <h2>Новости</h2>
   <div class="specialties-slider-container">
@@ -428,10 +418,12 @@
   </div>
   
   <div class="news-dots">
+    <!-- Точки будут добавляться через JavaScript -->
   </div>
 </section>
 
-  <!-- ========Меню под новостями======== -->
+
+  <!-- ======== ОСНОВНОЙ КОНТЕНТ ======== -->
   <main>
     <!-- About -->
     <section id="about" class="container">

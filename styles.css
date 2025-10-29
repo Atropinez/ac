@@ -1,0 +1,843 @@
+:root{
+  --muted: #ffffff;
+  --bg: #f5f6f8;
+  --card-bg: #fff;
+  --maxw: 1100px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:#111;background:var(--bg);line-height:1.5}
+.container{max-width:var(--maxw);margin:30px auto;padding:0 16px}
+
+/* Nav */
+.main-nav{position:relative}
+.nav-toggle{display:none;background:none;border:0;font-size:16px}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+.nav-list a{color:#111;text-decoration:none;font-weight:600;padding:6px 8px;border-radius:6px}
+.nav-list a:hover{background:#f0f0f0}
+
+/* submenu */
+.has-sub{position:relative}
+.has-sub .sub{display:none;position:absolute;left:0;top:calc(100% + 8px);background:var(--card-bg);box-shadow:0 6px 20px rgba(0,0,0,.06);padding:8px;border-radius:8px;min-width:220px}
+.has-sub:hover .sub{display:block}
+.sub li{display:block;margin:0}
+.sub a{display:block;padding:8px 12px;color:#111}
+
+/*Баннер*/
+.hero{background-image:url('banner.jpg');background-size:cover;background-position:center;color:#fff;padding:80px 16px;display:flex;align-items:center}
+.hero-inner{max-width:900px;margin:0 auto;text-align:center;background:rgba(0,0,0,0.35);padding:30px;border-radius:10px}
+.hero h1{margin:0 0 10px;font-size:32px}
+.hero p{margin:0 0 16px}
+
+/* Responsive */
+@media (max-width:900px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:700px){
+  .site-header{padding:10px}
+  .nav-toggle{display:inline-block}
+  .nav-list{display:none;position:absolute;right:8px;top:64px;background:var(--card-bg);flex-direction:column;padding:10px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+  .nav-list.show{display:flex}
+  .cards{grid-template-columns:1fr}
+  .hero{padding:50px 12px}
+  .hero h1{font-size:22px}
+  .org-name{font-size:15px}
+}
+
+/* Меню с кнопками под шапкой */
+.subnav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap; /* Перенос элементов */
+}
+
+.subnav li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.menu-icon {
+  width: 32px;  /* Размер иконки */
+  height: 32px;
+  margin-bottom: 8px;  /* Расстояние между иконкой и текстом */
+}
+
+.subnav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+  display: block;
+}
+
+/* Стиль для баннера ГУ */
+.college-banner {
+  display: flex;
+  width: 100%;
+  height: 450px;  /* Уменьшенная высота баннера */
+}
+
+/* Блок слева от баннера ГУ */
+.banner-left {
+  background-color: #1565C0;  /* Амелистовый цвет фона */
+  color: rgb(255, 255, 255);
+  width: 36%; /* Левая часть */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/*Изображение баннера ГУ*/
+.banner-right {
+  background-image: url('college-banner.jpg');  /* Замените на путь к фото колледжа */
+  background-size: cover;
+  background-position: center;  /* Центрируем изображение */
+  width: 64%; /* Правая часть с изображением */
+}
+
+.banner-left h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.first-word {
+  font-size: 30px;  /* Увеличим размер шрифта */
+  font-weight: 400;  /* Уменьшаем жирность */
+  margin-bottom: -10px;  /* Поднимем текст чуть выше */
+}
+
+.second-word {
+  font-size: 30px;  /* Размер шрифта для второго слова */
+  font-weight: 400;  /* Уменьшаем жирность */
+}
+
+/* Редакт меню под и над баннером */
+.subnav {
+  width: 100%;
+  background-color: #ffffff;
+  border-top: none;
+  border-bottom: none;
+}
+
+.subnav ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex; /* Flexbox для одной строки */
+  justify-content: center;
+  list-style: none;
+  flex-wrap: nowrap; /* Запрещаем перенос строк */
+}
+
+.subnav li {
+  margin: 0;
+}
+
+.subnav a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #000000;
+  font-weight: 700; /* Сделали текст жирнее */
+  font-size: 16px;  /* Увеличили шрифт для одинаковости */
+  transition: 0.2s;
+}
+
+.subnav a:hover {
+  background-color: #e0e0e0; /* прозрачность кнопок при наведении */
+  color: #000000; /* прозрачность кнопок при наведении */
+}
+
+/* ===== УЛУЧШЕННЫЙ СЛАЙДЕР СПЕЦИАЛЬНОСТЕЙ ===== */
+.specialties-section {
+  background-color: #333;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1; 
+}
+
+.specialties-section h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: left;
+  padding-left: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.specialties-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 2; 
+}
+
+.specialties-slider-wrapper {
+  width: calc(100% - 100px);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.specialties-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+  padding: 10px 0;
+  position: relative;
+  z-index: 3; /* Слайдер поверх всего */
+}
+
+.specialty-item {
+  flex: 0 0 calc(33.333% - 14px);
+  min-width: 0;
+  text-align: center;
+  position: relative;
+  z-index: 4; /* Каждый элемент поверх слайдера */
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 5; 
+}
+
+.image-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.profession-name {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0;
+  z-index: 6; 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  max-width: 90%;
+  text-align: right;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  line-height: 1.5;
+  z-index: 7; /* Оверлей поверх названия профессии */
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.image-container:hover .profession-name {
+  opacity: 0;
+}
+
+/* Кнопки навигации слайдера */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #505050;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slider-arrow:hover {
+  background-color: #1565C0;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow-left {
+  left: -25px; /* Выносим левую кнопку за пределы контейнера */
+}
+
+.slider-arrow-right {
+  right: -25px; /* Выносим правую кнопку за пределы контейнера */
+}
+
+.slider-arrow:disabled {
+  background-color: #c9c9c9;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(1);
+  opacity: 0.6;
+}
+
+/* Стили для секции "Новости" */
+.news-section {
+  background-color: #fff;  /* Белый фон */
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 40px;  /* Отступ сверху */
+}
+
+.news-section h2 {
+  font-size: 36px;
+  font-weight: 700;  /* Сделаем текст жирным */
+  color: #1565C0;  /* Темный цвет для текста */
+  margin-bottom: 20px;
+  text-align: left;  /* Смещаем текст влево */
+  padding-left: 20px;  /* Небольшой отступ слева */
+}
+
+/* Контейнер для слайдера */
+.news-slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Стили для слайдера */
+.news-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden; /* Прячем все изображения, которые выходят за пределы */
+  width: 100%;  /* Растягиваем слайдер на весь доступный контейнер */
+}
+
+.news-item {
+  width: 250px;
+  text-align: center;
+  flex-shrink: 0; /* Не сжимаем элементы */
+  position: relative; /* Для наложения текста */
+}
+
+/* Исправляем ползунки */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  background-color: #570080;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%);  /* Выравниваем по центру по вертикали */
+  z-index: 2; /* Обеспечиваем, чтобы кнопки были поверх слайдера */
+}
+
+.left-btn {
+  left: -30px;
+}
+
+.right-btn {
+  right: -30px;
+}
+
+.scroll-btn:hover {
+  background-color: #8c009b;
+}
+
+/* Стили для фотографий в новостях */
+.news-image-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 0; /* делаем прямоугольную рамку */
+}
+
+
+.news-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-date {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.news-content {
+  margin-top: 10px;
+}
+
+.news-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.news-excerpt {
+  font-size: 14px;
+  color: #666;
+}
+
+.news-link {
+  font-size: 14px;
+  color: #570080;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.news-link:hover {
+  color: #8c009b;
+}
+
+.news-arrow-left,
+.news-arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #505050;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.news-arrow-left:hover,
+.news-arrow-right:hover {
+  background-color: #1565C0;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.news-arrow-left {
+  left: -25px; /* Выносим за пределы контейнера */
+}
+
+.news-arrow-right {
+  right: -25px; /* Выносим за пределы контейнера */
+}
+
+.news-arrow-left:disabled,
+.news-arrow-right:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(1);
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .news-slider-wrapper {
+    width: calc(100% - 40px); /* Уменьшаем отступы для мобильных */
+  }
+  
+  .news-item {
+    flex: 0 0 100%;
+  }
+  
+  .news-arrow-left,
+  .news-arrow-right {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .news-arrow-left {
+    left: -15px;
+  }
+  
+  .news-arrow-right {
+    right: -15px;
+  }
+}
+
+
+/* Меню с иконками социальных сетей над серым меню */
+.social-menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;  
+  padding: 3px 0;
+  background-color: #ffffff; /* Фон, как у серого меню */
+  border-top: none;
+  border-bottom: none;
+}
+
+.social-icon img {
+  width: 26px;  /* Размер иконок */
+  height: 26px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+  transform: scale(1.1);  /* Эффект увеличения при наведении */
+}
+
+
+/* 1 группа кнопок */
+.header-buttons-group1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
+  margin-left: 96px;
+}
+
+/* 2 группа кнопок */
+.header-buttons-group2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
+  margin-left: 2px;
+}
+
+/* 3 группа кнопок */
+.header-buttons-group3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
+  margin-left: 2px;
+}
+
+/* Кнопки */
+.header-btn {
+  display: block;
+  padding: 10px 16px;
+  background-color: #f2f2f2;
+  color: #000;
+  font-weight: 800;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0px; /* Скругленные углы */
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  white-space: nowrap;
+  
+  /* Отступы между кнопками */
+  margin-bottom: 0px;
+}
+
+/* Эффект при наведении на кнопку */
+.header-btn:hover {
+  background-color: #383838;
+  color: #ffffff;
+  transform: translateY(0.5px); /* Поднятие кнопок ввысь те что справа от шапки */
+}
+
+/* Убираем отступ у последней кнопки в группе */
+.header-buttons-group1 .header-btn:last-child,
+.header-buttons-group2 .header-btn:last-child,
+.header-buttons-group3 .header-btn:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Адаптивность - 2x2 сетка */
+@media (max-width: 600px) {
+  .button-group {
+    grid-template-columns: 1fr; /* Для мобильных экранов кнопки будут в одну колонку */
+  }
+}
+
+/* НОВЫЙ КОНТЕЙНЕР ДЛЯ ПРАВОЙ ЧАСТИ */
+.header-right-content {
+  display: flex;
+  align-items: stretch;
+  flex: 1; /* Занимает всю оставшуюся ширину */
+  height: 100px;
+}
+
+/* КОНТЕЙНЕР КНОПОК (НЕ РАСТЯГИВАЕТСЯ) */
+.header-buttons-wrapper {
+  display: flex;
+  align-items: stretch;
+  flex: 0 0 auto; /* Не растягивается */
+  gap: 0;
+}
+
+/* ===== КОМПАКТНОЕ МЕНЮ СОЦСЕТЕЙ БЕЗ ГРАНИЦ ===== */
+.social-menu {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px 0;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 1001;
+}
+
+
+.social-dropdown {
+  position: relative;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.social-icon img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.social-icon:hover img {
+  transform: scale(1.1);
+}
+
+.social-icon:hover {
+  background-color: #f8f8f8;
+}
+
+/* Выпадающее меню */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  min-width: 160px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 6px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 1002;
+  margin-top: 2px;
+  border-left: 5px solid #1565C0; /* ← СИНЯЯ ПОЛОСОЧКА СЛЕВА ВСЕГО МЕНЮ */
+}
+
+/* Показываем меню при наведении */
+.social-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 5px;
+}
+
+/* Элементы выпадающего меню */
+.dropdown-item {
+  display: block;
+  padding: 8px 12px;
+  color: #333;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.dropdown-item:hover {
+  background-color: #e4e3e3;
+  color: #1565C0;
+}
+
+/* Стили для контейнера кнопки смены языка */
+.language-switcher {
+  position: absolute;  /* Абсолютное позиционирование */
+  right: 0;  /* Размещаем кнопку справа */
+  top: 50%;  /* Выравниваем по центру по вертикали */
+  transform: translateY(-50%);  /* Центрируем кнопку по вертикали */
+}
+
+/* Стили для самой кнопки смены языка */
+.language-switcher .language-btn {
+  width: 100px;  /* Фиксированная ширина */
+  height: 100px; /* Фиксированная высота */
+  background-color: #949494;
+  color: #000;
+  font-weight: 800;
+  font-size: 12px;
+  border-radius: 0px;  /* Скругленные углы */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+/* Эффект при наведении на кнопку */
+.language-switcher .language-btn:hover {
+  background-color: #1565C0;
+  color: #ffffff;
+}
+
+/* Выпадающее меню языков ВЛЕВО */
+.lang-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  min-width: 180px;
+  box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 8px 8px;
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1003;
+}
+
+/* Показываем меню при наведении на контейнер */
+.language-switcher:hover .lang-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Варианты языков */
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.lang-option:hover {
+  background-color: #1565C0;
+  color: white;
+}
+
+.lang-flag {
+  width: 24px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.lang-name {
+  font-weight: 500;
+  flex: 1;
+}
+
+/* Активный язык */
+.lang-option.active {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.lang-option.active:hover {
+  background-color: #1565C0;
+}
+/* Responsive fixes and adjustments for layout behavior and element positioning */
+.site-header {
+  flex-wrap: wrap; /* Allow header to wrap at smaller screen sizes */
+}
+
+.header-buttons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    padding: 10px;
+  }
+  .nav-toggle {
+    display: inline-block;
+  }
+  .nav-list {
+    display: none;
+    position: absolute;
+    right: 8px;
+    top: 64px;
+    background: var(--card-bg);
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+  }
+  .nav-list.show {
+    display: flex;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    padding: 50px 12px;
+  }
+  .hero h1 {
+    font-size: 22px;
+  }
+  .org-name {
+    font-size: 15px;
+  }
+}

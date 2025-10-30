@@ -4,7 +4,985 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Аэрокосмический колледж — Главная</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{
+      --muted: #ffffff;
+      --bg: #f5f6f8;
+      --card-bg: #fff;
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:#111;background:var(--bg);line-height:1.5}
+    .container{max-width:var(--maxw);margin:30px auto;padding:0 16px}
+    
+    /*-----------------ШАПКА-----------------*/
+    .site-header {
+      background: linear-gradient(to right, #1565C0 36%, #000000 64%);
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 20px;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      position: relative;
+    }
+    
+    .header-left {
+      background: #1565C0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+    .logo{width:64px;height:64px;object-fit:cover;border-radius:8px}
+    .title-wrap{display:flex;flex-direction:column}
+    .org-name{font-weight:700;color:#ffffff}
+    .org-sub{font-size:13px;color:var(--muted)}
+    
+    /* Nav */
+    .main-nav{position:relative}
+    .nav-toggle{display:none;background:none;border:0;font-size:16px}
+    .nav-list{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+    .nav-list a{color:#111;text-decoration:none;font-weight:600;padding:6px 8px;border-radius:6px}
+    .nav-list a:hover{background:#f0f0f0}
+    
+    /* submenu */
+    .has-sub{position:relative}
+    .has-sub .sub{display:none;position:absolute;left:0;top:calc(100% + 8px);background:var(--card-bg);box-shadow:0 6px 20px rgba(0,0,0,.06);padding:8px;border-radius:8px;min-width:220px}
+    .has-sub:hover .sub{display:block}
+    .sub li{display:block;margin:0}
+    .sub a{display:block;padding:8px 12px;color:#111}
+    
+    /* Hero */
+    .hero{background-image:url('banner.jpg');background-size:cover;background-position:center;color:#fff;padding:80px 16px;display:flex;align-items:center}
+    .hero-inner{max-width:900px;margin:0 auto;text-align:center;background:rgba(0,0,0,0.35);padding:30px;border-radius:10px}
+    .hero h1{margin:0 0 10px;font-size:32px}
+    .hero p{margin:0 0 16px}
+    
+    /* Button */
+    .btn{display:inline-block;padding:10px 18px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700}
+    
+    /* Cards */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+    .card{background:var(--card-bg);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    .card h3{margin:0 0 8px}
+    .card-link{color:var(--accent);font-weight:700;text-decoration:none}
+    
+    /* News */
+    .news-list{display:flex;flex-direction:column;gap:12px}
+    .news-item{background:var(--card-bg);padding:12px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.04)}
+    .news-item time{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}
+    
+    /* Footer */
+    .site-footer{background:#222;color:#fff;padding:18px 16px;text-align:center;margin-top:30px}
+    .footer-links a{color:#fff;text-decoration:underline;font-size:14px}
+    
+    /* Responsive */
+    @media (max-width:900px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:700px){
+      .site-header{padding:10px}
+      .nav-toggle{display:inline-block}
+      .nav-list{display:none;position:absolute;right:8px;top:64px;background:var(--card-bg);flex-direction:column;padding:10px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+      .nav-list.show{display:flex}
+      .cards{grid-template-columns:1fr}
+      .hero{padding:50px 12px}
+      .hero h1{font-size:22px}
+      .org-name{font-size:15px}
+    }
+    
+    /* Меню с кнопками */
+    .subnav ul {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+    
+    .subnav li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 150px;
+    }
+    
+    .menu-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 5px;
+    }
+    
+    .subnav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+      height: 100px;
+      justify-content: center;
+      text-align: center;
+      white-space: normal;
+      width: 100%;
+      padding: 10px 5px;
+      border-radius: 0px;
+      transition: all 0.3s ease;
+    }
+    
+    .subnav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .subnav a:first-child {
+      text-align: center;
+    }
+    
+    /* Стили для баннера */
+    .college-banner {
+      display: flex;
+      width: 100%;
+      height: 450px;
+    }
+    
+    .banner-left {
+      background-color: #1565C0;
+      color: rgb(255, 255, 255);
+      width: 36%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+    
+    .banner-right {
+      background-image: url('college-banner.jpg');
+      background-size: cover;
+      background-position: center;
+      width: 64%;
+    }
+    
+    .banner-left h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .first-word {
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: -10px;
+    }
+    
+    .second-word {
+      font-size: 30px;
+      font-weight: 400;
+    }
+    
+    /* Стили для старого серого меню (над баннером) */
+    .subnav {
+      width: 100%;
+      background-color: #f2f2f2;
+      border-top: none;
+      border-bottom: none;
+    }
+    
+    .subnav ul {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: nowrap;
+    }
+    
+    .subnav li {
+      margin: 0;
+    }
+    
+    .subnav a {
+      display: block;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 700;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+    
+    .subnav a:hover {
+      background-color: #e0e0e0;
+      color: #000;
+    }
+    
+    /* Стили для нового серого меню (под баннером) */
+    .subnav {
+      width: 100%;
+      background-color: #ffffff;
+      border-top: none;
+      border-bottom: none;
+    }
+    
+    .subnav ul {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: nowrap;
+    }
+    
+    .subnav li {
+      margin: 0;
+    }
+    
+    .subnav a {
+      display: block;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #000000;
+      font-weight: 700;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+    
+    .subnav a:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    
+    /* ===== УЛУЧШЕННЫЙ СЛАЙДЕР СПЕЦИАЛЬНОСТЕЙ ===== */
+.specialties-section {
+  background-color: #333;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1; /* Добавляем z-index для всей секции */
+}
+
+.specialties-section h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: left;
+  padding-left: 20px;
+  position: relative;
+  z-index: 2; /* Заголовок поверх фона */
+}
+
+.specialties-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 2; /* Контейнер слайдера поверх фона */
+}
+
+.specialties-slider-wrapper {
+  width: calc(100% - 100px);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.specialties-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+  padding: 10px 0;
+  position: relative;
+  z-index: 3; /* Слайдер поверх всего */
+}
+
+.specialty-item {
+  flex: 0 0 calc(33.333% - 14px);
+  min-width: 0;
+  text-align: center;
+  position: relative;
+  z-index: 4; /* Каждый элемент поверх слайдера */
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 5; /* Контейнер изображения поверх всего */
+}
+
+.image-container:hover {
+  transform: translateY(0px);
+  box-shadow: none;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1; /* Изображение внутри контейнера */
+}
+
+.profession-name {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0;
+  z-index: 6; /* Название профессии поверх изображения */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  max-width: 90%;
+  text-align: right;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  line-height: 1.5;
+  z-index: 7; /* Оверлей поверх названия профессии */
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.image-container:hover .profession-name {
+  opacity: 0;
+}
+
+/* Кнопки навигации слайдера */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #505050;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slider-arrow:hover {
+  background-color: #1565C0;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow-left {
+  left: -25px; /* Выносим левую кнопку за пределы контейнера */
+}
+
+.slider-arrow-right {
+  right: -25px; /* Выносим правую кнопку за пределы контейнера */
+}
+
+.slider-arrow:disabled {
+  background-color: #c9c9c9;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(1);
+  opacity: 0.6;
+}
+
+    
+    /* Стили для секции "Новости" */
+    .news-section {
+      background-color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    .news-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1565C0;
+      margin-bottom: 20px;
+      text-align: left;
+      padding-left: 20px;
+    }
+    
+    /* Контейнер для слайдера */
+    .news-slider-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    /* Стили для слайдера */
+    .news-slider {
+      display: flex;
+      gap: 20px;
+      overflow-x: hidden;
+      width: 100%;
+    }
+    
+    .news-item {
+      width: 250px;
+      text-align: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+    
+    /* Исправляем ползунки */
+    .scroll-btn {
+      position: absolute;
+      top: 50%;
+      background-color: #570080;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    
+    .left-btn {
+      left: -30px;
+    }
+    
+    .right-btn {
+      right: -30px;
+    }
+    
+    .scroll-btn:hover {
+      background-color: #8c009b;
+    }
+    
+    /* Стили для фотографий в новостях */
+    .news-image-container {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 0;
+    }
+    
+    .news-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .news-date {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 5px;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+    
+    .news-content {
+      margin-top: 10px;
+    }
+    
+    .news-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .news-excerpt {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .news-link {
+      font-size: 14px;
+      color: #570080;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+    
+    .news-link:hover {
+      color: #8c009b;
+    }
+    
+    .news-arrow-left,
+    .news-arrow-right {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: #505050;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .news-arrow-left:hover,
+    .news-arrow-right:hover {
+      background-color: #1565C0;
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .news-arrow-left {
+      left: -25px;
+    }
+    
+    .news-arrow-right {
+      right: -25px;
+    }
+    
+    .news-arrow-left:disabled,
+    .news-arrow-right:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+      transform: translateY(-50%) scale(1);
+      opacity: 0.6;
+    }
+    
+    @media (max-width: 768px) {
+      .news-slider-wrapper {
+        width: calc(100% - 40px);
+      }
+      
+      .news-item {
+        flex: 0 0 100%;
+      }
+      
+      .news-arrow-left,
+      .news-arrow-right {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+      
+      .news-arrow-left {
+        left: -15px;
+      }
+      
+      .news-arrow-right {
+        right: -15px;
+      }
+    }
+    
+    /* Меню с иконками социальных сетей над серым меню */
+    .social-menu {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 3px 0;
+      background-color: #ffffff;
+      border-top: none;
+      border-bottom: none;
+    }
+    
+    .social-icon img {
+      width: 26px;
+      height: 26px;
+      transition: transform 0.3s ease;
+    }
+    
+    .social-icon:hover img {
+      transform: scale(1.1);
+    }
+    
+    /* 1 группа кнопок */
+    .header-buttons-group1 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-left: 96px;
+    }
+    
+    /* 2 группа кнопок */
+    .header-buttons-group2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-left: 2px;
+    }
+    
+    /* 3 группа кнопок */
+    .header-buttons-group3 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-left: 2px;
+    }
+    
+    /* Кнопки */
+    .header-btn {
+      display: block;
+      padding: 10px 16px;
+      background-color: #f2f2f2;
+      color: #000;
+      font-weight: 800;
+      font-size: 12px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 0px;
+      transition: background-color 0.3s, color 0.3s, transform 0.2s;
+      white-space: nowrap;
+      margin-bottom: 0px;
+    }
+    
+    /* Эффект при наведении на кнопку */
+    .header-btn:hover {
+      background-color: #383838;
+      color: #ffffff;
+      transform: translateY(0.5px);
+    }
+    
+    /* Убираем отступ у последней кнопки в группе */
+    .header-buttons-group1 .header-btn:last-child,
+    .header-buttons-group2 .header-btn:last-child,
+    .header-buttons-group3 .header-btn:last-child {
+      margin-bottom: 0;
+    }
+    
+    /* Адаптивность - 2x2 сетка */
+    @media (max-width: 600px) {
+      .button-group {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* НОВЫЙ КОНТЕЙНЕР ДЛЯ ПРАВОЙ ЧАСТИ */
+    .header-right-content {
+      display: flex;
+      align-items: stretch;
+      flex: 1;
+      height: 100px;
+    }
+    
+    /* КОНТЕЙНЕР КНОПОК (НЕ РАСТЯГИВАЕТСЯ) */
+    .header-buttons-wrapper {
+      display: flex;
+      align-items: stretch;
+      flex: 0 0 auto;
+      gap: 0;
+    }
+    
+    /* ===== КОМПАКТНОЕ МЕНЮ СОЦСЕТЕЙ БЕЗ ГРАНИЦ ===== */
+    .social-menu {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 4px 0;
+      background-color: #ffffff;
+      position: relative;
+      z-index: 1001;
+    }
+    
+    .social-dropdown {
+      position: relative;
+    }
+    
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+    
+    .social-icon img {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.2s ease;
+    }
+    
+    .social-icon:hover img {
+      transform: scale(1.1);
+    }
+    
+    .social-icon:hover {
+      background-color: #f8f8f8;
+    }
+    
+    /* Выпадающее меню */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      min-width: 160px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      padding: 6px 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      z-index: 1002;
+      margin-top: 2px;
+      border-left: 5px solid #1565C0;
+    }
+    
+    /* Показываем меню при наведении */
+    .social-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      margin-top: 5px;
+    }
+    
+    /* Элементы выпадающего меню */
+    .dropdown-item {
+      display: block;
+      padding: 8px 12px;
+      color: #333;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    
+    .dropdown-item:hover {
+      background-color: #e4e3e3;
+      color: #1565C0;
+    }
+    
+    /* Стили для контейнера кнопки смены языка */
+    .language-switcher {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10000;
+    }
+    
+    /* Стили для самой кнопки смены языка */
+    .language-switcher .language-btn {
+      width: 100px;
+      height: 100px;
+      background-color: #333;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 20px;
+      border-radius: 0px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s, color 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    /* Эффект при наведении на кнопку */
+    .language-switcher .language-btn:hover {
+      background-color: #1565C0;
+      color: #ffffff;
+    }
+    
+    /* Выпадающее меню языков ВЛЕВО */
+    .lang-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      min-width: 180px;
+      box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 0 0 8px 8px;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1003;
+    }
+    
+    /* Показываем меню при наведении на контейнер */
+    .language-switcher:hover .lang-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    /* Варианты языков */
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+    
+    .lang-option:hover {
+      background-color: #1565C0;
+      color: white;
+    }
+    
+    .lang-flag {
+      width: 24px;
+      height: 18px;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+    
+    .lang-name {
+      font-weight: 500;
+      flex: 1;
+    }
+    
+    /* Активный язык */
+    .lang-option.active {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+    
+    .lang-option.active:hover {
+      background-color: #1565C0;
+    }
+    
+    /* ===== БОЛЬШАЯ НЕКЛИКАБЕЛЬНАЯ КНОПКА-ФОН ===== */
+    .header-overlay-button {
+      position: absolute;
+      top: 0;
+      left: 680px;
+      width: 100%;
+      height: 100%;
+      background-color: #ececec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000000;
+      font-weight: 900;
+      font-size: 20px;
+      cursor: not-allowed;
+      z-index: 1001;
+      pointer-events: none;
+      opacity: 1;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: none;
+      transform-origin: center center;
+      transition: transform 0.3s ease;
+    }
+    
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+    
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      background-color: #ccc;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .slider-dot.active {
+      background-color: #1565C0;
+    }
+    
+    .news-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+    
+    .news-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      background-color: #ccc;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .news-dot.active {
+      background-color: #1565C0;
+    }
+
+    /* 1. Подсветка кнопок при наведении */
+.subnav a:hover,
+.header-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000000;
+  transform: translateY(0);
+}
+
+/*Убираем лишний отступ под кнопками "Студенту / Поступающему..." */ 
+.subnav ul { 
+  margin-bottom: 0; 
+  padding-bottom: 0; 
+}
+
+/*Убираем горизонтальный скролл и пустое место справа */ 
+html, body { 
+  overflow-x: hidden; 
+}
+
+
+  </style>
 </head>
 <body>
 
@@ -26,7 +1004,7 @@
   <!-- ЮТ с выпадающим меню -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
-      <img src="yt-icon.png" alt="VK">
+      <img src="yt-icon.png" alt="YouTube">
     </a>
     <div class="dropdown-menu">
       <a href="1" target="_blank" class="dropdown-item">1</a>
@@ -169,12 +1147,12 @@
 <section class="specialties-section">
   <h2>Специальности</h2>
   <div class="specialties-slider-container">
-    <button class="slider-arrow slider-arrow-left" aria-label="Предыдущие специальности">
+    <button class="slider-arrow slider-arrow-left" aria-label="Предыдущие специальности" id="specialties-prev">
       <span>‹</span>
     </button>
     
     <div class="specialties-slider-wrapper">
-      <div class="specialties-slider">
+      <div class="specialties-slider" id="specialties-slider">
         <!-- Специальность 1 -->
         <div class="specialty-item">
           <div class="image-container">
@@ -331,12 +1309,12 @@
       </div>
     </div>
     
-    <button class="slider-arrow slider-arrow-right" aria-label="Следующие специальности">
+    <button class="slider-arrow slider-arrow-right" aria-label="Следующие специальности" id="specialties-next">
       <span>›</span>
     </button>
   </div>
   
-  <div class="slider-dots">
+  <div class="slider-dots" id="specialties-dots">
     <!-- Точки будут добавляться через JavaScript -->
   </div>
 </section>
@@ -345,12 +1323,12 @@
 <section class="news-section">
   <h2>Новости</h2>
   <div class="specialties-slider-container">
-    <button class="slider-arrow slider-arrow-left" aria-label="Предыдущие новости">
+    <button class="slider-arrow slider-arrow-left" aria-label="Предыдущие новости" id="news-prev">
       <span>‹</span>
     </button>
     
-    <div class="news-slider-wrapper">
-      <div class="news-slider">
+    <div class="specialties-slider-wrapper">
+      <div class="news-slider" id="news-slider">
         <div class="news-item">
           <div class="news-image-container">
             <img src="news1.jpg" alt="Новость 1">
@@ -369,8 +1347,7 @@
           <div class="news-image-container">
             <img src="news2.jpg" alt="Новость 2">
             <div class="news-date">
-              <span class="day">09</span>
-              <span class="month">Май</span>
+              <span class="day">09.05.2025</span>
             </div>
           </div>
           <div class="news-content">
@@ -384,8 +1361,7 @@
           <div class="news-image-container">
             <img src="news3.jpg" alt="Новость 3">
             <div class="news-date">
-              <span class="day">15</span>
-              <span class="month">Май</span>
+              <span class="day">15.05.2025</span>
             </div>
           </div>
           <div class="news-content">
@@ -399,8 +1375,7 @@
           <div class="news-image-container">
             <img src="news4.jpg" alt="Новость 4">
             <div class="news-date">
-              <span class="day">20</span>
-              <span class="month">Апр</span>
+              <span class="day">20.04.2025</span>
             </div>
           </div>
           <div class="news-content">
@@ -409,19 +1384,46 @@
             <a href="#" class="news-link">Подробнее</a>
           </div>
         </div>
+        
+        <div class="news-item">
+          <div class="news-image-container">
+            <img src="news5.jpg" alt="Новость 5">
+            <div class="news-date">
+              <span class="day">10.04.2025</span>
+            </div>
+          </div>
+          <div class="news-content">
+            <h3 class="news-title">Новые лаборатории</h3>
+            <p class="news-excerpt">В колледже открыты новые современные лаборатории для практических занятий.</p>
+            <a href="#" class="news-link">Подробнее</a>
+          </div>
+        </div>
+        
+        <div class="news-item">
+          <div class="news-image-container">
+            <img src="news6.jpg" alt="Новость 6">
+            <div class="news-date">
+              <span class="day">05.04.2025</span>
+            </div>
+          </div>
+          <div class="news-content">
+            <h3 class="news-title">Мастер-класс от IT-специалистов</h3>
+            <p class="news-excerpt">Приглашенные эксперты провели мастер-класс по современным технологиям.</p>
+            <a href="#" class="news-link">Подробнее</a>
+          </div>
+        </div>
       </div>
     </div>
     
-    <button class="slider-arrow news-arrow-right" aria-label="Следующие новости">
+    <button class="slider-arrow slider-arrow-right" aria-label="Следующие новости" id="news-next">
       <span>›</span>
     </button>
   </div>
   
-  <div class="news-dots">
+  <div class="news-dots" id="news-dots">
     <!-- Точки будут добавляться через JavaScript -->
   </div>
 </section>
-
 
   <!-- ======== ОСНОВНОЙ КОНТЕНТ ======== -->
   <main>
@@ -448,6 +1450,259 @@
     <div class="footer-links"><a href="#">Политика конфиденциальности</a></div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // ===== УЛУЧШЕННЫЙ СЛАЙДЕР СПЕЦИАЛЬНОСТЕЙ =====
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelector('.specialties-slider');
+  const sliderWrapper = document.querySelector('.specialties-slider-wrapper');
+  const prevButton = document.querySelector('.slider-arrow-left');
+  const nextButton = document.querySelector('.slider-arrow-right');
+  const dotsContainer = document.querySelector('.slider-dots');
+  
+  if (!slider) return;
+  
+  const items = document.querySelectorAll('.specialty-item');
+  const itemsCount = items.length;
+  let currentIndex = 0;
+  let itemsPerView = 3;
+  
+  // Определяем количество элементов в зависимости от ширины экрана
+  function updateItemsPerView() {
+    if (window.innerWidth <= 768) {
+      itemsPerView = 1;
+    } else if (window.innerWidth <= 1024) {
+      itemsPerView = 2;
+    } else {
+      itemsPerView = 3;
+    }
+    updateSlider();
+  }
+  
+  // Создаем точки-индикаторы
+  function createDots() {
+    dotsContainer.innerHTML = '';
+    const dotsCount = Math.ceil(itemsCount / itemsPerView);
+    
+    for (let i = 0; i < dotsCount; i++) {
+      const dot = document.createElement('button');
+      dot.classList.add('slider-dot');
+      dot.setAttribute('aria-label', `Перейти к слайду ${i + 1}`);
+      if (i === 0) dot.classList.add('active');
+      
+      dot.addEventListener('click', () => {
+        goToSlide(i);
+      });
+      
+      dotsContainer.appendChild(dot);
+    }
+  }
+  
+  // Переход к определенному слайду
+  function goToSlide(index) {
+    const maxIndex = Math.ceil(itemsCount / itemsPerView) - 1;
+    currentIndex = Math.max(0, Math.min(index, maxIndex));
+    updateSlider();
+  }
+  
+  // Обновление слайдера
+  function updateSlider() {
+    const itemWidth = items[0].offsetWidth + 20; // width + gap
+    const translateX = -currentIndex * itemWidth * itemsPerView;
+    slider.style.transform = `translateX(${translateX}px)`;
+    
+    // Обновляем состояние кнопок
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex >= Math.ceil(itemsCount / itemsPerView) - 1;
+    
+    // Обновляем точки
+    const dots = document.querySelectorAll('.slider-dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+  
+  // Следующий слайд
+  function nextSlide() {
+    const maxIndex = Math.ceil(itemsCount / itemsPerView) - 1;
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+      updateSlider();
+    }
+  }
+  
+  // Предыдущий слайд
+  function prevSlide() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  }
+  
+  // Инициализация
+  updateItemsPerView();
+  createDots();
+  updateSlider();
+  
+  // Обработчики событий
+  prevButton.addEventListener('click', prevSlide);
+  nextButton.addEventListener('click', nextSlide);
+  
+  // Обработка изменения размера окна
+  window.addEventListener('resize', () => {
+    updateItemsPerView();
+    createDots();
+    updateSlider();
+  });
+  
+  // Добавляем поддержку клавиатуры
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+});
+
+// Селекторы для ползунков
+const leftBtn = document.querySelector('.left-btn');
+const rightBtn = document.querySelector('.right-btn');
+const slider = document.querySelector('.news-slider');
+
+// Функция для прокрутки слайдера влево
+leftBtn.addEventListener('click', () => {
+  slider.scrollBy({
+    left: -300,  // Прокручиваем на 300px влево
+    behavior: 'smooth',
+  });
+});
+
+// Функция для прокрутки слайдера вправо
+rightBtn.addEventListener('click', () => {
+  slider.scrollBy({
+    left: 300,  // Прокручиваем на 300px вправо
+    behavior: 'smooth',
+  });
+      
+      // ===== СЛАЙДЕР НОВОСТЕЙ =====
+      const newsSlider = document.getElementById('news-slider');
+      const newsPrevBtn = document.getElementById('news-prev');
+      const newsNextBtn = document.getElementById('news-next');
+      const newsDotsContainer = document.getElementById('news-dots');
+      const newsItems = document.querySelectorAll('.news-item');
+      const newsItemsCount = newsItems.length;
+      let newsCurrentIndex = 0;
+      let newsItemsPerView = 3;
+      
+      // Определяем количество элементов в зависимости от ширины экрана
+      function updateNewsItemsPerView() {
+        if (window.innerWidth <= 768) {
+          newsItemsPerView = 1;
+        } else if (window.innerWidth <= 1024) {
+          newsItemsPerView = 2;
+        } else {
+          newsItemsPerView = 3;
+        }
+        updateNewsSlider();
+        createNewsDots();
+      }
+      
+      // Создаем точки-индикаторы для новостей
+      function createNewsDots() {
+        newsDotsContainer.innerHTML = '';
+        const dotsCount = Math.ceil(newsItemsCount / newsItemsPerView);
+        
+        for (let i = 0; i < dotsCount; i++) {
+          const dot = document.createElement('button');
+          dot.classList.add('news-dot');
+          dot.setAttribute('aria-label', `Перейти к новостям ${i + 1}`);
+          if (i === 0) dot.classList.add('active');
+          
+          dot.addEventListener('click', () => {
+            goToNewsSlide(i);
+          });
+          
+          newsDotsContainer.appendChild(dot);
+        }
+      }
+      
+      // Переход к определенному слайду новостей
+      function goToNewsSlide(index) {
+        const maxIndex = Math.ceil(newsItemsCount / newsItemsPerView) - 1;
+        newsCurrentIndex = Math.max(0, Math.min(index, maxIndex));
+        updateNewsSlider();
+      }
+      
+      // Обновление слайдера новостей
+      function updateNewsSlider() {
+        const itemWidth = 100 / newsItemsPerView;
+        const translateX = -newsCurrentIndex * itemWidth;
+        newsSlider.style.transform = `translateX(${translateX}%)`;
+        
+        // Обновляем состояние кнопок
+        newsPrevBtn.disabled = newsCurrentIndex === 0;
+        newsNextBtn.disabled = newsCurrentIndex >= Math.ceil(newsItemsCount / newsItemsPerView) - 1;
+        
+        // Обновляем точки
+        const dots = document.querySelectorAll('.news-dot');
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === newsCurrentIndex);
+        });
+      }
+      
+      // Следующий слайд новостей
+      function nextNewsSlide() {
+        const maxIndex = Math.ceil(newsItemsCount / newsItemsPerView) - 1;
+        if (newsCurrentIndex < maxIndex) {
+          newsCurrentIndex++;
+          updateNewsSlider();
+        }
+      }
+      
+      // Предыдущий слайд новостей
+      function prevNewsSlide() {
+        if (newsCurrentIndex > 0) {
+          newsCurrentIndex--;
+          updateNewsSlider();
+        }
+      }
+      
+      // Инициализация слайдера новостей
+      updateNewsItemsPerView();
+      updateNewsSlider();
+      
+      // Обработчики событий для новостей
+      newsPrevBtn.addEventListener('click', prevNewsSlide);
+      newsNextBtn.addEventListener('click', nextNewsSlide);
+      
+      // Обработка изменения размера окна для новостей
+      window.addEventListener('resize', () => {
+        updateNewsItemsPerView();
+      });
+      
+      // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ =====
+      const langOptions = document.querySelectorAll('.lang-option');
+      const currentLangBtn = document.querySelector('.language-btn');
+      
+      langOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          const lang = this.getAttribute('data-lang');
+          
+          // Обновляем текст кнопки
+          currentLangBtn.textContent = lang.toUpperCase();
+          
+          // Обновляем активный класс
+          langOptions.forEach(opt => opt.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Здесь можно добавить логику смены языка на сайте
+          console.log(`Язык изменен на: ${lang}`);
+        });
+      });
+      
+      // ===== ТЕКУЩИЙ ГОД В ФУТЕРЕ =====
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    });
+
+  </script>
+
 </body>
 </html>

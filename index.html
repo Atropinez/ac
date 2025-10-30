@@ -188,79 +188,76 @@
       font-weight: 400;
     }
     
-    /* Стили для старого серого меню (над баннером) */
-    .subnav {
-      width: 100%;
-      background-color: #f2f2f2;
-      border-top: none;
-      border-bottom: none;
-    }
-    
-    .subnav ul {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      flex-wrap: nowrap;
-    }
-    
-    .subnav li {
-      margin: 0;
-    }
-    
-    .subnav a {
-      display: block;
-      padding: 12px 20px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 700;
-      font-size: 16px;
-      transition: 0.2s;
-    }
-    
-    .subnav a:hover {
-      background-color: #e0e0e0;
-      color: #000;
-    }
-    
-    /* Стили для нового серого меню (под баннером) */
-    .subnav {
-      width: 100%;
-      background-color: #ffffff;
-      border-top: none;
-      border-bottom: none;
-    }
-    
-    .subnav ul {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      flex-wrap: nowrap;
-    }
-    
-    .subnav li {
-      margin: 0;
-    }
-    
-    .subnav a {
-      display: block;
-      padding: 12px 20px;
-      text-decoration: none;
-      color: #000000;
-      font-weight: 700;
-      font-size: 16px;
-      transition: 0.2s;
-    }
-    
-    .subnav a:hover {
-      background-color: #ffffff;
-      color: #000000;
-    }
+    /* ===== Верхнее меню (над баннером) ===== */
+.subnav.top-menu {
+  width: 100%;
+  background-color: #f2f2f2;  /* фон верхнего меню */
+  border-top: none;
+  border-bottom: none;
+}
+
+.subnav.top-menu ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: nowrap;
+}
+
+.subnav.top-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.subnav.top-menu a:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+
+/* ===== Нижнее меню (под баннером) ===== */
+.subnav.bottom-menu {
+  width: 100%;
+  background-color: #ffffff;  /* фон нижнего меню */
+  border-top: none;
+  border-bottom: none;
+}
+
+.subnav.bottom-menu ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: nowrap;
+}
+
+.subnav.bottom-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;               /* ← регулируй высоту нижних кнопок */
+  text-decoration: none;
+  color: #000000;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.subnav.bottom-menu a:hover {
+  background-color: #e0e0e0;  /* цвет при наведении */
+  color: #000000;
+}
+
     
     /* ===== УЛУЧШЕННЫЙ СЛАЙДЕР СПЕЦИАЛЬНОСТЕЙ ===== */
 .specialties-section {
@@ -1068,7 +1065,7 @@ html, body {
 
   <!-- ======== СЕРАЯ ПАНЕЛЬ МЕНЮ ======== -->
    
-<div class="subnav">
+<div class="subnav top-menu">
   <ul>
     <li>
       <a href="#">
@@ -1132,7 +1129,7 @@ html, body {
 </section>
 
 <!-- ======== НОВОЕ СЕРОЕ МЕНЮ ======== -->
-<div class="subnav">
+<div class="subnav bottom-menu">
   <ul>
     <li><a href="#">Студенту</a></li>
     <li><a href="#">Поступающему</a></li>
@@ -1559,27 +1556,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.key === 'ArrowLeft') prevSlide();
     if (e.key === 'ArrowRight') nextSlide();
   });
-});
 
-// Селекторы для ползунков
-const leftBtn = document.querySelector('.left-btn');
-const rightBtn = document.querySelector('.right-btn');
-const slider = document.querySelector('.news-slider');
-
-// Функция для прокрутки слайдера влево
-leftBtn.addEventListener('click', () => {
-  slider.scrollBy({
-    left: -300,  // Прокручиваем на 300px влево
-    behavior: 'smooth',
-  });
-});
-
-// Функция для прокрутки слайдера вправо
-rightBtn.addEventListener('click', () => {
-  slider.scrollBy({
-    left: 300,  // Прокручиваем на 300px вправо
-    behavior: 'smooth',
-  });
       
       // ===== СЛАЙДЕР НОВОСТЕЙ =====
       const newsSlider = document.getElementById('news-slider');

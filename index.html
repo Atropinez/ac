@@ -155,14 +155,12 @@
     }
     
     .banner-left {
-      background-color: #1565C0;
-      color: rgb(255, 255, 255);
+      background-image: url("left-banner.png"); /* ← путь к твоей картинке */
       width: 36%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0 20px;
+      background-size: cover;     /* растягивается по ширине, не искажаясь */
+      background-position: center;/* центрируется */
+      background-repeat: no-repeat;
+      padding: 0px 20px;        /* регулирует высоту блока */
     }
     
     .banner-right {
@@ -204,6 +202,7 @@
   justify-content: center;
   list-style: none;
   flex-wrap: nowrap;
+  gap: 0px;
 }
 
 .subnav.top-menu a {
@@ -239,6 +238,7 @@
   justify-content: center;
   list-style: none;
   flex-wrap: nowrap;
+  gap: 0px;  /* ← вот оно, расстояние между кнопками */
 }
 
 .subnav.bottom-menu a {
@@ -284,7 +284,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  max-width: 1200px;
+  max-width: 1440px; /* Ширина карточки специальности */
   margin: 0 auto;
   z-index: 2; /* Контейнер слайдера поверх фона */
 }
@@ -307,7 +307,7 @@
 
 .specialty-item {
   flex: 0 0 calc(33.333% - 14px);
-  min-width: 0;
+  min-width: 0px;
   text-align: center;
   position: relative;
   z-index: 4; /* Каждый элемент поверх слайдера */
@@ -316,7 +316,7 @@
 .image-container {
   position: relative;
   width: 100%;
-  height: 380px;
+  height: 480px; /* Высота карточки специальности */
   border-radius: 6px;
   overflow: hidden;
   box-shadow: none;
@@ -374,13 +374,79 @@
   z-index: 7; /* Оверлей поверх названия профессии */
 }
 
+/* === Название профессии (исходное состояние) === */
+.image-container .profession-name {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+  text-align: left;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  z-index: 9;
+  transition: all 0.6s ease;
+  transform: translateY(0);
+  opacity: 1; /* видимо */
+}
+
+/* === При наведении: плавно поднимается вверх и остаётся видно === */
+.image-container:hover .profession-name {
+  bottom: auto;
+  top: 20px;
+  opacity: 1; /* остаётся видно */
+  transform: translateY(-10px); /* лёгкий подъём */
+}
+
+/* === Когда курсор уходит — плавно возвращается вниз === */
+.image-container:not(:hover) .profession-name {
+  transition: all 0.6s ease;
+  opacity: 1;
+  transform: translateY(0);
+  bottom: 20px;
+  top: auto;
+}
+
+/* === Фон оверлея — появляется мгновенно === */
+.image-container .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  text-align: center;
+  border-radius: 6px;
+  z-index: 8;
+}
+
+/* === Мгновенный фон при наведении === */
 .image-container:hover .overlay {
   opacity: 1;
 }
 
-.image-container:hover .profession-name {
+/* === Текст описания: плавно появляется и исчезает === */
+.image-container .overlay p {
+  color: #fff;
   opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
 }
+
+/* === При наведении — плавно появляется === */
+.image-container:hover .overlay p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 /* Кнопки навигации слайдера */
 .slider-arrow {
@@ -422,6 +488,8 @@
   transform: translateY(-50%) scale(1);
   opacity: 0.6;
 }
+
+
 
     
     /* Стили для секции "Новости" */
@@ -611,106 +679,150 @@
         right: -15px;
       }
     }
-    
-    /* Меню с иконками социальных сетей над серым меню */
-    .social-menu {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 3px 0;
-      background-color: #ffffff;
-      border-top: none;
-      border-bottom: none;
-    }
-    
-    .social-icon img {
-      width: 26px;
-      height: 26px;
-      transition: transform 0.3s ease;
-    }
-    
-    .social-icon:hover img {
-      transform: scale(1.1);
-    }
-    
+
     /* 1 группа кнопок */
-    .header-buttons-group1 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      margin-left: 96px;
-    }
-    
-    /* 2 группа кнопок */
-    .header-buttons-group2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      margin-left: 2px;
-    }
-    
-    /* 3 группа кнопок */
-    .header-buttons-group3 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      margin-left: 2px;
-    }
-    
-    /* Кнопки */
-    .header-btn {
-      display: block;
-      padding: 10px 16px;
-      background-color: #f2f2f2;
-      color: #000;
-      font-weight: 800;
-      font-size: 12px;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 0px;
-      transition: background-color 0.3s, color 0.3s, transform 0.2s;
-      white-space: nowrap;
-      margin-bottom: 0px;
-    }
-    
-    /* Эффект при наведении на кнопку */
-    .header-btn:hover {
-      background-color: #383838;
-      color: #ffffff;
-      transform: translateY(0.5px);
-    }
-    
-    /* Убираем отступ у последней кнопки в группе */
-    .header-buttons-group1 .header-btn:last-child,
-    .header-buttons-group2 .header-btn:last-child,
-    .header-buttons-group3 .header-btn:last-child {
-      margin-bottom: 0;
-    }
-    
-    /* Адаптивность - 2x2 сетка */
-    @media (max-width: 600px) {
-      .button-group {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    /* НОВЫЙ КОНТЕЙНЕР ДЛЯ ПРАВОЙ ЧАСТИ */
-    .header-right-content {
-      display: flex;
-      align-items: stretch;
-      flex: 1;
-      height: 100px;
-    }
-    
-    /* КОНТЕЙНЕР КНОПОК (НЕ РАСТЯГИВАЕТСЯ) */
-    .header-buttons-wrapper {
-      display: flex;
-      align-items: stretch;
-      flex: 0 0 auto;
-      gap: 0;
-    }
-    
-    /* ===== КОМПАКТНОЕ МЕНЮ СОЦСЕТЕЙ БЕЗ ГРАНИЦ ===== */
+.header-buttons-group1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
+  margin-left: 92px;
+}
+
+/* 2 группа кнопок */
+.header-buttons-group2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
+  margin-left: -18px;
+}
+
+/* 3 группа кнопок */
+.header-buttons-group3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
+  margin-left: -18px;
+}
+
+/* Кнопки */
+.header-btn {
+  display: block;
+  padding: 16px 9px;
+  background-color: #e9e8e8;
+  color: #000;
+  font-weight: 800;
+  font-size: 11px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  white-space: nowrap;
+  z-index: 1003;
+
+  /* НОВЫЙ ШРИФТ */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Отступы между кнопками */
+  margin-bottom: 0px;
+}
+
+/* 1. Подсветка кнопок при наведении */
+.subnav a:hover,
+.header-btn:hover {
+  background-color: #333;
+  color: #ffffff;
+  transform: translateY(0);
+}
+
+/* Исправляем позиционирование для выпадающих меню*/
+.header-btn-dropdown {
+  position: relative;
+  z-index: 2000; /* выше других элементов */
+}
+
+.header-btn-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%; /* Меню появляется сразу под кнопкой */
+  left: 0;   /* Прижимаем к левому краю кнопки */
+  background: white;
+  min-width: 230px;
+  max-width: 300px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3000;
+  transform: none; /* Убираем любые трансформации */
+  border-left: 5px solid #1565C0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.header-btn-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header-btn-dropdown .dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header-btn-dropdown .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.header-btn-dropdown .dropdown-item:hover {
+  background-color: #e4e3e3;
+  color: #1565C0;
+}
+
+/* Убираем overflow для контейнеров */
+.header-buttons-group1,
+.header-buttons-group2,
+.header-buttons-group3 {
+  position: static;
+  overflow: visible;
+  z-index: 1004;
+}
+
+/* Увеличиваем z-index для кнопок */
+.header-btn {
+  display: block;
+  padding: 16px 9px;
+  background-color: #e9e8e8;
+  color: #000;
+  font-weight: 800;
+  font-size: 11px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
+  z-index: 1011;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+/* Убираем overflow для header-left */
+.header-left {
+  background: #1565C0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  overflow: visible !important;
+   z-index: 10010; /* Добавляем z-index */
+}
+
+    /* ===== СОЦИАЛЬНЫЕ ИКОНКИ===== */
     .social-menu {
       display: flex;
       justify-content: center;
@@ -730,7 +842,7 @@
       align-items: center;
       justify-content: center;
       padding: 4px;
-      border-radius: 4px;
+      border-radius: 0px;
       transition: background-color 0.2s ease;
     }
     
@@ -747,7 +859,48 @@
     .social-icon:hover {
       background-color: #f8f8f8;
     }
-    
+
+    /* Разделители между пунктами меню соцсетей */
+.social-dropdown .dropdown-item {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.social-dropdown .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+
+
+/* Стили для кнопки доступности */
+.accessibility-switcher {
+  position: absolute;
+  right: 120px;
+  top: 0px; /* ← фиксированный отступ сверху */
+}
+
+.accessibility-btn {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 0px;
+  transition: background-color 0.2s ease;
+}
+
+.accessibility-btn img {
+  width: 25px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.accessibility-btn:hover img {
+  transform: scale(1.1);
+}
+
+.accessibility-btn:hover {
+  background-color: #1565C0;
+}
+
     /* Выпадающее меню */
     .dropdown-menu {
       position: absolute;
@@ -756,8 +909,7 @@
       transform: translateX(-50%);
       background: white;
       min-width: 160px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 6px;
+      border-radius: 0px;
       padding: 6px 0;
       opacity: 0;
       visibility: hidden;
@@ -786,18 +938,13 @@
       border: none;
     }
     
-    .dropdown-item:hover {
-      background-color: #e4e3e3;
-      color: #1565C0;
-    }
-    
     /* Стили для контейнера кнопки смены языка */
     .language-switcher {
       position: absolute;
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 10000;
+      z-index: 1011;
     }
     
     /* Стили для самой кнопки смены языка */
@@ -832,13 +979,14 @@
       background: white;
       min-width: 180px;
       box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.15);
-      border-radius: 0 0 8px 8px;
+      border-radius: 0;
       padding: 8px 0;
       opacity: 0;
       visibility: hidden;
       transform: translateY(-10px);
       transition: all 0.3s ease;
       z-index: 1003;
+      border-left: 5px solid #1565C0;
     }
     
     /* Показываем меню при наведении на контейнер */
@@ -882,15 +1030,41 @@
       flex: 1;
     }
     
-    /* Активный язык */
-    .lang-option.active {
-      background-color: #f8f9fa;
-      font-weight: 600;
-    }
-    
-    .lang-option.active:hover {
-      background-color: #1565C0;
-    }
+    /* === Активный язык в выпадающем меню — белый текст === */
+.language-switcher .dropdown-menu .dropdown-item.active,
+.language-switcher .lang-option.active {
+  color: #fff !important;              /* белый текст */
+  background-color: #1565C0 !important; /* фон как у основного меню */
+}
+
+
+/* 2) разделитель между пунктами — точно как у меню кнопок */
+.social-dropdown .dropdown-item,
+.lang-menu .lang-option,
+.language-switcher .dropdown-item {
+  border-bottom: 1px solid #f0f0f0; /* тот же цвет/толщина, что и у кнопок */
+}
+
+.social-dropdown .dropdown-item:last-child,
+.lang-menu .lang-option:last-child,
+.language-switcher .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+/* 3) hover — такой же эффект, чтобы поведение совпадало */
+.social-dropdown .dropdown-item:hover,
+.lang-menu .lang-option:hover,
+.language-switcher .dropdown-item:hover {
+  background-color: #e4e3e3;
+  color: #1565C0;
+}
+
+/* === Убираем серый фон при наведении на иконки соцсетей === */
+.social-dropdown .social-icon:hover,
+.social-dropdown .social-icon:focus {
+  background: none !important;
+  box-shadow: none !important;
+}
     
     /* ===== БОЛЬШАЯ НЕКЛИКАБЕЛЬНАЯ КНОПКА-ФОН ===== */
     .header-overlay-button {
@@ -907,7 +1081,7 @@
       font-weight: 900;
       font-size: 20px;
       cursor: not-allowed;
-      z-index: 1001;
+      z-index: 1;
       pointer-events: none;
       opacity: 1;
       text-transform: uppercase;
@@ -959,14 +1133,6 @@
       background-color: #1565C0;
     }
 
-    /* 1. Подсветка кнопок при наведении */
-.subnav a:hover,
-.header-btn:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #000000;
-  transform: translateY(0);
-}
-
 /*Убираем лишний отступ под кнопками "Студенту / Поступающему..." */ 
 .subnav ul { 
   margin-bottom: 0; 
@@ -983,14 +1149,14 @@ html, body {
 </head>
 <body>
 
-  <!-- ======== КОМПАКТНОЕ МЕНЮ СОЦИАЛЬНЫХ СЕТЕЙ ======== -->
+  <!-- ======== МЕНЮ СОЦИАЛЬНЫХ СЕТЕЙ (чистые иконки, меню по центру, с разделителями) ======== -->
 <div class="social-menu">
-  <!-- ВК с выпадающим меню -->
+  <!-- VK -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
       <img src="vk-icon.png" alt="VK">
     </a>
-    <div class="dropdown-menu">
+    <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
       <a href="https://vk.com/media_ak" target="_blank" class="dropdown-item">Аэрокосмический колледж</a>
       <a href="https://vk.com/sibgu_ru" target="_blank" class="dropdown-item">Университет Решетнёва</a>
       <a href="https://vk.com/sibsau_muta" target="_blank" class="dropdown-item">Студенту</a>
@@ -998,26 +1164,33 @@ html, body {
     </div>
   </div>
 
-  <!-- ЮТ с выпадающим меню -->
+  <!-- YouTube -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
       <img src="yt-icon.png" alt="YouTube">
     </a>
-    <div class="dropdown-menu">
+    <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
       <a href="1" target="_blank" class="dropdown-item">1</a>
       <a href="2" target="_blank" class="dropdown-item">2</a>
     </div>
   </div>
-  
-  <!-- Телеграм с выпадающим меню -->
+
+  <!-- Telegram -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
       <img src="telegram-icon.png" alt="Telegram">
     </a>
-    <div class="dropdown-menu">
+    <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
       <a href="https://t.me/reshetnevuniversity" target="_blank" class="dropdown-item">Университет Решетнёва</a>
       <a href="https://t.me/reshu_ru" target="_blank" class="dropdown-item">Абитуриенту</a>
     </div>
+  </div>
+
+<!-- Кнопка для слабовидящих -->
+  <div class="accessibility-switcher">
+    <button class="accessibility-btn" aria-label="Режим для слабовидящих">
+      <img src="eye.png" alt="Режим для слабовидящих">
+    </button>
   </div>
 </div>
 
@@ -1029,6 +1202,120 @@ html, body {
       <div class="org-name">Аэрокосмический колледж при СибГУ им. М.Ф. Решетнёва</div>
       <div class="org-sub">Университет Решетнёва</div>
     </div>
+
+    <!-- === ГРУППА 1 === -->
+<div class="header-buttons-group1">
+  <!-- Без меню -->
+  <a href="#" class="header-btn">О КОЛЛЕДЖЕ</a>
+  <a href="#" class="header-btn">ПРИОРИТЕТ 2030</a>
+
+  <!-- С меню -->
+  <div class="header-btn-dropdown">
+    <a href="#" class="header-btn">ВНЕУЧЕБНАЯ ЖИЗНЬ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Студенческие клубы</a>
+      <a href="#" class="dropdown-item">Спортивные секции</a>
+      <a href="#" class="dropdown-item">Творческие коллективы</a>
+      <a href="#" class="dropdown-item">Мероприятия</a>
+      <a href="#" class="dropdown-item">Волонтерство</a>
+    </div>
+  </div>
+
+  <div class="header-btn-dropdown">
+    <a href="#" class="header-btn">УНИВЕРСИТЕТ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">История университета</a>
+      <a href="#" class="dropdown-item">Структура</a>
+      <a href="#" class="dropdown-item">Руководство</a>
+      <a href="#" class="dropdown-item">Факультеты</a>
+      <a href="#" class="dropdown-item">Международное сотрудничество</a>
+    </div>
+  </div>
+</div>
+
+<!-- === ГРУППА 2 === -->
+<div class="header-buttons-group2">
+  <!-- Без меню -->
+  <a href="#" class="header-btn">ПАРТНЁРЫ</a>
+  <a href="#" class="header-btn">БИБЛИОТЕКА</a>
+
+  <!-- С меню -->
+  <div class="header-btn-dropdown">
+    <a href="#" class="header-btn">ОБРАЗОВАНИЕ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Специальности</a>
+      <a href="#" class="dropdown-item">Учебные планы</a>
+      <a href="#" class="dropdown-item">Расписание</a>
+      <a href="#" class="dropdown-item">Электронное обучение</a>
+      <a href="#" class="dropdown-item">Аттестация</a>
+    </div>
+  </div>
+
+  <div class="header-btn-dropdown">
+    <a href="#" class="header-btn">НАУКИ И ИННОВАЦИИ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Научные проекты</a>
+      <a href="#" class="dropdown-item">Исследования</a>
+      <a href="#" class="dropdown-item">Конференции</a>
+      <a href="#" class="dropdown-item">Публикации</a>
+      <a href="#" class="dropdown-item">Гранты</a>
+    </div>
+  </div>
+</div>
+
+<!-- === ГРУППА 3 === -->
+<div class="header-buttons-group3">
+  <!-- Без меню -->
+  <a href="#" class="header-btn">ДОКУМЕНТЫ</a>
+  <a href="#" class="header-btn">ЭЛЕКТРОННОЕ ОБУЧЕНИЕ</a>
+
+  <!-- С меню -->
+  <div class="header-btn-dropdown">
+    <a href="#" class="header-btn">ФОТОГАЛЕРЕЯ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Фото</a>
+      <a href="#" class="dropdown-item">Видео</a>
+    </div>
+  </div>
+
+  <div class="header-btn-dropdown">
+    <a href="#" class="header-btn">НОВОСТИ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Объявления</a>
+      <a href="#" class="dropdown-item">События</a>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Кнопка смены языка -->
+    <div class="language-switcher">
+      <button class="header-btn language-btn">RU</button>
+      <div class="lang-menu">
+        <div class="lang-option active" data-lang="ru">
+          <img src="flagsru.png" alt="Русский" class="lang-flag">
+          <span class="lang-name">Русский</span>
+        </div>
+        <div class="lang-option" data-lang="en">
+          <img src="flagsen.png" alt="English" class="lang-flag">
+          <span class="lang-name">English</span>
+        </div>
+        <div class="lang-option" data-lang="zh">
+          <img src="flagszh.png" alt="中文" class="lang-flag">
+          <span class="lang-name">中文</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ВЫНОСИМ КНОПКИ И ПРАВЫЙ БЛОК ОТДЕЛЬНО -->
+    <div class="header-right-content">
+      <div class="header-buttons-wrapper">
+        <!-- БОЛЬШАЯ НЕКЛИКАБЕЛЬНАЯ КНОПКА -->
+        <div class="header-overlay-button">
+        </div>
+        <!-- БЛОК СПРАВА ОТ КНОПОК -->
+        <div class="header-right-block"></div>
+      </div>
 
     <!-- Кнопка смены языка -->
 <div class="language-switcher">
@@ -1114,18 +1401,8 @@ html, body {
 
 <!-- ======== БАННЕР ======== -->
 <section class="college-banner">
-  <div class="banner-left">
-    <div class="banner-text">
-      <h2>
-        <span class="first-word">А Э Р О К О С М И Ч Е С К И Й</span><br>
-        <span class="second-word">К О Л Л Е Д Ж</span>
-      </h2>
-      <p>Ваш путь к профессиональному обучению и карьере в аэрокосмической отрасли!</p>
-    </div>
-  </div>
-  <div class="banner-right">
-    <!-- Фон с изображением -->
-  </div>
+  <div class="banner-left"></div>
+  <div class="banner-right"></div>
 </section>
 
 <!-- ======== НОВОЕ СЕРОЕ МЕНЮ ======== -->
@@ -1156,7 +1433,7 @@ html, body {
             <img src="path_to_image_1.jpg" alt="Сетевое и системное администрирование">
             <p class="profession-name">Сетевое и системное администрирование</p>
             <div class="overlay">
-              <p>Специалист по сетевому и системному администрированию обеспечивает стабильную работу IT-инфраструктуры организации.</p>
+              <p>Специалист по сетевому и системному администрированию обеспечивает стабильную работу IT-инфраструктуры организации. Занимается проектированием, настройкой и обслуживанием компьютерных сетей, серверов, рабочих станций. Осуществляет мониторинг сетевого оборудования, устраняет неисправности, обеспечивает информационную безопасность. Работает с сетевыми протоколами, операционными системами, системами виртуализации. Востребован в IT-компаниях, банках, государственных учреждениях, крупных корпорациях.</p>
             </div>
           </div>
         </div>
@@ -1167,7 +1444,7 @@ html, body {
             <img src="path_to_image_2.jpg" alt="Информационные системы и программирование">
             <p class="profession-name">Информационные системы и программирование</p>
             <div class="overlay">
-              <p>Разработчик, который создаёт программное обеспечение и комплексные системы для управления бизнес-процессами.</p>
+              <p>Разработчик, который создаёт программное обеспечение и комплексные системы для управления бизнес-процессами. Владеет языками программирования, базами данных, веб-технологиями. Разрабатывает приложения для автоматизации работы предприятий, мобильные приложения, веб-сервисы. Участвует в полном цикле создания ПО: от анализа требований до тестирования и внедрения. Может работать программистом, веб-разработчиком, системным аналитиком в IT-компаниях, стартапах, digital-агентствах.</p>
             </div>
           </div>
         </div>
@@ -1178,7 +1455,8 @@ html, body {
             <img src="path_to_image_3.jpg" alt="Обеспечение информационной безопасности телекоммуникационных систем">
             <p class="profession-name">Обеспечение информационной безопасности телекоммуникационных систем</p>
             <div class="overlay">
-              <p>Эксперт, который защищает сети связи от кибератак, несанкционированного доступа и сбоев.</p>
+              <p>Обеспечение информационной безопасности телекоммуникационных систем
+Эксперт, который защищает сети связи от кибератак, несанкционированного доступа и сбоев. Настраивает межсетевые экраны, системы обнаружения вторжений, криптографическую защиту. Мониторит сетевой трафик, выявляет уязвимости, расследует инциденты безопасности. Работает с сетевым оборудованием, протоколами шифрования, средствами защиты информации. Востребован в телеком-компаниях, провайдерах связи, банках, государственных структурах.</p>
             </div>
           </div>
         </div>
@@ -1189,7 +1467,8 @@ html, body {
             <img src="path_to_image_4.jpg" alt="Обеспечение информационной безопасности автоматизированных систем">
             <p class="profession-name">Обеспечение информационной безопасности автоматизированных систем</p>
             <div class="overlay">
-              <p>Эксперт, который защищает от кибератак комплексные системы управления бизнес-процессами на предприятии.</p>
+              <p>Обеспечение информационной безопасности автоматизированных систем
+Специалист по защите комплексных систем управления бизнес-процессами на предприятии. Разрабатывает политики безопасности, внедряет системы контроля доступа, антивирусную защиту. Проводит аудит защищенности, тестирование на проникновение, обучает сотрудников. Работает с корпоративными сетями, базами данных, ERP-системами. Может работать security-аналитиком, администратором безопасности, пентестером в финансовых организациях, промышленных предприятиях, IT-компаниях.</p>
             </div>
           </div>
         </div>
@@ -1200,7 +1479,7 @@ html, body {
             <img src="path_to_image_5.jpg" alt="Эксплуатация и обслуживание электрического и электромеханического оборудования">
             <p class="profession-name">Эксплуатация и обслуживание электрического и электромеханического оборудования</p>
             <div class="overlay">
-              <p>Технический эксперт, который обеспечивает бесперебойную и безопасную работу электродвигателей, генераторов и систем энергоснабжения.</p>
+              <p>Технический эксперт, который обеспечивает бесперебойную и безопасную работу электродвигателей, генераторов и систем энергоснабжения. Выполняет монтаж, наладку, ремонт электрооборудования. Диагностирует неисправности, проводит техническое обслуживание, обеспечивает электробезопасность. Работает с системами автоматики, релейной защиты, силовой электроникой. Востребован на промышленных предприятиях, энергетических компаниях, в жилищно-коммунальном хозяйстве.</p>
             </div>
           </div>
         </div>
@@ -1211,7 +1490,7 @@ html, body {
             <img src="path_to_image_6.jpg" alt="Специальные машины и устройства">
             <p class="profession-name">Специальные машины и устройства</p>
             <div class="overlay">
-              <p>Инженер или техник, который занимается проектированием, эксплуатацией и ремонтом узкоспециализированной техники.</p>
+              <p>Инженер или техник, который занимается проектированием, эксплуатацией и ремонтом узкоспециализированной техники. Работает с промышленными роботами, автоматическими линиями, подъемно-транспортным оборудованием. Разрабатывает техническую документацию, проводит испытания, оптимизирует рабочие процессы. Владеет навыками чтения чертежей, работы с измерительными приборами, основами механики. Работает на машиностроительных заводах, в логистических компаниях, на производственных предприятиях.</p>
             </div>
           </div>
         </div>
@@ -1222,7 +1501,7 @@ html, body {
             <img src="path_to_image_7.jpg" alt="Мехатроника и робототехника">
             <p class="profession-name">Мехатроника и робототехника</p>
             <div class="overlay">
-              <p>Инженер, который создаёт и обслуживает сложные автоматизированные системы и роботов.</p>
+              <p>Инженер, который создаёт и обслуживает сложные автоматизированные системы и роботов. Разрабатывает мехатронные модули, программирует промышленных роботов, настраивает системы автоматизации. Интегрирует механические, электронные и программные компоненты в единые комплексы. Работает с датчиками, приводами, системами управления. Востребован в автомобилестроении, аэрокосмической отрасли, на высокотехнологичных производствах, в научно-исследовательских центрах.</p>
             </div>
           </div>
         </div>
@@ -1233,7 +1512,7 @@ html, body {
             <img src="path_to_image_8.jpg" alt="Технология машиностроения">
             <p class="profession-name">Технология машиностроения</p>
             <div class="overlay">
-              <p>Инженер, который разрабатывает и оптимизирует процессы изготовления деталей и сборки машин и механизмов.</p>
+              <p>Инженер, который разрабатывает и оптимизирует процессы изготовления деталей и сборки машин и механизмов. Создает технологические маршруты обработки, выбирает оборудование и инструмент, рассчитывает режимы резания. Контролирует качество продукции, внедряет современные производственные технологии. Владеет CAD/CAM системами, знает материаловедение, теорию резания. Работает на машиностроительных предприятиях, в конструкторских бюро, научно-производственных объединениях.</p>
             </div>
           </div>
         </div>
@@ -1244,7 +1523,7 @@ html, body {
             <img src="path_to_image_9.jpg" alt="Сварочное производство">
             <p class="profession-name">Сварочное производство</p>
             <div class="overlay">
-              <p>Технолог, который разрабатывает, контролирует и выполняет процессы неразъёмного соединения деталей.</p>
+              <p>Технолог, который разрабатывает, контролирует и выполняет процессы неразъёмного соединения деталей. Владеет различными видами сварки: дуговой, контактной, газовой, плазменной. Разрабатывает технологические процессы, выбирает материалы и оборудование, контролирует качество сварных швов. Проводит дефектоскопию, сертификацию сварщиков. Востребован в судостроении, авиакосмической отрасли, нефтегазовом комплексе, строительстве.</p>
             </div>
           </div>
         </div>
@@ -1255,7 +1534,7 @@ html, body {
             <img src="path_to_image_10.jpg" alt="Сооружение и эксплуатация газонефтепроводов и газонефтехранилищ">
             <p class="profession-name">Сооружение и эксплуатация газонефтепроводов и газонефтехранилищ</p>
             <div class="overlay">
-              <p>Инженер, который обеспечивает бесперебойную и безопасную транспортировку и хранение нефти и газа.</p>
+              <p>Инженер, который обеспечивает бесперебойную и безопасную транспортировку и хранение нефти и газа. Проектирует трубопроводные системы, рассчитывает режимы перекачки, организует строительство и ремонт. Контролирует техническое состояние оборудования, обеспечивает экологическую безопасность. Работает с насосными станциями, системами КИПиА, средствами защиты. Востребован в нефтегазовых компаниях, проектных институтах, сервисных организациях.</p>
             </div>
           </div>
         </div>
@@ -1266,7 +1545,7 @@ html, body {
             <img src="path_to_image_11.jpg" alt="Техническое обслуживание авиационных двигателей">
             <p class="profession-name">Техническое обслуживание авиационных двигателей</p>
             <div class="overlay">
-              <p>Инженер или техник, который обеспечивает исправность, надежность и готовность к полетам силовых установок.</p>
+              <p>Инженер или техник, который обеспечивает исправность, надежность и готовность к полетам силовых установок. Выполняет диагностику, ремонт, техническое обслуживание авиадвигателей. Работает с газотурбинными, поршневыми, реактивными двигателями. Владеет методами неразрушающего контроля, читает техническую документацию, соблюдает авиационные правила. Работает в авиакомпаниях, аэропортах, ремонтных предприятиях, конструкторских бюро.</p>
             </div>
           </div>
         </div>
@@ -1277,7 +1556,7 @@ html, body {
             <img src="path_to_image_12.jpg" alt="Метрологический контроль средств измерений">
             <p class="profession-name">Метрологический контроль средств измерений</p>
             <div class="overlay">
-              <p>Эксперт, который обеспечивает единство и точность измерений в народном хозяйстве.</p>
+              <p>Эксперт, который обеспечивает единство и точность измерений в народном хозяйстве. Поверяет, калибрует, ремонтирует измерительные приборы. Разрабатывает методики поверки, ведет нормативную документацию, внедряет новые средства измерений. Работает с эталонами, измерительными комплексами, системами качества. Востребован на промышленных предприятиях, в метрологических службах, органах по сертификации, научных институтах.</p>
             </div>
           </div>
         </div>
@@ -1288,7 +1567,7 @@ html, body {
             <img src="path_to_image_13.jpg" alt="Экономика и бухгалтерский учет">
             <p class="profession-name">Экономика и бухгалтерский учет</p>
             <div class="overlay">
-              <p>Эксперт, который обеспечивает эффективное управление финансовыми ресурсами организации.</p>
+              <p>Эксперт, который обеспечивает эффективное управление финансовыми ресурсами организации. Ведет бухгалтерский и налоговый учет, составляет отчетность, анализирует финансовую деятельность. Проводит аудит, оптимизирует налогообложение, управляет затратами. Владеет системами электронной отчетности, знает законодательство, работает с финансовыми инструментами. Может работать бухгалтером, экономистом, финансовым аналитиком в компаниях различных отраслей.</p>
             </div>
           </div>
         </div>
@@ -1299,7 +1578,7 @@ html, body {
             <img src="path_to_image_14.jpg" alt="Социальная работа">
             <p class="profession-name">Социальная работа</p>
             <div class="overlay">
-              <p>Профессионал, который оказывает комплексную помощь и поддержку незащищённым слоям населения.</p>
+              <p>Профессионал, который оказывает комплексную помощь и поддержку незащищённым слоям населения. Работает с семьями, детьми, пожилыми людьми, инвалидами. Организует социальные услуги, консультирует по вопросам льгот и выплат, ведет проектную деятельность. Владеет методами социальной диагностики, психологического консультирования, организации волонтерской деятельности. Работает в социальных службах, центрах помощи, образовательных учреждениях, некоммерческих организациях.</p>
             </div>
           </div>
         </div>
@@ -1655,24 +1934,27 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       
       // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ =====
-      const langOptions = document.querySelectorAll('.lang-option');
-      const currentLangBtn = document.querySelector('.language-btn');
-      
-      langOptions.forEach(option => {
-        option.addEventListener('click', function() {
-          const lang = this.getAttribute('data-lang');
-          
-          // Обновляем текст кнопки
-          currentLangBtn.textContent = lang.toUpperCase();
-          
-          // Обновляем активный класс
-          langOptions.forEach(opt => opt.classList.remove('active'));
-          this.classList.add('active');
-          
-          // Здесь можно добавить логику смены языка на сайте
-          console.log(`Язык изменен на: ${lang}`);
-        });
-      });
+document.querySelectorAll('.language-switcher').forEach(switcher => {
+  const langOptions = switcher.querySelectorAll('.lang-option');
+  const currentLangBtn = switcher.querySelector('.language-btn');
+
+  langOptions.forEach(option => {
+    option.addEventListener('click', function () {
+      const lang = this.getAttribute('data-lang');
+
+      // Обновляем текст кнопки
+      currentLangBtn.textContent = lang.toUpperCase();
+
+      // Обновляем активный класс
+      langOptions.forEach(opt => opt.classList.remove('active'));
+      this.classList.add('active');
+
+      // Здесь можно добавить логику смены языка на сайте
+      console.log(`Язык изменен на: ${lang}`);
+    });
+  });
+});
+
       
       // ===== ТЕКУЩИЙ ГОД В ФУТЕРЕ =====
       const yearEl = document.getElementById('year');

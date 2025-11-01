@@ -380,7 +380,7 @@
   bottom: 20px;
   left: 20px;
   right: 20px;
-  color: #fff;
+  color: #ffffff; /* Цвет название специальности */
   font-weight: 700;
   font-size: 18px;
   margin: 0;
@@ -390,6 +390,9 @@
   transition: all 0.6s ease;
   transform: translateY(0);
   opacity: 1; /* видимо */
+   /* Настоящая обводка текста */
+  -webkit-text-stroke: 0.5px #000000; /* Цветная обводка  названий специальностей */
+  paint-order: stroke fill;
 }
 
 /* === При наведении: плавно поднимается вверх и остаётся видно === */
@@ -489,9 +492,6 @@
   opacity: 0.6;
 }
 
-
-
-    
     /* Стили для секции "Новости" */
     .news-section {
       background-color: #fff;

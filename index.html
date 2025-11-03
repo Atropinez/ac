@@ -56,12 +56,6 @@
     .sub li{display:block;margin:0}
     .sub a{display:block;padding:8px 12px;color:#111}
     
-    /* Hero */
-    .hero{background-image:url('banner.jpg');background-size:cover;background-position:center;color:#fff;padding:80px 16px;display:flex;align-items:center}
-    .hero-inner{max-width:900px;margin:0 auto;text-align:center;background:rgba(0,0,0,0.35);padding:30px;border-radius:10px}
-    .hero h1{margin:0 0 10px;font-size:32px}
-    .hero p{margin:0 0 16px}
-    
     /* Button */
     .btn{display:inline-block;padding:10px 18px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700}
     
@@ -70,11 +64,6 @@
     .card{background:var(--card-bg);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
     .card h3{margin:0 0 8px}
     .card-link{color:var(--accent);font-weight:700;text-decoration:none}
-    
-    /* News */
-    .news-list{display:flex;flex-direction:column;gap:12px}
-    .news-item{background:var(--card-bg);padding:12px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.04)}
-    .news-item time{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}
     
     /* Footer */
     .site-footer{background:#222;color:#fff;padding:18px 16px;text-align:center;margin-top:30px}
@@ -155,7 +144,7 @@
     }
     
     .banner-left {
-      background-image: url("left-banner.png"); /* ← путь к твоей картинке */
+      background-image: url("first-banner-and-head/left-banner.png"); /* ← путь к твоей картинке */
       width: 36%;
       background-size: cover;     /* растягивается по ширине, не искажаясь */
       background-position: center;/* центрируется */
@@ -164,7 +153,7 @@
     }
     
     .banner-right {
-      background-image: url('college-banner.jpg');
+      background-image: url('first-banner-and-head/college-banner.jpg');
       background-size: cover;
       background-position: center;
       width: 64%;
@@ -456,25 +445,24 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: #505050;
-  color: white;
+  color: rgb(255, 255, 255);
   border: none;
-  border-radius: 50%;
-  font-size: 24px;
+  border-radius:0;
+  font-size: 36px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .slider-arrow:hover {
   background-color: #1565C0;
-  transform: translateY(-50%) scale(1.1);
 }
 
 .slider-arrow-left {
@@ -488,197 +476,88 @@
 .slider-arrow:disabled {
   background-color: #c9c9c9;
   cursor: not-allowed;
-  transform: translateY(-50%) scale(1);
   opacity: 0.6;
 }
 
-    /* Стили для секции "Новости" */
-    .news-section {
-      background-color: #fff;
-      padding: 40px 20px;
-      text-align: center;
-      margin-top: 40px;
-    }
-    
-    .news-section h2 {
-      font-size: 36px;
-      font-weight: 700;
-      color: #1565C0;
-      margin-bottom: 20px;
-      text-align: left;
-      padding-left: 20px;
-    }
-    
-    /* Контейнер для слайдера */
-    .news-slider-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    
-    /* Стили для слайдера */
-    .news-slider {
-      display: flex;
-      gap: 20px;
-      overflow-x: hidden;
-      width: 100%;
-    }
-    
-    .news-item {
-      width: 250px;
-      text-align: center;
-      flex-shrink: 0;
-      position: relative;
-    }
-    
-    /* Исправляем ползунки */
-    .scroll-btn {
-      position: absolute;
-      top: 50%;
-      background-color: #570080;
-      color: white;
-      padding: 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 20px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-      transform: translateY(-50%);
-      z-index: 2;
-    }
-    
-    .left-btn {
-      left: -30px;
-    }
-    
-    .right-btn {
-      right: -30px;
-    }
-    
-    .scroll-btn:hover {
-      background-color: #8c009b;
-    }
-    
-    /* Стили для фотографий в новостях */
-    .news-image-container {
-      position: relative;
-      width: 100%;
-      height: 180px;
-      overflow: hidden;
-      border-radius: 0;
-    }
-    
-    .news-image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .news-date {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      color: white;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 5px;
-      font-size: 14px;
-      border-radius: 5px;
-    }
-    
-    .news-content {
-      margin-top: 10px;
-    }
-    
-    .news-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    
-    .news-excerpt {
-      font-size: 14px;
-      color: #666;
-    }
-    
-    .news-link {
-      font-size: 14px;
-      color: #570080;
-      text-decoration: none;
-      font-weight: 700;
-      transition: color 0.3s ease;
-    }
-    
-    .news-link:hover {
-      color: #8c009b;
-    }
-    
-    .news-arrow-left,
-    .news-arrow-right {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      background-color: #505050;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 24px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    
-    .news-arrow-left:hover,
-    .news-arrow-right:hover {
-      background-color: #1565C0;
-      transform: translateY(-50%) scale(1.1);
-    }
-    
-    .news-arrow-left {
-      left: -25px;
-    }
-    
-    .news-arrow-right {
-      right: -25px;
-    }
-    
-    .news-arrow-left:disabled,
-    .news-arrow-right:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-      transform: translateY(-50%) scale(1);
-      opacity: 0.6;
-    }
-    
-    @media (max-width: 768px) {
-      .news-slider-wrapper {
-        width: calc(100% - 40px);
-      }
-      
-      .news-item {
-        flex: 0 0 100%;
-      }
-      
-      .news-arrow-left,
-      .news-arrow-right {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-      }
-      
-      .news-arrow-left {
-        left: -15px;
-      }
-      
-      .news-arrow-right {
-        right: -15px;
-      }
-    }
+    /* === Новости в стиле МГУ === */
+.news-section {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  margin-top: 60px;
+}
+.news-section h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1565C0;
+  margin-bottom: 40px;
+  text-align: left;
+  padding-left: 20px;
+  
+}
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+/* --- Настройка карточек новостей --- */
+
+.news-card {
+  flex: 0 0 calc(33.333% - 20px);
+  background: #fff;
+  border-radius: 0px;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.08);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 540px;
+}
+
+.news-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+}
+
+.news-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.news-excerpt {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.news-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 600;
+  align-self: flex-start;
+  transition: color 0.2s ease;
+}
+
+.news-link:hover {
+  color: #003366;
+}
+/* Адаптив */
+@media (max-width: 1100px) {
+  .news-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 800px) {
+  .news-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .news-grid { grid-template-columns: 1fr; }
+}
+
 
     /* 1 группа кнопок */
 .header-buttons-group1 {
@@ -1144,6 +1023,400 @@ html, body {
   overflow-x: hidden; 
 }
 
+.news-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.news-slider-wrapper {
+  width: calc(100% - 120px);
+  overflow: hidden;
+}
+
+.news-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 30px;
+}
+
+/* Увеличение только картинки при наведении */
+.news-image {
+  overflow: hidden;
+  border-radius: 12px;       /* 👈 скругление углов у всего блока с фото */
+  position: relative;
+  
+}
+
+.news-image img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  object-position: center top; /* 👈 смещаем фокус вверх */
+  border-radius: 6px;        /* 👈 фото само по себе закруглено */
+  transition: transform 0.4s ease;
+}
+
+/* Эффект увеличения только картинки */
+.news-image:hover img {
+  transform: scale(1.1);
+}
+
+.news-section h2 {
+  margin-left: 0;      /* убираем старый отступ, если был */
+  margin-right: 0;
+  text-align: left;    /* чтобы не было центрирования */
+  padding-left: 287px;  /* 👈 сдвиг правее */
+}
+
+.specialties-section h2 {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+  padding-left: 280px; /* 👈 сдвиг правее */
+}
+
+/* ===== Нижняя часть без отступов и на одном фоне ===== */
+.contact-section,
+.site-footer {
+  background-color: #333; /* общий фон */
+  color: #f1f1f1;
+  width: 100%;
+  margin: 30;
+  padding: 50px 0;
+  border: none;
+}
+
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 16px 30px; /* верх 50px, по бокам 16px, низ 30px */
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Контейнеры внутри центрируем */
+.contact-section .container,
+.site-footer .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Ссылки */
+.contact-section a,
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-section a:hover,
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/*Анонсы*/
+
+
+/* Заголовок секции анонсов */
+.announcements-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1565C0;
+  margin-bottom: 20px; /* Уменьшили отступ снизу */
+  margin-top: -10px; /* Поднимаем заголовок вверх */
+  text-align: left;
+  padding-left: 280px; /* Оригинальный отступ */
+  margin-left: 20px; /* Смещаем на 80px влево */
+  max-width: 1200px;
+}
+
+/*Анонсы - исправленная версия*/
+.announcements-section {
+  background-color: #ffffff;
+  padding: 40px 20px;
+}
+
+.announcements-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Баннер анонсов */
+.announcements-left {
+  flex: 0 0 400px;
+  transform: translateX(-0px); /* Смещаем баннер на 60px влево */
+}
+
+.announcement-banner {
+  width: 500px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+/* Правая часть с анонсами */
+.announcements-right {
+  flex: 1;
+  max-width: 500px;
+  transform: translateX(60px); /* Смещаем анонсы на 60px вправо */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Карточки анонсов */
+.announcement-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.announcement-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.announcement-card h3 {
+  margin: 0 0 10px 0;
+  color: #1565C0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.announcement-card p {
+  margin: 0 0 15px 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.announcement-card a {
+  color: #1565C0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.announcement-card a:hover {
+  color: #0b3c85;
+  text-decoration: underline;
+}
+
+/*Кнопка все*/
+.announcements-footer {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 400px; /* выравнивание с правой частью анонсов */
+}
+
+.announcements-all-btn {
+  display: inline-block;
+  background-color: #1565C0;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 18px; /*Размеры кнопки все*/
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.announcements-all-btn:hover {
+  background-color: #0b3c85;
+}
+
+/*Аэрокос в цифрах*/
+
+/*Аэрокос в цифрах - с иконками*/
+
+.stats-section {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  margin: 60px 0;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1565C0;
+  margin-bottom: 40px;
+  margin-top: -40px; /* Поднимаем заголовок */
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0px; /*расстояние между пунктами*/
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 0px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.stat-number {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Делаем иконки белыми */
+  opacity: 0.9;
+}
+
+.stat-label {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* Цвета для каждой карточки */
+.stat-item:nth-child(1) {
+  background-color: #1565C0;
+}
+
+.stat-item:nth-child(2) {
+  background-color: #7B1FA2;
+}
+
+.stat-item:nth-child(3) {
+  background-color: #6A1B9A;
+}
+
+.stat-item:nth-child(4) {
+  background-color: #AB47BC;;
+}
+
+.stat-item:nth-child(5) {
+  background-color: #42A5F5;
+}
+
+.stat-item:nth-child(6) {
+  background-color: #0D47A1;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 400px;
+  }
+  
+  .stats-title {
+    font-size: 28px;
+  }
+  
+  .stat-number {
+    font-size: 42px;
+  }
+  
+  .stat-item {
+    padding: 25px 15px;
+  }
+  
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-section {
+    padding: 40px 15px;
+  }
+  
+  .stats-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .stat-number {
+    font-size: 36px;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+  }
+  
+  .stat-item {
+    padding: 20px 15px;
+  }
+  
+  .stat-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .stat-content {
+    gap: 10px;
+  }
+}
+
+/* Стили для контактов с иконками */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Делаем иконки белыми */
+}
+
+.contact-section address {
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.contact-section h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
 
   </style>
 </head>
@@ -1154,7 +1427,7 @@ html, body {
   <!-- VK -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
-      <img src="vk-icon.png" alt="VK">
+      <img src="top-line\vk-icon.png" alt="VK">
     </a>
     <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
       <a href="https://vk.com/media_ak" target="_blank" class="dropdown-item">Аэрокосмический колледж</a>
@@ -1167,7 +1440,7 @@ html, body {
   <!-- YouTube -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
-      <img src="yt-icon.png" alt="YouTube">
+      <img src="top-line\yt-icon.png" alt="YouTube">
     </a>
     <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
       <a href="1" target="_blank" class="dropdown-item">1</a>
@@ -1178,7 +1451,7 @@ html, body {
   <!-- Telegram -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
-      <img src="telegram-icon.png" alt="Telegram">
+      <img src="top-line\telegram-icon.png" alt="Telegram">
     </a>
     <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
       <a href="https://t.me/reshetnevuniversity" target="_blank" class="dropdown-item">Университет Решетнёва</a>
@@ -1189,7 +1462,7 @@ html, body {
 <!-- Кнопка для слабовидящих -->
   <div class="accessibility-switcher">
     <button class="accessibility-btn" aria-label="Режим для слабовидящих">
-      <img src="eye.png" alt="Режим для слабовидящих">
+      <img src="top-line\eye.png" alt="Режим для слабовидящих">
     </button>
   </div>
 </div>
@@ -1197,7 +1470,7 @@ html, body {
   <!-- ======== ШАПКА ======== -->
 <header class="site-header">
   <div class="header-left">
-    <img src="logo.png" alt="Логотип" class="logo">
+    <img src="first-banner-and-head\logo.png" alt="Логотип" class="logo">
     <div class="title-wrap">
       <div class="org-name">Аэрокосмический колледж при СибГУ им. М.Ф. Решетнёва</div>
       <div class="org-sub">Университет Решетнёва</div>
@@ -1293,48 +1566,19 @@ html, body {
       <button class="header-btn language-btn">RU</button>
       <div class="lang-menu">
         <div class="lang-option active" data-lang="ru">
-          <img src="flagsru.png" alt="Русский" class="lang-flag">
+          <img src="flags-countries/flagsru.png" alt="Русский" class="lang-flag">
           <span class="lang-name">Русский</span>
         </div>
         <div class="lang-option" data-lang="en">
-          <img src="flagsen.png" alt="English" class="lang-flag">
+          <img src="flags-countries\flagsen.png" alt="English" class="lang-flag">
           <span class="lang-name">English</span>
         </div>
         <div class="lang-option" data-lang="zh">
-          <img src="flagszh.png" alt="中文" class="lang-flag">
+          <img src="flags-countries\flagszh.png" alt="中文" class="lang-flag">
           <span class="lang-name">中文</span>
         </div>
       </div>
     </div>
-    
-    <!-- ВЫНОСИМ КНОПКИ И ПРАВЫЙ БЛОК ОТДЕЛЬНО -->
-    <div class="header-right-content">
-      <div class="header-buttons-wrapper">
-        <!-- БОЛЬШАЯ НЕКЛИКАБЕЛЬНАЯ КНОПКА -->
-        <div class="header-overlay-button">
-        </div>
-        <!-- БЛОК СПРАВА ОТ КНОПОК -->
-        <div class="header-right-block"></div>
-      </div>
-
-    <!-- Кнопка смены языка -->
-<div class="language-switcher">
-  <button class="header-btn language-btn">RU</button>
-  <div class="lang-menu">
-    <div class="lang-option active" data-lang="ru">
-      <img src="flagsru.png" alt="Русский" class="lang-flag">
-      <span class="lang-name">Русский</span>
-    </div>
-    <div class="lang-option" data-lang="en">
-      <img src="flagsen.png" alt="English" class="lang-flag">
-      <span class="lang-name">English</span>
-    </div>
-    <div class="lang-option" data-lang="zh">
-      <img src="flagszh.png" alt="中文" class="lang-flag">
-      <span class="lang-name">中文</span>
-    </div>
-  </div>
-</div>
     
     <!-- ВЫНОСИМ КНОПКИ И ПРАВЫЙ БЛОК ОТДЕЛЬНО -->
   <div class="header-right-content">
@@ -1356,43 +1600,43 @@ html, body {
   <ul>
     <li>
       <a href="#">
-        <img src="icon1.png" alt="Личный кабинет" class="menu-icon">
+        <img src="button-icons\icon1.png" alt="Личный кабинет" class="menu-icon">
         Личный кабинет
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="icon2.png" alt="Почта" class="menu-icon">
+        <img src="button-icons\icon2.png" alt="Почта" class="menu-icon">
         Почта
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="icon3.png" alt="Расписание" class="menu-icon">
+        <img src="button-icons\icon3.png" alt="Расписание" class="menu-icon">
         Расписание
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="icon4.png" alt="Библиотека" class="menu-icon">
+        <img src="button-icons\icon4.png" alt="Библиотека" class="menu-icon">
         Библиотека
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="icon5.png" alt="Обращения" class="menu-icon">
+        <img src="button-icons\icon5.png" alt="Обращения" class="menu-icon">
         Обращения
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="icon6.png" alt="Оплата услуг" class="menu-icon">
+        <img src="button-icons\icon6.png" alt="Оплата услуг" class="menu-icon">
         Оплата услуг
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="icon7.png" alt="Доп. образование" class="menu-icon">
+        <img src="button-icons\icon7.png" alt="Доп. образование" class="menu-icon">
         Доп. образование
       </a>
     </li>
@@ -1430,7 +1674,7 @@ html, body {
         <!-- Специальность 1 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_1.jpg" alt="Сетевое и системное администрирование">
+            <img src="specialties/path_to_image_1.jpg" alt="Сетевое и системное администрирование">
             <p class="profession-name">Сетевое и системное администрирование</p>
             <div class="overlay">
               <p>Специалист по сетевому и системному администрированию обеспечивает стабильную работу IT-инфраструктуры организации. Занимается проектированием, настройкой и обслуживанием компьютерных сетей, серверов, рабочих станций. Осуществляет мониторинг сетевого оборудования, устраняет неисправности, обеспечивает информационную безопасность. Работает с сетевыми протоколами, операционными системами, системами виртуализации. Востребован в IT-компаниях, банках, государственных учреждениях, крупных корпорациях.</p>
@@ -1441,7 +1685,7 @@ html, body {
         <!-- Специальность 2 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_2.jpg" alt="Информационные системы и программирование">
+            <img src="specialties/path_to_image_2.jpg" alt="Информационные системы и программирование">
             <p class="profession-name">Информационные системы и программирование</p>
             <div class="overlay">
               <p>Разработчик, который создаёт программное обеспечение и комплексные системы для управления бизнес-процессами. Владеет языками программирования, базами данных, веб-технологиями. Разрабатывает приложения для автоматизации работы предприятий, мобильные приложения, веб-сервисы. Участвует в полном цикле создания ПО: от анализа требований до тестирования и внедрения. Может работать программистом, веб-разработчиком, системным аналитиком в IT-компаниях, стартапах, digital-агентствах.</p>
@@ -1452,7 +1696,7 @@ html, body {
         <!-- Специальность 3 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_3.jpg" alt="Обеспечение информационной безопасности телекоммуникационных систем">
+            <img src="specialties/path_to_image_3.jpg" alt="Обеспечение информационной безопасности телекоммуникационных систем">
             <p class="profession-name">Обеспечение информационной безопасности телекоммуникационных систем</p>
             <div class="overlay">
               <p>Обеспечение информационной безопасности телекоммуникационных систем
@@ -1464,7 +1708,7 @@ html, body {
         <!-- Специальность 4 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_4.jpg" alt="Обеспечение информационной безопасности автоматизированных систем">
+            <img src="specialties/path_to_image_4.jpg" alt="Обеспечение информационной безопасности автоматизированных систем">
             <p class="profession-name">Обеспечение информационной безопасности автоматизированных систем</p>
             <div class="overlay">
               <p>Обеспечение информационной безопасности автоматизированных систем
@@ -1476,7 +1720,7 @@ html, body {
         <!-- Специальность 5 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_5.jpg" alt="Эксплуатация и обслуживание электрического и электромеханического оборудования">
+            <img src="specialties/path_to_image_5.jpg" alt="Эксплуатация и обслуживание электрического и электромеханического оборудования">
             <p class="profession-name">Эксплуатация и обслуживание электрического и электромеханического оборудования</p>
             <div class="overlay">
               <p>Технический эксперт, который обеспечивает бесперебойную и безопасную работу электродвигателей, генераторов и систем энергоснабжения. Выполняет монтаж, наладку, ремонт электрооборудования. Диагностирует неисправности, проводит техническое обслуживание, обеспечивает электробезопасность. Работает с системами автоматики, релейной защиты, силовой электроникой. Востребован на промышленных предприятиях, энергетических компаниях, в жилищно-коммунальном хозяйстве.</p>
@@ -1487,7 +1731,7 @@ html, body {
         <!-- Специальность 6 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_6.jpg" alt="Специальные машины и устройства">
+            <img src="specialties/path_to_image_6.jpg" alt="Специальные машины и устройства">
             <p class="profession-name">Специальные машины и устройства</p>
             <div class="overlay">
               <p>Инженер или техник, который занимается проектированием, эксплуатацией и ремонтом узкоспециализированной техники. Работает с промышленными роботами, автоматическими линиями, подъемно-транспортным оборудованием. Разрабатывает техническую документацию, проводит испытания, оптимизирует рабочие процессы. Владеет навыками чтения чертежей, работы с измерительными приборами, основами механики. Работает на машиностроительных заводах, в логистических компаниях, на производственных предприятиях.</p>
@@ -1498,7 +1742,7 @@ html, body {
         <!-- Специальность 7 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_7.jpg" alt="Мехатроника и робототехника">
+            <img src="specialties/path_to_image_7.jpg" alt="Мехатроника и робототехника">
             <p class="profession-name">Мехатроника и робототехника</p>
             <div class="overlay">
               <p>Инженер, который создаёт и обслуживает сложные автоматизированные системы и роботов. Разрабатывает мехатронные модули, программирует промышленных роботов, настраивает системы автоматизации. Интегрирует механические, электронные и программные компоненты в единые комплексы. Работает с датчиками, приводами, системами управления. Востребован в автомобилестроении, аэрокосмической отрасли, на высокотехнологичных производствах, в научно-исследовательских центрах.</p>
@@ -1509,7 +1753,7 @@ html, body {
         <!-- Специальность 8 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_8.jpg" alt="Технология машиностроения">
+            <img src="specialties/path_to_image_8.jpg" alt="Технология машиностроения">
             <p class="profession-name">Технология машиностроения</p>
             <div class="overlay">
               <p>Инженер, который разрабатывает и оптимизирует процессы изготовления деталей и сборки машин и механизмов. Создает технологические маршруты обработки, выбирает оборудование и инструмент, рассчитывает режимы резания. Контролирует качество продукции, внедряет современные производственные технологии. Владеет CAD/CAM системами, знает материаловедение, теорию резания. Работает на машиностроительных предприятиях, в конструкторских бюро, научно-производственных объединениях.</p>
@@ -1520,7 +1764,7 @@ html, body {
         <!-- Специальность 9 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_9.jpg" alt="Сварочное производство">
+            <img src="specialties/path_to_image_9.jpg" alt="Сварочное производство">
             <p class="profession-name">Сварочное производство</p>
             <div class="overlay">
               <p>Технолог, который разрабатывает, контролирует и выполняет процессы неразъёмного соединения деталей. Владеет различными видами сварки: дуговой, контактной, газовой, плазменной. Разрабатывает технологические процессы, выбирает материалы и оборудование, контролирует качество сварных швов. Проводит дефектоскопию, сертификацию сварщиков. Востребован в судостроении, авиакосмической отрасли, нефтегазовом комплексе, строительстве.</p>
@@ -1531,7 +1775,7 @@ html, body {
         <!-- Специальность 10 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_10.jpg" alt="Сооружение и эксплуатация газонефтепроводов и газонефтехранилищ">
+            <img src="specialties/path_to_image_10.jpg" alt="Сооружение и эксплуатация газонефтепроводов и газонефтехранилищ">
             <p class="profession-name">Сооружение и эксплуатация газонефтепроводов и газонефтехранилищ</p>
             <div class="overlay">
               <p>Инженер, который обеспечивает бесперебойную и безопасную транспортировку и хранение нефти и газа. Проектирует трубопроводные системы, рассчитывает режимы перекачки, организует строительство и ремонт. Контролирует техническое состояние оборудования, обеспечивает экологическую безопасность. Работает с насосными станциями, системами КИПиА, средствами защиты. Востребован в нефтегазовых компаниях, проектных институтах, сервисных организациях.</p>
@@ -1542,7 +1786,7 @@ html, body {
         <!-- Специальность 11 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_11.jpg" alt="Техническое обслуживание авиационных двигателей">
+            <img src="specialties/path_to_image_11.jpg" alt="Техническое обслуживание авиационных двигателей">
             <p class="profession-name">Техническое обслуживание авиационных двигателей</p>
             <div class="overlay">
               <p>Инженер или техник, который обеспечивает исправность, надежность и готовность к полетам силовых установок. Выполняет диагностику, ремонт, техническое обслуживание авиадвигателей. Работает с газотурбинными, поршневыми, реактивными двигателями. Владеет методами неразрушающего контроля, читает техническую документацию, соблюдает авиационные правила. Работает в авиакомпаниях, аэропортах, ремонтных предприятиях, конструкторских бюро.</p>
@@ -1553,7 +1797,7 @@ html, body {
         <!-- Специальность 12 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_12.jpg" alt="Метрологический контроль средств измерений">
+            <img src="specialties/path_to_image_12.jpg" alt="Метрологический контроль средств измерений">
             <p class="profession-name">Метрологический контроль средств измерений</p>
             <div class="overlay">
               <p>Эксперт, который обеспечивает единство и точность измерений в народном хозяйстве. Поверяет, калибрует, ремонтирует измерительные приборы. Разрабатывает методики поверки, ведет нормативную документацию, внедряет новые средства измерений. Работает с эталонами, измерительными комплексами, системами качества. Востребован на промышленных предприятиях, в метрологических службах, органах по сертификации, научных институтах.</p>
@@ -1564,7 +1808,7 @@ html, body {
         <!-- Специальность 13 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_13.jpg" alt="Экономика и бухгалтерский учет">
+            <img src="specialties/path_to_image_13.jpg" alt="Экономика и бухгалтерский учет">
             <p class="profession-name">Экономика и бухгалтерский учет</p>
             <div class="overlay">
               <p>Эксперт, который обеспечивает эффективное управление финансовыми ресурсами организации. Ведет бухгалтерский и налоговый учет, составляет отчетность, анализирует финансовую деятельность. Проводит аудит, оптимизирует налогообложение, управляет затратами. Владеет системами электронной отчетности, знает законодательство, работает с финансовыми инструментами. Может работать бухгалтером, экономистом, финансовым аналитиком в компаниях различных отраслей.</p>
@@ -1575,7 +1819,7 @@ html, body {
         <!-- Специальность 14 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="path_to_image_14.jpg" alt="Социальная работа">
+            <img src="specialties/path_to_image_14.jpg" alt="Социальная работа">
             <p class="profession-name">Социальная работа</p>
             <div class="overlay">
               <p>Профессионал, который оказывает комплексную помощь и поддержку незащищённым слоям населения. Работает с семьями, детьми, пожилыми людьми, инвалидами. Организует социальные услуги, консультирует по вопросам льгот и выплат, ведет проектную деятельность. Владеет методами социальной диагностики, психологического консультирования, организации волонтерской деятельности. Работает в социальных службах, центрах помощи, образовательных учреждениях, некоммерческих организациях.</p>
@@ -1595,136 +1839,201 @@ html, body {
   </div>
 </section>
 
-<!-- ======== СЕКЦИЯ С НОВОСТЯМИ ======== -->
+<!--Новости-->
+
 <section class="news-section">
   <h2>Новости</h2>
-  <div class="specialties-slider-container">
-    <button class="slider-arrow slider-arrow-left" aria-label="Предыдущие новости" id="news-prev">
-      <span>‹</span>
-    </button>
-    
-    <div class="specialties-slider-wrapper">
+
+  <div class="news-slider-container">
+    <button class="slider-arrow slider-arrow-left" id="news-prev">‹</button>
+
+    <div class="news-slider-wrapper">
       <div class="news-slider" id="news-slider">
-        <div class="news-item">
-          <div class="news-image-container">
-            <img src="news1.jpg" alt="Новость 1">
-            <div class="news-date">
-              <span class="day">23.10.2025</span>
-            </div>
-          </div>
-          <div class="news-content">
+        <article class="news-card">
+          <div class="news-image"><img src="news/news1.jpg" alt="Новость 1"></div>
+          <div class="news-info">
+            <time class="news-date">23.10.2025</time>
             <h3 class="news-title">Открытый кубок по хоккею</h3>
             <p class="news-excerpt">Роботы, космос и хоккей. Открытый кубок по хоккею с мячом среди любительских команд прошел при поддержке Университета Решетнёва.</p>
             <a href="#" class="news-link">Подробнее</a>
           </div>
-        </div>
-        
-        <div class="news-item">
-          <div class="news-image-container">
-            <img src="news2.jpg" alt="Новость 2">
-            <div class="news-date">
-              <span class="day">09.05.2025</span>
-            </div>
-          </div>
-          <div class="news-content">
-            <h3 class="news-title">Премьера клипа IvanZolo2004 - "Вайперр"</h3>
-            <p class="news-excerpt">Трек « Вайперр » вышел 24 октября 2025 года. Также я с командой записывал клип, работали они с ним около недели, и клип на песню « Вайперр » вышел 26 октября 2025 года. Команда и я очень старались и у нас всё получилось.</p>
-            <a href="#" class="news-link">Подробнее</a>
-          </div>
-        </div>
-        
-        <div class="news-item">
-          <div class="news-image-container">
-            <img src="news3.jpg" alt="Новость 3">
-            <div class="news-date">
-              <span class="day">15.05.2025</span>
-            </div>
-          </div>
-          <div class="news-content">
-            <h3 class="news-title">День открытых дверей</h3>
+        </article>
+
+        <article class="news-card">
+          <div class="news-image"><img src="news/news2.jpg" alt="Новость 2"></div>
+          <div class="news-info">
+            <time class="news-date">15.09.2025</time>
+            <h3 class="news-title">Студенты Университета Решетнёва вошли в число именных стипендиатов Горно-химического комбината</h3>
             <p class="news-excerpt">Приглашаем абитуриентов и родителей на экскурсию по колледжу.</p>
             <a href="#" class="news-link">Подробнее</a>
           </div>
-        </div>
-        
-        <div class="news-item">
-          <div class="news-image-container">
-            <img src="news4.jpg" alt="Новость 4">
-            <div class="news-date">
-              <span class="day">20.04.2025</span>
-            </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-image"><img src="news/news3.jpg" alt="Новость 3"></div>
+          <div class="news-info">
+            <time class="news-date">09.05.2025</time>
+            <h3 class="news-title">Премьера клипа IvanZolo2004 "Вайперр"</h3>
+            <p class="news-excerpt">Трек «Вайперр» вышел 24 октября 2025 года, а клип — 26 октября 2025 года.</p>
+            <a href="#" class="news-link">Подробнее</a>
           </div>
-          <div class="news-content">
+        </article>
+
+        <article class="news-card">
+          <div class="news-image"><img src="news/news4.jpg" alt="Новость 4"></div>
+          <div class="news-info">
+            <time class="news-date">20.04.2025</time>
             <h3 class="news-title">Студенческая олимпиада</h3>
             <p class="news-excerpt">Наши студенты заняли призовые места в региональной олимпиаде.</p>
             <a href="#" class="news-link">Подробнее</a>
           </div>
-        </div>
-        
-        <div class="news-item">
-          <div class="news-image-container">
-            <img src="news5.jpg" alt="Новость 5">
-            <div class="news-date">
-              <span class="day">10.04.2025</span>
-            </div>
-          </div>
-          <div class="news-content">
+        </article>
+
+        <article class="news-card">
+          <div class="news-image"><img src="news/news5.jpg" alt="Новость 5"></div>
+          <div class="news-info">
+            <time class="news-date">10.04.2025</time>
             <h3 class="news-title">Новые лаборатории</h3>
             <p class="news-excerpt">В колледже открыты новые современные лаборатории для практических занятий.</p>
             <a href="#" class="news-link">Подробнее</a>
           </div>
-        </div>
-        
-        <div class="news-item">
-          <div class="news-image-container">
-            <img src="news6.jpg" alt="Новость 6">
-            <div class="news-date">
-              <span class="day">05.04.2025</span>
-            </div>
-          </div>
-          <div class="news-content">
+        </article>
+
+        <article class="news-card">
+          <div class="news-image"><img src="news/news6.jpg" alt="Новость 6"></div>
+          <div class="news-info">
+            <time class="news-date">05.04.2025</time>
             <h3 class="news-title">Мастер-класс от IT-специалистов</h3>
             <p class="news-excerpt">Приглашенные эксперты провели мастер-класс по современным технологиям.</p>
             <a href="#" class="news-link">Подробнее</a>
           </div>
-        </div>
+        </article>
       </div>
     </div>
-    
-    <button class="slider-arrow slider-arrow-right" aria-label="Следующие новости" id="news-next">
-      <span>›</span>
-    </button>
+
+    <button class="slider-arrow slider-arrow-right" id="news-next">›</button>
   </div>
-  
-  <div class="news-dots" id="news-dots">
-    <!-- Точки будут добавляться через JavaScript -->
+
+  <div class="news-dots" id="news-dots"></div>
+</section>
+
+<!-- ======== СЕКЦИЯ "АЭРОКОС В ЦИФРАХ" С ИКОНКАМИ ======== -->
+<section class="stats-section">
+  <div class="stats-container">
+    <h2 class="stats-title">Аэрокосмический колледж в цифрах</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-content">
+          <div class="stat-number">~3000</div>
+          <img src="aerocos-in-numbers/students-icon.png" alt="Обучающиеся" class="stat-icon">
+        </div>
+        <div class="stat-label">обучающихся</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-content">
+          <div class="stat-number">13</div>
+          <img src="aerocos-in-numbers/Candidate-Sciences-icon.png" alt="Кандидаты наук" class="stat-icon">
+        </div>
+        <div class="stat-label">кандидатов наук</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-content">
+          <div class="stat-number">245</div>
+          <img src="aerocos-in-numbers/paid-seats-icon.png" alt="Платные места" class="stat-icon">
+        </div>
+        <div class="stat-label">Платных мест</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-content">
+          <div class="stat-number">155</div>
+          <img src="aerocos-in-numbers/professor-icon.png" alt="Профессора" class="stat-icon">
+        </div>
+        <div class="stat-label">профессоров и преподавателей</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-content">
+          <div class="stat-number">655</div>
+          <img src="aerocos-in-numbers/budget-places-icon.png" alt="Бюджетные места" class="stat-icon">
+        </div>
+        <div class="stat-label">Бюджетных мест</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-content">
+          <div class="stat-number">~546</div>
+          <img src="aerocos-in-numbers/graduates-icon.png" alt="Выпускники" class="stat-icon">
+        </div>
+        <div class="stat-label">Выпускников за год</div>
+      </div>
+    </div>
   </div>
 </section>
 
-  <!-- ======== ОСНОВНОЙ КОНТЕНТ ======== -->
+
+<!--Анонсы-->
+<section class="announcements-section">
+  <h2 class="announcements-title">Анонсы</h2>
+  <div class="announcements-container">
+    <div class="announcements-left">
+      <img src="announcement/banner-announcement.jpg" alt="Баннер" class="announcement-banner">
+    </div>
+    <div class="announcements-right">
+      <div class="announcement-card">
+        <h3>Анонс 1</h3>
+        <p>Краткое описание анонса...</p>
+        <a href="#">Подробнее</a>
+      </div>
+      <div class="announcement-card">
+        <h3>Анонс 2</h3>
+        <p>Краткое описание анонса...</p>
+        <a href="#">Подробнее</a>
+      </div>
+      <div class="announcement-card">
+        <h3>Анонс 3</h3>
+        <p>Краткое описание анонса...</p>
+        <a href="#">Подробнее</a>
+      </div>
+
+      <div class="announcements-footer">
+  <a href="#" class="announcements-all-btn">Все →</a>
+</div>
+    </div>
+  </div>
+</section>
+
+
   <main>
-    <!-- About -->
-    <section id="about" class="container">
-      <h2>О колледже</h2>
-      <p>Аэрокосмический колледж – Ваша первая ступень к высшему образованию!</p>
-    </section>
 
-    <!-- Contacts -->
-    <section id="contacts" class="container contact-section">
-      <h2>Контакты</h2>
-      <address>
-        <div>Адрес: 660037, Красноярский край, г. Красноярск, проспект им. газеты Красноярский рабочий, 31, корпус «К», каб. 314</div>
-        <div>Телефон: +7 (391) 206-00-70</div>
-        <div>Email: priemsibsau@sibsau.ru</div>
-      </address>
-    </section>
-  </main>
-
-  <!-- ======== ПОДВАЛ ======== -->
-  <footer class="site-footer">
-    <div>© <span id="year"></span> Аэрокосмический колледж при СибГУ им. М.Ф. Решетнёва</div>
-    <div class="footer-links"><a href="#">Политика конфиденциальности</a></div>
-  </footer>
+    <!-- Объединенный подвал с контактами -->
+<footer class="site-footer">
+  <div class="container">
+    <!-- Контакты -->
+    <div class="footer-contacts">
+      <div class="contact-item">
+        <img src="bottom-line/phone-icon.png" alt="Телефон" class="contact-icon">
+        <span>Телефон: +7 (391) 206-00-70</span>
+      </div>
+      <div class="contact-item">
+        <img src="bottom-line/email-icon.png" alt="Email" class="contact-icon">
+        <span>Email: priemsibsau@sibsau.ru</span>
+      </div>
+      <div class="contact-item">
+        <img src="bottom-line/address-icon.png" alt="Адрес" class="contact-icon">
+        <span>Адрес: 660037, Красноярский край, г. Красноярск, проспект им. газеты Красноярский рабочий, 31, корпус «К», каб. 314</span>
+      </div>
+    </div>
+    
+    <!-- Копирайт -->
+    <div class="footer-info">
+      <div>© <span id="year"></span> Аэрокосмический колледж при СибГУ им. М.Ф. Решетнёва</div>
+      <div class="footer-links"><a href="#">Политика конфиденциальности</a></div>
+    </div>
+  </div>
+</footer>
 
   <script>
     // ===== УЛУЧШЕННЫЙ СЛАЙДЕР СПЕЦИАЛЬНОСТЕЙ =====
@@ -1838,102 +2147,91 @@ document.addEventListener('DOMContentLoaded', function() {
 
       
       // ===== СЛАЙДЕР НОВОСТЕЙ =====
-      const newsSlider = document.getElementById('news-slider');
-      const newsPrevBtn = document.getElementById('news-prev');
-      const newsNextBtn = document.getElementById('news-next');
-      const newsDotsContainer = document.getElementById('news-dots');
-      const newsItems = document.querySelectorAll('.news-item');
-      const newsItemsCount = newsItems.length;
-      let newsCurrentIndex = 0;
-      let newsItemsPerView = 3;
-      
-      // Определяем количество элементов в зависимости от ширины экрана
-      function updateNewsItemsPerView() {
-        if (window.innerWidth <= 768) {
-          newsItemsPerView = 1;
-        } else if (window.innerWidth <= 1024) {
-          newsItemsPerView = 2;
-        } else {
-          newsItemsPerView = 3;
+      (function(){
+        const newsSlider = document.getElementById('news-slider');
+        const newsPrevBtn = document.getElementById('news-prev');
+        const newsNextBtn = document.getElementById('news-next');
+        const newsDotsContainer = document.getElementById('news-dots');
+        const newsItems = document.querySelectorAll('.news-card'); // <-- классы карточек в HTML = news-card
+        if(!newsSlider || newsItems.length === 0) return;
+
+        let newsCurrentIndex = 0;
+        let newsPerView = 3;
+        const GAP = 30; // учитываем gap в CSS
+
+        function updateNewsPerView() {
+          if (window.innerWidth <= 700) newsPerView = 1;
+          else if (window.innerWidth <= 1000) newsPerView = 2;
+          else newsPerView = 3;
         }
-        updateNewsSlider();
-        createNewsDots();
-      }
-      
-      // Создаем точки-индикаторы для новостей
-      function createNewsDots() {
-        newsDotsContainer.innerHTML = '';
-        const dotsCount = Math.ceil(newsItemsCount / newsItemsPerView);
-        
-        for (let i = 0; i < dotsCount; i++) {
-          const dot = document.createElement('button');
-          dot.classList.add('news-dot');
-          dot.setAttribute('aria-label', `Перейти к новостям ${i + 1}`);
-          if (i === 0) dot.classList.add('active');
-          
-          dot.addEventListener('click', () => {
-            goToNewsSlide(i);
-          });
-          
-          newsDotsContainer.appendChild(dot);
+
+        function createNewsDots() {
+          newsDotsContainer.innerHTML = '';
+          const maxIndex = Math.max(0, newsItems.length - newsPerView);
+          for (let i = 0; i <= maxIndex; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'news-dot';
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+              newsCurrentIndex = i;
+              updateNewsSlider();
+            });
+            newsDotsContainer.appendChild(dot);
+          }
         }
-      }
-      
-      // Переход к определенному слайду новостей
-      function goToNewsSlide(index) {
-        const maxIndex = Math.ceil(newsItemsCount / newsItemsPerView) - 1;
-        newsCurrentIndex = Math.max(0, Math.min(index, maxIndex));
-        updateNewsSlider();
-      }
-      
-      // Обновление слайдера новостей
-      function updateNewsSlider() {
-        const itemWidth = 100 / newsItemsPerView;
-        const translateX = -newsCurrentIndex * itemWidth;
-        newsSlider.style.transform = `translateX(${translateX}%)`;
-        
-        // Обновляем состояние кнопок
-        newsPrevBtn.disabled = newsCurrentIndex === 0;
-        newsNextBtn.disabled = newsCurrentIndex >= Math.ceil(newsItemsCount / newsItemsPerView) - 1;
-        
-        // Обновляем точки
-        const dots = document.querySelectorAll('.news-dot');
-        dots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === newsCurrentIndex);
+
+        function updateNewsSlider() {
+          const cardWidth = newsItems[0].offsetWidth + GAP;
+          const maxIndex = Math.max(0, newsItems.length - newsPerView);
+          if (newsCurrentIndex < 0) newsCurrentIndex = 0;
+          if (newsCurrentIndex > maxIndex) newsCurrentIndex = maxIndex;
+          newsSlider.style.transform = `translateX(-${newsCurrentIndex * cardWidth}px)`;
+
+          newsPrevBtn.disabled = newsCurrentIndex === 0;
+          newsNextBtn.disabled = newsCurrentIndex === maxIndex;
+
+          const dots = newsDotsContainer.querySelectorAll('.news-dot');
+          dots.forEach((dot, idx) => dot.classList.toggle('active', idx === newsCurrentIndex));
+        }
+
+        function nextNewsSlide() {
+          const maxIndex = Math.max(0, newsItems.length - newsPerView);
+          if (newsCurrentIndex < maxIndex) {
+            newsCurrentIndex++;
+            updateNewsSlider();
+          }
+        }
+
+        function prevNewsSlide() {
+          if (newsCurrentIndex > 0) {
+            newsCurrentIndex--;
+            updateNewsSlider();
+          }
+        }
+
+        newsPrevBtn.addEventListener('click', prevNewsSlide);
+        newsNextBtn.addEventListener('click', nextNewsSlide);
+        window.addEventListener('resize', () => {
+          const oldPerView = newsPerView;
+          updateNewsPerView();
+          if (oldPerView !== newsPerView) {
+            // при смене perView пересоздаем точки и корректируем индекс
+            createNewsDots();
+            updateNewsSlider();
+          } else {
+            updateNewsSlider();
+          }
         });
-      }
-      
-      // Следующий слайд новостей
-      function nextNewsSlide() {
-        const maxIndex = Math.ceil(newsItemsCount / newsItemsPerView) - 1;
-        if (newsCurrentIndex < maxIndex) {
-          newsCurrentIndex++;
-          updateNewsSlider();
-        }
-      }
-      
-      // Предыдущий слайд новостей
-      function prevNewsSlide() {
-        if (newsCurrentIndex > 0) {
-          newsCurrentIndex--;
-          updateNewsSlider();
-        }
-      }
-      
-      // Инициализация слайдера новостей
-      updateNewsItemsPerView();
-      updateNewsSlider();
-      
-      // Обработчики событий для новостей
-      newsPrevBtn.addEventListener('click', prevNewsSlide);
-      newsNextBtn.addEventListener('click', nextNewsSlide);
-      
-      // Обработка изменения размера окна для новостей
-      window.addEventListener('resize', () => {
-        updateNewsItemsPerView();
-      });
-      
+
+        // Инициализация
+        updateNewsPerView();
+        createNewsDots();
+        // небольшой таймаут, чтобы корректно получить offsetWidth после рендеринга
+        setTimeout(updateNewsSlider, 50);
+      })();
+
       // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ =====
+
 document.querySelectorAll('.language-switcher').forEach(switcher => {
   const langOptions = switcher.querySelectorAll('.lang-option');
   const currentLangBtn = switcher.querySelector('.language-btn');

@@ -7,13 +7,14 @@
   <style>
     :root{
       --muted: #ffffff;
-      --bg: #f5f6f8;
+      --bg: #ffffff;
       --card-bg: #fff;
       --maxw: 1100px;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:#111;background:var(--bg);line-height:1.5}
     .container{max-width:var(--maxw);margin:30px auto;padding:0 16px}
+
     
     /*═════════════════ ШАПКА ═════════════════*/
     .site-header {
@@ -42,34 +43,28 @@
     .org-name{font-weight:700;color:#ffffff}
     .org-sub{font-size:13px;color:var(--muted)}
     
-    /* Nav */
     .main-nav{position:relative}
     .nav-toggle{display:none;background:none;border:0;font-size:16px}
     .nav-list{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
     .nav-list a{color:#111;text-decoration:none;font-weight:600;padding:6px 8px;border-radius:6px}
     .nav-list a:hover{background:#f0f0f0}
     
-    /* submenu */
     .has-sub{position:relative}
     .has-sub .sub{display:none;position:absolute;left:0;top:calc(100% + 8px);background:var(--card-bg);box-shadow:0 6px 20px rgba(0,0,0,.06);padding:8px;border-radius:8px;min-width:220px}
     .has-sub:hover .sub{display:block}
     .sub li{display:block;margin:0}
     .sub a{display:block;padding:8px 12px;color:#111}
     
-    /* Button */
     .btn{display:inline-block;padding:10px 18px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700}
     
-    /* Cards */
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
     .card{background:var(--card-bg);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
     .card h3{margin:0 0 8px}
     .card-link{color:var(--accent);font-weight:700;text-decoration:none}
     
-    /* Footer */
     .site-footer{background:#222;color:#fff;padding:18px 16px;text-align:center;margin-top:30px}
     .footer-links a{color:#fff;text-decoration:underline;font-size:14px}
     
-    /* Responsive */
     @media (max-width:900px){
       .cards{grid-template-columns:repeat(2,1fr)}
     }
@@ -364,7 +359,6 @@
   paint-order: stroke fill;
 }
 
-/* === Подьем профессии при наводке (Поставил 0) === */
 .image-container:hover .profession-name {
   bottom: auto;
   top: 20px;
@@ -372,14 +366,13 @@
   transform: translateY(0);
 }
 
-/* === Оверлей с описание профессии  === */
 .image-container .overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   color: white;
-  padding: 0px 25px 25px; /* Больше отступ сверху для названия */
+  padding: 0px 25px 25px;
   opacity: 0;
   transform: translateY(100%);
   transition: all 0.4s ease;
@@ -387,10 +380,8 @@
   border-radius: 0 0 6px 6px;
   text-align: left;
   max-height: 70%;
-  overflow-y: auto;
 }
 
-/* === При наведении - оверлей выезжает снизу === */
 .image-container:hover .overlay {
   opacity: 1;
   transform: translateY(0);
@@ -407,10 +398,10 @@
   transition: none;
 }
 
-/* === Ссылка "Подробнее о специальности" === */
+/* === Ссылка Подробнее о специальности === */
 .specialty-link {
   display: inline-block;
-  color: #42A5F5 !important; /* голубой цвет */
+  color: #42A5F5 !important; 
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
@@ -421,17 +412,15 @@
 }
 
 .specialty-link:hover {
-  color: #87CEEB !important; /* более светлый голубой при наведении */
+  color: #87CEEB !important;
   border-bottom: 1px solid #42A5F5;
 }
 
-/* Убираем старые стили оверлея */
 .image-container .overlay p {
   opacity: 1 !important;
   transform: none !important;
 }
 
-/* Кнопки навигации слайдера */
 .slider-arrow {
   position: absolute;
   top: 50%;
@@ -470,7 +459,7 @@
   opacity: 0.6;
 }
 
-/* === При наведении — плавно появляется === */
+/* === При наведении плавно появляется === */
 .image-container:hover .overlay p {
   opacity: 1;
   transform: translateY(0);
@@ -503,11 +492,11 @@
 }
 
 .slider-arrow-left {
-  left: -25px; /* Выносим левую кнопку за пределы контейнера */
+  left: -25px;
 }
 
 .slider-arrow-right {
-  right: -25px; /* Выносим правую кнопку за пределы контейнера */
+  right: -25px;
 }
 
 .slider-arrow:disabled {
@@ -519,7 +508,7 @@
     /* === Новости === */
 .news-section {
   background-color: #ffffff;
-  padding: 60px 20px;
+  padding: 0px 20px 40px 20px; /*Расстояние между другими элементами*/
   margin-top: 60px;
 }
 .news-section h2 {
@@ -540,7 +529,6 @@
   margin: 0 auto;
 }
 /* --- Настройка карточек новостей --- */
-/* Стили для даты в новостях */
 .news-date {
   position: absolute;
   top: 0px;
@@ -568,14 +556,12 @@
   position: relative;
 }
 
-/* Обновляем контейнер изображения */
 .news-image {
   overflow: hidden;
   border-radius: 0px;
   position: relative;
 }
 
-/* Убираем отступы у time в news-info */
 .news-info time {
   display: none;
 }
@@ -628,24 +614,24 @@
     /* 1 группа кнопок */
 .header-buttons-group1 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
-  gap: 2px; /* Отступы между кнопками */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 2px; 
   margin-left: 92px;
 }
 
 /* 2 группа кнопок */
 .header-buttons-group2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
-  gap: 2px; /* Отступы между кнопками */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px; 
   margin-left: -18px;
 }
 
 /* 3 группа кнопок */
 .header-buttons-group3 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
-  gap: 2px; /* Отступы между кнопками */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px; 
   margin-left: -18px;
 }
 
@@ -666,7 +652,6 @@
   /* НОВЫЙ ШРИФТ */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
-  /* Отступы между кнопками */
   margin-bottom: 0px;
 }
 
@@ -678,16 +663,16 @@
   transform: translateY(0);
 }
 
-/* Исправляем позиционирование для выпадающих меню*/
+
 .header-btn-dropdown {
   position: relative;
-  z-index: 2000; /* выше других элементов */
+  z-index: 2000; 
 }
 
 .header-btn-dropdown .dropdown-menu {
   position: absolute;
-  top: 100%; /* Меню появляется сразу под кнопкой */
-  left: 0;   /* Прижимаем к левому краю кнопки */
+  top: 100%; 
+  left: 0;  
   background: white;
   min-width: 230px;
   max-width: 300px;
@@ -697,7 +682,7 @@
   opacity: 0;
   visibility: hidden;
   z-index: 3000;
-  transform: none; /* Убираем любые трансформации */
+  transform: none;
   border-left: 5px solid #1565C0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
@@ -730,7 +715,6 @@
   color: #1565C0;
 }
 
-/* Убираем overflow для контейнеров */
 .header-buttons-group1,
 .header-buttons-group2,
 .header-buttons-group3 {
@@ -739,7 +723,6 @@
   z-index: 1004;
 }
 
-/* Увеличиваем z-index для кнопок */
 .header-btn {
   display: block;
   padding: 16px 9px;
@@ -756,7 +739,7 @@
   position: relative;
 }
 
-/* Убираем overflow для header-left */
+
 .header-left {
   background: #1565C0;
   display: flex;
@@ -764,7 +747,7 @@
   gap: 20px;
   flex: 1;
   overflow: visible !important;
-   z-index: 10010; /* Добавляем z-index */
+   z-index: 10010; 
 }
 
     /* ===== СОЦИАЛЬНЫЕ ИКОНКИ===== */
@@ -805,7 +788,6 @@
       background-color: #f8f8f8;
     }
 
-    /* Разделители между пунктами меню соцсетей */
 .social-dropdown .dropdown-item {
   border-bottom: 1px solid #f0f0f0;
 }
@@ -820,7 +802,7 @@
 .accessibility-switcher {
   position: absolute;
   right: 120px;
-  top: 0px; /* ← фиксированный отступ сверху */
+  top: 0px;
 }
 
 .accessibility-btn {
@@ -864,7 +846,6 @@
       border-left: 5px solid #1565C0;
     }
     
-    /* Показываем меню при наведении */
     .social-dropdown:hover .dropdown-menu {
       opacity: 1;
       visibility: visible;
@@ -934,7 +915,6 @@
       border-left: 5px solid #1565C0;
     }
     
-    /* Показываем меню при наведении на контейнер */
     .language-switcher:hover .lang-menu {
       opacity: 1;
       visibility: visible;
@@ -975,19 +955,18 @@
       flex: 1;
     }
     
-    /* === Активный язык в выпадающем меню — белый текст === */
+    /* === Активный язык в выпадающем меню=== */
 .language-switcher .dropdown-menu .dropdown-item.active,
 .language-switcher .lang-option.active {
-  color: #fff !important;              /* белый текст */
-  background-color: #1565C0 !important; /* фон как у основного меню */
+  color: #fff !important;
+  background-color: #1565C0 !important;
 }
 
 
-/* 2) разделитель между пунктами — точно как у меню кнопок */
 .social-dropdown .dropdown-item,
 .lang-menu .lang-option,
 .language-switcher .dropdown-item {
-  border-bottom: 1px solid #f0f0f0; /* тот же цвет/толщина, что и у кнопок */
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .social-dropdown .dropdown-item:last-child,
@@ -996,7 +975,6 @@
   border-bottom: none;
 }
 
-/* 3) hover — такой же эффект, чтобы поведение совпадало */
 .social-dropdown .dropdown-item:hover,
 .lang-menu .lang-option:hover,
 .language-switcher .dropdown-item:hover {
@@ -1004,7 +982,6 @@
   color: #1565C0;
 }
 
-/* === Убираем серый фон при наведении на иконки соцсетей === */
 .social-dropdown .social-icon:hover,
 .social-dropdown .social-icon:focus {
   background: none !important;
@@ -1078,13 +1055,11 @@
       background-color: #1565C0;
     }
 
-/*Убираем лишний отступ под кнопками "Студенту / Поступающему..." */ 
 .subnav ul { 
   margin-bottom: 0; 
   padding-bottom: 0; 
 }
-
-/*Убираем горизонтальный скролл и пустое место справа */ 
+ 
 html, body { 
   overflow-x: hidden; 
 }
@@ -1113,28 +1088,27 @@ html, body {
   width: 100%;
   height: 270px;
   object-fit: cover;
-  object-position: center top; /* 👈 смещаем фокус вверх */
-  border-radius: 0px;        /* 👈 фото само по себе закруглено */
+  object-position: center top;
+  border-radius: 0px;
   transition: transform 0.4s ease;
 }
 
-/* Эффект увеличения только картинки */
 .news-image:hover img {
   transform: scale(1.1);
 }
 
 .news-section h2 {
-  margin-left: 0;      /* убираем старый отступ, если был */
+  margin-left: 0;
   margin-right: 0;
-  text-align: left;    /* чтобы не было центрирования */
-  padding-left: 287px;  /* 👈 сдвиг правее */
+  text-align: left;
+  padding-left: 287px;
 }
 
 .specialties-section h2 {
   margin-left: 0;
   margin-right: 0;
   text-align: left;
-  padding-left: 280px; /* 👈 сдвиг правее */
+  padding-left: 280px;
 }
 
 /* ===== Нижняя часть без отступов и на одном фоне ===== */
@@ -1151,12 +1125,11 @@ html, body {
 .site-footer {
   background-color: #333;
   color: #fff;
-  padding: 50px 16px 30px; /* верх 50px, по бокам 16px, низ 30px */
+  padding: 50px 16px 30px; 
   text-align: center;
   margin-top: 0;
 }
 
-/* Контейнеры внутри центрируем */
 .contact-section .container,
 .site-footer .container {
   width: 90%;
@@ -1178,25 +1151,22 @@ html, body {
 
 /*Анонсы*/
 
-
-/* Заголовок секции анонсов */
 .announcements-title {
   font-size: 36px;
   font-weight: 700;
   font-family: 'Lato', sans-serif;
   color: #1565C0;
-  margin-bottom: 20px; /* Уменьшили отступ снизу */
-  margin-top: -10px; /* Поднимаем заголовок вверх */
+  margin-bottom: 20px; /* Отступ */
+  margin-top: -10px; /* Регулировка заголовка */
   text-align: left;
-  padding-left: 280px; /* Оригинальный отступ */
-  margin-left: 20px; /* Смещаем на 80px влево */
+  padding-left: 280px; /* Орижинал отступ */
+  margin-left: 20px; /* Тудымс сюдымс лево право*/
   max-width: 1200px;
 }
 
-/*Анонсы - исправленная версия*/
 .announcements-section {
   background-color: #ffffff;
-  padding: 40px 20px;
+  padding: 40px 20px; /*расстояние между элементами*/
 }
 
 .announcements-container {
@@ -1211,7 +1181,7 @@ html, body {
 /* Баннер анонсов */
 .announcements-left {
   flex: 0 0 400px;
-  transform: translateX(-0px); /* Смещаем баннер на 60px влево */
+  transform: translateX(-0px);
 }
 
 .announcement-banner {
@@ -1225,7 +1195,7 @@ html, body {
 .announcements-right {
   flex: 1;
   max-width: 500px;
-  transform: translateX(60px); /* Смещаем анонсы на 60px вправо */
+  transform: translateX(60px); /* Смещение анонсов */
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -1273,7 +1243,7 @@ html, body {
 .announcements-footer {
   text-align: right;
   margin-top: 20px;
-  margin-right: 400px; /* выравнивание с правой частью анонсов */
+  margin-right: 400px;
 }
 
 .announcements-all-btn {
@@ -1295,7 +1265,7 @@ html, body {
 
 .stats-section {
   background-color: #ffffff;
-  padding: 60px 20px;
+  padding: 50px 40px 40px 20px; /*Расстояние между другими элементами*/
   margin: 60px 0;
 }
 
@@ -1310,7 +1280,7 @@ html, body {
   font-weight: 700;
   color: #1565C0;
   margin-bottom: 40px;
-  margin-top: -40px; /* Поднимаем заголовок */
+  margin-top: -40px; /* ПоднЯТИЕ заголовка */
   text-align: center;
 }
 
@@ -1329,6 +1299,14 @@ html, body {
   color: white;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.stat-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .stat-content {
@@ -1336,6 +1314,8 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 15px;
+  position: relative;
+  min-height: 80px;
 }
 
 .stat-number {
@@ -1343,15 +1323,43 @@ html, body {
   font-weight: 700;
   line-height: 1.1;
   margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+  text-align: center;
+  flex: 1;
+}
+
+.stat-number.animated {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .stat-icon {
   width: 50px;
   height: 60px;
   object-fit: contain;
-  filter: brightness(0) invert(1); /* Делаем иконки белыми */
-  opacity: 0.9;
+  filter: brightness(0) invert(1);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s ease;
+  position: absolute;
+  right: 20px; 
+  top: 50%;
+  transform: translateY(-50%) scale(0.8);
 }
+
+.stat-item.visible .stat-icon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.stat-item:nth-child(1).visible .stat-icon { transition-delay: 0.3s; }
+.stat-item:nth-child(2).visible .stat-icon { transition-delay: 0.4s; }
+.stat-item:nth-child(3).visible .stat-icon { transition-delay: 0.5s; }
+.stat-item:nth-child(4).visible .stat-icon { transition-delay: 0.6s; }
+.stat-item:nth-child(5).visible .stat-icon { transition-delay: 0.7s; }
+.stat-item:nth-child(6).visible .stat-icon { transition-delay: 0.8s; }
 
 .stat-label {
   font-size: 16px;
@@ -1360,7 +1368,6 @@ html, body {
   margin-top: 10px;
 }
 
-/* Цвета для каждой карточки */
 .stat-item:nth-child(1) {
   background-color: #1565C0;
 }
@@ -1385,72 +1392,6 @@ html, body {
   background-color: #0D47A1;
 }
 
-/* Адаптивность */
-@media (max-width: 1024px) {
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    max-width: 400px;
-  }
-  
-  .stats-title {
-    font-size: 28px;
-  }
-  
-  .stat-number {
-    font-size: 42px;
-  }
-  
-  .stat-item {
-    padding: 25px 15px;
-  }
-  
-  .stat-icon {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .stats-section {
-    padding: 40px 15px;
-  }
-  
-  .stats-title {
-    font-size: 24px;
-    margin-bottom: 30px;
-  }
-  
-  .stat-number {
-    font-size: 36px;
-  }
-  
-  .stat-label {
-    font-size: 14px;
-  }
-  
-  .stat-item {
-    padding: 20px 15px;
-  }
-  
-  .stat-icon {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .stat-content {
-    gap: 10px;
-  }
-}
-
-/* Стили для контактов с иконками */
 .contact-item {
   display: flex;
   align-items: center;
@@ -1462,7 +1403,7 @@ html, body {
   width: 20px;
   height: 20px;
   object-fit: contain;
-  filter: brightness(0) invert(1); /* Делаем иконки белыми */
+  filter: brightness(0) invert(1);
 }
 
 .contact-section address {
@@ -1476,7 +1417,6 @@ html, body {
   font-size: 24px;
 }
 
-/* Добавляем стили для анимации чисел */
 .stat-number {
   font-size: 48px;
   font-weight: 700;
@@ -1509,7 +1449,6 @@ html, body {
   transform: translateY(0);
 }
 
-/* Задержки для последовательного появления */
 .stat-item:nth-child(1) { transition-delay: 0.1s; }
 .stat-item:nth-child(2) { transition-delay: 0.2s; }
 .stat-item:nth-child(3) { transition-delay: 0.3s; }
@@ -1517,7 +1456,6 @@ html, body {
 .stat-item:nth-child(5) { transition-delay: 0.5s; }
 .stat-item:nth-child(6) { transition-delay: 0.6s; }
 
-/* Анимации для появления элементов при скролле */
 .fade-in-up {
   opacity: 0;
   transform: translateY(50px);
@@ -1542,13 +1480,11 @@ html, body {
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Класс для видимых элементов */
 .visible {
   opacity: 1;
   transform: translate(0) scale(1);
 }
 
-/* Задержки для последовательного появления */
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
@@ -1556,7 +1492,6 @@ html, body {
 .delay-5 { transition-delay: 0.5s; }
 .delay-6 { transition-delay: 0.6s; }
 
-/* Специфичные стили для секций */
 .specialties-section h2,
 .news-section h2,
 .announcements-title,
@@ -1574,7 +1509,6 @@ html, body {
   transform: translateY(0);
 }
 
-/* Анимация для карточек новостей */
 .news-card {
   opacity: 0;
   transform: translateY(40px);
@@ -1586,7 +1520,6 @@ html, body {
   transform: translateY(0);
 }
 
-/* Анимация для анонсов */
 .announcement-card {
   opacity: 0;
   transform: translateX(40px);
@@ -1598,7 +1531,6 @@ html, body {
   transform: translateX(0);
 }
 
-/* Анимация для баннера анонсов */
 .announcement-banner {
   opacity: 0;
   transform: translateX(-40px);
@@ -1610,7 +1542,6 @@ html, body {
   transform: translateX(0);
 }
 
-/* Анимация для специальностей */
 .specialty-item {
   opacity: 0;
   transform: translateY(30px);
@@ -1626,7 +1557,7 @@ html, body {
 </head>
 <body>
 
-  <!-- ======== МЕНЮ СОЦИАЛЬНЫХ СЕТЕЙ (чистые иконки, меню по центру, с разделителями) ======== -->
+  <!-- ======== МЕНЮ СОЦИАЛЬНЫХ СЕТЕЙ ======== -->
 <div class="social-menu">
   <!-- VK -->
   <div class="social-dropdown">
@@ -1787,7 +1718,7 @@ html, body {
       </div>
     </div>
     
-    <!-- ВЫНОСИМ КНОПКИ И ПРАВЫЙ БЛОК ОТДЕЛЬНО -->
+    <!-- ВЫНОСИМ КНОПКИ И ПРАВОГО БЛОКА ОТДЕЛЬНА ДРУК ОТ ДРУГА-->
   <div class="header-right-content">
 
       <div class="header-buttons-wrapper">
@@ -1856,7 +1787,7 @@ html, body {
   <div class="banner-right"></div>
 </section>
 
-<!-- ======== НОВОЕ СЕРОЕ МЕНЮ ======== -->
+<!-- ========СЕРОЕ МЕНЮ ======== -->
 <div class="subnav bottom-menu">
   <ul>
     <li><a href="#">Студенту</a></li>
@@ -1868,7 +1799,7 @@ html, body {
   </ul>
 </div>
 
-<!-- ======== СЕКЦИЯ С СПЕЦИАЛЬНОСТЯМИ ======== -->
+<!-- ======== СПЕЦИАЛЬНОСТИ ======== -->
 <section class="specialties-section">
   <h2>Специальности</h2>
   <div class="specialties-slider-container">
@@ -2110,8 +2041,8 @@ html, body {
             <time class="news-date">20.04.2025</time>
           </div>
           <div class="news-info">
-            <h3 class="news-title">Студенческая олимпиада</h3>
-            <p class="news-excerpt">Наши студенты заняли призовые места в региональной олимпиаде.</p>
+            <h3 class="news-title">4</h3>
+            <p class="news-excerpt">4</p>
             <a href="#" class="news-link">Подробнее</a>
           </div>
         </article>
@@ -2122,8 +2053,8 @@ html, body {
             <time class="news-date">10.04.2025</time>
           </div>
           <div class="news-info">
-            <h3 class="news-title">Новые лаборатории</h3>
-            <p class="news-excerpt">В колледже открыты новые современные лаборатории для практических занятий.</p>
+            <h3 class="news-title">5</h3>
+            <p class="news-excerpt">5</p>
             <a href="#" class="news-link">Подробнее</a>
           </div>
         </article>
@@ -2134,8 +2065,8 @@ html, body {
             <time class="news-date">05.04.2025</time>
           </div>
           <div class="news-info">
-            <h3 class="news-title">Мастер-класс от IT-специалистов</h3>
-            <p class="news-excerpt">Приглашенные эксперты провели мастер-класс по современным технологиям.</p>
+            <h3 class="news-title">6</h3>
+            <p class="news-excerpt">6</p>
             <a href="#" class="news-link">Подробнее</a>
           </div>
         </article>
@@ -2269,7 +2200,6 @@ html, body {
 
     // ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ЭЛЕМЕНТОВ ПРИ СКРОЛЛЕ =====
 function initScrollAnimations() {
-  // Элементы для анимации
   const animatedElements = document.querySelectorAll(
     '.specialties-section h2, ' +
     '.news-section h2, ' +
@@ -2282,22 +2212,19 @@ function initScrollAnimations() {
     '.stat-item'
   );
 
-  // Настройки Observer
   const options = {
     root: null,
-    rootMargin: '-10% 0px -10% 0px', // Анимация запускается когда элемент в зоне видимости
+    rootMargin: '-10% 0px -10% 0px',
     threshold: 0.1
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Добавляем класс visible с небольшой задержкой для плавности
         setTimeout(() => {
           entry.target.classList.add('visible');
         }, 100);
         
-        // Для статистики запускаем анимацию чисел
         if (entry.target.classList.contains('stat-item')) {
           const statNumber = entry.target.querySelector('.stat-number');
           if (statNumber && !statNumber.classList.contains('animated')) {
@@ -2310,20 +2237,17 @@ function initScrollAnimations() {
             }
           }
         }
-        
-        // Отключаем наблюдение после появления
+
         observer.unobserve(entry.target);
       }
     });
   }, options);
 
-  // Начинаем наблюдение за всеми элементами
   animatedElements.forEach(element => {
     observer.observe(element);
   });
 }
 
-// Улучшенная функция анимации чисел (уже есть в коде, но обновим её)
 function animateNumber(element, finalValue) {
   if (element.classList.contains('animated')) return;
   
@@ -2333,8 +2257,7 @@ function animateNumber(element, finalValue) {
   let frame = 0;
   
   let startValue = 0;
-  
-  // Сразу добавляем класс анимации
+
   element.classList.add('animated');
   
   const counter = setInterval(() => {
@@ -2353,17 +2276,13 @@ function animateNumber(element, finalValue) {
   }, frameDuration);
 }
 
-// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
   
-  // Инициализируем анимации при скролле
   initScrollAnimations();
   
-  // Также инициализируем анимацию чисел (на всякий случай)
   animateNumbers();
 });
 
-// Обновленная функция анимации чисел для совместимости
 function animateNumbers() {
   const statsSection = document.querySelector('.stats-section');
   if (!statsSection) return;
@@ -2371,7 +2290,6 @@ function animateNumbers() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Анимация чисел будет запускаться через initScrollAnimations
         observer.unobserve(entry.target);
       }
     });
@@ -2388,13 +2306,10 @@ function animateNumbers() {
   
   if (!statsSection) return;
   
-  // Финальные значения чисел
   const finalValues = [3000, 13, 245, 155, 655, 546];
   
-  // Флаг для отслеживания, была ли уже запущена анимация
   let animationStarted = false;
   
-  // Настройки анимации
   const options = {
     root: null,
     rootMargin: '0px',
@@ -2406,14 +2321,12 @@ function animateNumbers() {
       if (entry.isIntersecting && !animationStarted) {
         animationStarted = true;
         
-        // Анимируем появление карточек
         statItems.forEach((item, index) => {
           setTimeout(() => {
             item.classList.add('visible');
           }, index * 100);
         });
         
-        // Анимируем числа
         statNumbers.forEach((numberElement, index) => {
           setTimeout(() => {
             animateNumber(numberElement, finalValues[index]);
@@ -2428,38 +2341,31 @@ function animateNumbers() {
   observer.observe(statsSection);
 }
 
-// Улучшенная функция анимации числа
+
 function animateNumber(element, finalValue) {
   const duration = 2000; // 2 секунды
   const frameDuration = 1000 / 60; // 60 FPS
   const totalFrames = Math.round(duration / frameDuration);
   let frame = 0;
   
-  // Определяем начальное значение
   let startValue = 0;
   
-  // Останавливаем предыдущую анимацию, если она была
   if (element.animationId) {
     clearInterval(element.animationId);
   }
   
-  // Сразу добавляем класс анимации для плавного появления
   element.classList.add('animated');
   
   const counter = setInterval(() => {
     frame++;
     
-    // Вычисляем прогресс (с easing)
     const progress = frame / totalFrames;
     const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-    
-    // Вычисляем текущее значение
+
     const currentValue = Math.round(startValue + (finalValue - startValue) * easeOutQuart);
     
-    // Обновляем текст
     element.textContent = formatNumber(currentValue);
     
-    // Завершаем анимацию
     if (frame === totalFrames) {
       clearInterval(counter);
       element.textContent = formatNumber(finalValue);
@@ -2467,19 +2373,19 @@ function animateNumber(element, finalValue) {
     }
   }, frameDuration);
   
-  // Сохраняем ID анимации для возможности остановки
+
   element.animationId = counter;
 }
 
-// Функция для форматирования чисел (добавляет разделители тысяч)
+
 function formatNumber(num) {
   return num.toLocaleString();
 }
 
-// Инициализация при загрузке страницы
+
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Добавляем вызов функции анимации чисел
+
   animateNumbers();
 });
 
@@ -2498,7 +2404,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentIndex = 0;
   let itemsPerView = 3;
   
-  // Определяем количество элементов в зависимости от ширины экрана
+
   function updateItemsPerView() {
     if (window.innerWidth <= 768) {
       itemsPerView = 1;
@@ -2510,7 +2416,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateSlider();
   }
   
-  // Создаем точки-индикаторы
+
   function createDots() {
     dotsContainer.innerHTML = '';
     const dotsCount = Math.ceil(itemsCount / itemsPerView);
@@ -2529,31 +2435,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Переход к определенному слайду
+
   function goToSlide(index) {
     const maxIndex = Math.ceil(itemsCount / itemsPerView) - 1;
     currentIndex = Math.max(0, Math.min(index, maxIndex));
     updateSlider();
   }
   
-  // Обновление слайдера
+
   function updateSlider() {
-    const itemWidth = items[0].offsetWidth + 20; // width + gap
+    const itemWidth = items[0].offsetWidth + 20; 
     const translateX = -currentIndex * itemWidth * itemsPerView;
     slider.style.transform = `translateX(${translateX}px)`;
     
-    // Обновляем состояние кнопок
+
     prevButton.disabled = currentIndex === 0;
     nextButton.disabled = currentIndex >= Math.ceil(itemsCount / itemsPerView) - 1;
     
-    // Обновляем точки
+
     const dots = document.querySelectorAll('.slider-dot');
     dots.forEach((dot, index) => {
       dot.classList.toggle('active', index === currentIndex);
     });
   }
   
-  // Следующий слайд
+
   function nextSlide() {
     const maxIndex = Math.ceil(itemsCount / itemsPerView) - 1;
     if (currentIndex < maxIndex) {
@@ -2562,7 +2468,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Предыдущий слайд
+
   function prevSlide() {
     if (currentIndex > 0) {
       currentIndex--;
@@ -2570,23 +2476,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Инициализация
+
   updateItemsPerView();
   createDots();
   updateSlider();
   
-  // Обработчики событий
+
   prevButton.addEventListener('click', prevSlide);
   nextButton.addEventListener('click', nextSlide);
   
-  // Обработка изменения размера окна
+
   window.addEventListener('resize', () => {
     updateItemsPerView();
     createDots();
     updateSlider();
   });
   
-  // Добавляем поддержку клавиатуры
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') prevSlide();
     if (e.key === 'ArrowRight') nextSlide();
@@ -2599,12 +2505,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const newsPrevBtn = document.getElementById('news-prev');
         const newsNextBtn = document.getElementById('news-next');
         const newsDotsContainer = document.getElementById('news-dots');
-        const newsItems = document.querySelectorAll('.news-card'); // <-- классы карточек в HTML = news-card
+        const newsItems = document.querySelectorAll('.news-card'); 
         if(!newsSlider || newsItems.length === 0) return;
 
         let newsCurrentIndex = 0;
         let newsPerView = 3;
-        const GAP = 30; // учитываем gap в CSS
+        const GAP = 30; 
 
         function updateNewsPerView() {
           if (window.innerWidth <= 700) newsPerView = 1;
@@ -2662,7 +2568,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const oldPerView = newsPerView;
           updateNewsPerView();
           if (oldPerView !== newsPerView) {
-            // при смене perView пересоздаем точки и корректируем индекс
+
             createNewsDots();
             updateNewsSlider();
           } else {
@@ -2670,10 +2576,10 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
 
-        // Инициализация
+
         updateNewsPerView();
         createNewsDots();
-        // небольшой таймаут, чтобы корректно получить offsetWidth после рендеринга
+
         setTimeout(updateNewsSlider, 50);
       })();
 
@@ -2687,21 +2593,17 @@ document.querySelectorAll('.language-switcher').forEach(switcher => {
     option.addEventListener('click', function () {
       const lang = this.getAttribute('data-lang');
 
-      // Обновляем текст кнопки
       currentLangBtn.textContent = lang.toUpperCase();
 
-      // Обновляем активный класс
       langOptions.forEach(opt => opt.classList.remove('active'));
       this.classList.add('active');
 
-      // Здесь можно добавить логику смены языка на сайте
       console.log(`Язык изменен на: ${lang}`);
     });
   });
 });
 
       
-      // ===== ТЕКУЩИЙ ГОД В ФУТЕРЕ =====
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
     });

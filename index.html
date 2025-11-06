@@ -15,10 +15,10 @@
     body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:#111;background:var(--bg);line-height:1.5}
     .container{max-width:var(--maxw);margin:30px auto;padding:0 16px}
 
-    
-    /*═════════════════ ШАПКА ═════════════════*/
-    .site-header {
-      background: linear-gradient(to right, #1565C0 36%, #000000 64%);
+/*═════════════════ ШАПКА ═════════════════*/
+
+     .site-header {
+      background: linear-gradient(to right, #1565C0 100%);
       border-bottom: none;
       display: flex;
       align-items: center;
@@ -64,23 +64,32 @@
     
     .site-footer{background:#222;color:#fff;padding:18px 16px;text-align:center;margin-top:30px}
     .footer-links a{color:#fff;text-decoration:underline;font-size:14px}
-    
-    @media (max-width:900px){
-      .cards{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:700px){
-      .site-header{padding:10px}
-      .nav-toggle{display:inline-block}
-      .nav-list{display:none;position:absolute;right:8px;top:64px;background:var(--card-bg);flex-direction:column;padding:10px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
-      .nav-list.show{display:flex}
-      .cards{grid-template-columns:1fr}
-      .hero{padding:50px 12px}
-      .hero h1{font-size:22px}
-      .org-name{font-size:15px}
-    }
-    
-    /* Меню с кнопками */
-    .subnav ul {
+
+ /* Контейнер всей шапки: фиксированная ширина */
+.site-header {
+  width: 1920px;
+  max-width: 1920px;    
+  min-width: 1920px;    
+  margin: 0 auto;
+  overflow: visible;    
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Левая часть с логотипом */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #1565C0;
+  flex-shrink: 0;
+}
+
+/*═════════════════ КНОПКИ С ИКОНКАМИ ═════════════════*/
+
+     .subnav ul {
       display: flex;
       justify-content: center;
       gap: 40px;
@@ -130,8 +139,15 @@
     .subnav a:first-child {
       text-align: center;
     }
-    
-/*═════════════════ Баннер с ракетой ═════════════════*/
+
+    /*лишний отступ под кнопками "Студенту / Поступающему" */ 
+.subnav ul { 
+  margin-bottom: 0; 
+  padding-bottom: 0; 
+}
+
+/*═════════════════ БАННЕР С РАКЕТОЙ ═════════════════*/
+
     .college-banner {
       display: flex;
       width: 100%;
@@ -169,9 +185,10 @@
       font-size: 30px;
       font-weight: 400;
     }
-    
-    /*═════════════════ Кнопки над баннером с ракетой ═════════════════*/
-.subnav.top-menu {
+
+/*═════════════════ КНОПКИ НАД БАННЕРОМ С РАКЕТОЙ ═════════════════*/
+
+    .subnav.top-menu {
   width: 100%;
   background-color: #f2f2f2;  /* Цвет фона меню с кнопками */
   border-top: none;
@@ -205,8 +222,6 @@
   color: #000;
 }
 
-
-/*═════════════════ Кнопки над баннером с ракетой ═════════════════*/
 .subnav.bottom-menu {
   width: 100%;
   background-color: #ffffff;  /* Цвет фона меню с кнопками */
@@ -242,11 +257,13 @@
   color: #000000;
 }
 
-/*═════════════════ Блок со специальностями ═════════════════*/
+/*═════════════════ CSS СПЕЦИАЛЬНОСТЕЙ ═════════════════*/
+
 .specialties-section {
   background-color: #333; /*Цвето фона*/
   padding: 40px 20px;
   text-align: center;
+  width: 100vw;
   position: relative;
   z-index: 1;
 }
@@ -339,7 +356,7 @@
   opacity: 1;
 }
 
-/* === Название профессии ниче не трогая=== */
+/*Название профессии ниче не трогая*/
 .image-container .profession-name {
   position: absolute;
   bottom: 20px;
@@ -359,6 +376,7 @@
   paint-order: stroke fill;
 }
 
+/*Подьем профессии при наводке*/
 .image-container:hover .profession-name {
   bottom: auto;
   top: 20px;
@@ -366,6 +384,7 @@
   transform: translateY(0);
 }
 
+/*Оверлей с описание профессии*/
 .image-container .overlay {
   position: absolute;
   bottom: 0;
@@ -387,7 +406,7 @@
   transform: translateY(0);
 }
 
-/* === Текст описания === */
+/*Текст описания*/
 .image-container .overlay p {
   color: #fff;
   margin: 0;
@@ -398,10 +417,10 @@
   transition: none;
 }
 
-/* === Ссылка Подробнее о специальности === */
+/*Ссылка "Подробнее о специальности"*/
 .specialty-link {
   display: inline-block;
-  color: #42A5F5 !important; 
+  color: #42A5F5 !important;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
@@ -416,11 +435,8 @@
   border-bottom: 1px solid #42A5F5;
 }
 
-.image-container .overlay p {
-  opacity: 1 !important;
-  transform: none !important;
-}
 
+/* Кнопки навигации слайдера */
 .slider-arrow {
   position: absolute;
   top: 50%;
@@ -459,12 +475,10 @@
   opacity: 0.6;
 }
 
-/* === При наведении плавно появляется === */
 .image-container:hover .overlay p {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 /* Кнопки навигации слайдера */
 .slider-arrow {
@@ -505,7 +519,19 @@
   opacity: 0.6;
 }
 
-    /* === Новости === */
+/* ===== Фиксированный фон под специа ===== */
+.specialties-bg {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 757px;
+  top: 758px;
+  background: #333; 
+  z-index: 0;
+}
+
+/*═════════════════ НОВОСТИ ═════════════════*/
+
 .news-section {
   background-color: #ffffff;
   padding: 0px 20px 40px 20px; /*Расстояние между другими элементами*/
@@ -542,7 +568,6 @@
   z-index: 2;
 }
 
-/* Обновляем структуру карточки для позиционирования */
 .news-card {
   flex: 0 0 calc(33.333% - 20px);
   background: #fff;
@@ -610,28 +635,29 @@
   .news-grid { grid-template-columns: 1fr; }
 }
 
+/*═════════════════ КНОПКИ В ШАПКЕ ═════════════════*/
 
-    /* 1 группа кнопок */
+/* 1 группа кнопок */
 .header-buttons-group1 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 2px; 
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
   margin-left: 92px;
 }
 
 /* 2 группа кнопок */
 .header-buttons-group2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2px; 
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
   margin-left: -18px;
 }
 
 /* 3 группа кнопок */
 .header-buttons-group3 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2px; 
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
   margin-left: -18px;
 }
 
@@ -652,10 +678,11 @@
   /* НОВЫЙ ШРИФТ */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
+  /* Отступы между кнопками */
   margin-bottom: 0px;
 }
 
-/* 1. Подсветка кнопок при наведении */
+/*Подсветка кнопок при наведении */
 .subnav a:hover,
 .header-btn:hover {
   background-color: #333;
@@ -663,16 +690,15 @@
   transform: translateY(0);
 }
 
-
 .header-btn-dropdown {
   position: relative;
-  z-index: 2000; 
+  z-index: 2000;
 }
 
 .header-btn-dropdown .dropdown-menu {
   position: absolute;
-  top: 100%; 
-  left: 0;  
+  top: 100%;
+  left: 0;
   background: white;
   min-width: 230px;
   max-width: 300px;
@@ -739,7 +765,6 @@
   position: relative;
 }
 
-
 .header-left {
   background: #1565C0;
   display: flex;
@@ -747,10 +772,38 @@
   gap: 20px;
   flex: 1;
   overflow: visible !important;
-   z-index: 10010; 
+   z-index: 10010;
 }
 
-    /* ===== СОЦИАЛЬНЫЕ ИКОНКИ===== */
+.header-buttons-group1,
+.header-buttons-group2,
+.header-buttons-group3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+/* Кнопки */
+.header-btn {
+  white-space: nowrap;   /* запрет переноса текста */
+  flex-shrink: 0;        /* кнопка никогда не сжимается */
+}
+
+/* ===== Фиксированный фон под меню ===== */
+.menu-bg-fixed {
+  position: absolute;
+  top: 00px;
+  right: 123px;
+  height: 99px;
+  width: 1117px;
+  background: #ececec;
+  z-index: -1;
+}
+
+
+/*═════════════════ СОЦИАЛЬНЫЕ ИКОНКИ  ═════════════════*/
+
     .social-menu {
       display: flex;
       justify-content: center;
@@ -796,39 +849,6 @@
   border-bottom: none;
 }
 
-
-
-/* Стили для кнопки доступности */
-.accessibility-switcher {
-  position: absolute;
-  right: 120px;
-  top: 0px;
-}
-
-.accessibility-btn {
-  background-color: #f2f2f2;
-  border: none;
-  padding: 7px;
-  cursor: pointer;
-  border-radius: 0px;
-  transition: background-color 0.2s ease;
-}
-
-.accessibility-btn img {
-  width: 25px;
-  height: 24px;
-  transition: transform 0.2s ease;
-}
-
-.accessibility-btn:hover img {
-  transform: scale(1.1);
-}
-
-.accessibility-btn:hover {
-  background-color: #1565C0;
-}
-
-    /* Выпадающее меню */
     .dropdown-menu {
       position: absolute;
       top: 100%;
@@ -851,8 +871,7 @@
       visibility: visible;
       margin-top: 5px;
     }
-    
-    /* Элементы выпадающего меню */
+
     .dropdown-item {
       display: block;
       padding: 8px 12px;
@@ -863,11 +882,43 @@
       transition: all 0.2s ease;
       border: none;
     }
-    
-    /* Стили для контейнера кнопки смены языка */
+
+    /*═════════════════ КНОПКА ДОСТУПНОСТИ ═════════════════*/
+
+.accessibility-switcher {
+  position: absolute;
+  right: 30px;
+  top: 0px; 
+}
+
+.accessibility-btn {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 0px;
+  transition: background-color 0.2s ease;
+}
+
+.accessibility-btn img {
+  width: 25px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.accessibility-btn:hover img {
+  transform: scale(1.1);
+}
+
+.accessibility-btn:hover {
+  background-color: #1565C0;
+}
+
+/*═════════════════ КНОПКА СМЕНЫ ЯЗЫКА ═════════════════*/
+
     .language-switcher {
       position: absolute;
-      right: 0;
+      right: 500px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 1011;
@@ -955,13 +1006,31 @@
       flex: 1;
     }
     
-    /* === Активный язык в выпадающем меню=== */
+/*Активный язык в выпадающем меню — белый текст*/
 .language-switcher .dropdown-menu .dropdown-item.active,
 .language-switcher .lang-option.active {
   color: #fff !important;
   background-color: #1565C0 !important;
 }
 
+/* Кнопка языка всегда справа */
+.language-switcher {
+  position: absolute;
+  right: 0;
+  top:50%;
+  transform: translateY(-50%);
+  flex-shrink: 0;
+}
+
+.language-switcher {
+  position: absolute;
+  right: 23px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5000;
+}
+
+/*═════════════════ ОБЩИЙ CSS ДЛЯ КНОПКИ СМЕНЫ ЯЗЫКА И СОЦИАЛЬНЫХ ИКОНОК ═════════════════*/
 
 .social-dropdown .dropdown-item,
 .lang-menu .lang-option,
@@ -987,33 +1056,10 @@
   background: none !important;
   box-shadow: none !important;
 }
-    
-    /* ===== БОЛЬШАЯ НЕКЛИКАБЕЛЬНАЯ КНОПКА-ФОН ===== */
-    .header-overlay-button {
-      position: absolute;
-      top: 0;
-      left: 680px;
-      width: 100%;
-      height: 100%;
-      background-color: #ececec;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #000000;
-      font-weight: 900;
-      font-size: 20px;
-      cursor: not-allowed;
-      z-index: 1;
-      pointer-events: none;
-      opacity: 1;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      border: none;
-      transform-origin: center center;
-      transition: transform 0.3s ease;
-    }
-    
-    .slider-dots {
+
+/*═════════════════ CSS СЛАЙДОВ ═════════════════*/
+
+.slider-dots {
       display: flex;
       justify-content: center;
       margin-top: 20px;
@@ -1055,14 +1101,12 @@
       background-color: #1565C0;
     }
 
-.subnav ul { 
-  margin-bottom: 0; 
-  padding-bottom: 0; 
-}
- 
+    /*Убираем горизонтальный скролл и пустое место справа */ 
 html, body { 
   overflow-x: hidden; 
 }
+
+/*═════════════════ НОВОСТИ ═════════════════*/
 
 .news-slider-container {
   display: flex;
@@ -1093,6 +1137,7 @@ html, body {
   transition: transform 0.4s ease;
 }
 
+/* Эффект увеличения только картинки */
 .news-image:hover img {
   transform: scale(1.1);
 }
@@ -1111,21 +1156,12 @@ html, body {
   padding-left: 280px;
 }
 
-/* ===== Нижняя часть без отступов и на одном фоне ===== */
-.contact-section,
-.site-footer {
-  background-color: #333; /* общий фон */
-  color: #f1f1f1;
-  width: 100%;
-  margin: 30;
-  padding: 50px 0;
-  border: none;
-}
+/*═════════════════ CSS ПОДВАЛА ═════════════════*/
 
 .site-footer {
   background-color: #333;
   color: #fff;
-  padding: 50px 16px 30px; 
+  padding: 50px 16px 30px;
   text-align: center;
   margin-top: 0;
 }
@@ -1149,15 +1185,40 @@ html, body {
   text-decoration: underline;
 }
 
-/*Анонсы*/
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.contact-section address {
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.contact-section h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/*═════════════════ АНОНСЫ ═════════════════*/
 
 .announcements-title {
   font-size: 36px;
   font-weight: 700;
   font-family: 'Lato', sans-serif;
   color: #1565C0;
-  margin-bottom: 20px; /* Отступ */
-  margin-top: -10px; /* Регулировка заголовка */
+  margin-bottom: 20px;
+  margin-top: -10px;
   text-align: left;
   padding-left: 280px; /* Орижинал отступ */
   margin-left: 20px; /* Тудымс сюдымс лево право*/
@@ -1195,7 +1256,7 @@ html, body {
 .announcements-right {
   flex: 1;
   max-width: 500px;
-  transform: translateX(60px); /* Смещение анонсов */
+  transform: translateX(60px);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -1261,7 +1322,7 @@ html, body {
   background-color: #0b3c85;
 }
 
-/*Аэрокос в цифрах*/
+/*═════════════════ АЭРОКОС В ЧИСЛАХ CSS ═════════════════*/
 
 .stats-section {
   background-color: #ffffff;
@@ -1392,31 +1453,6 @@ html, body {
   background-color: #0D47A1;
 }
 
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.contact-icon {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
-.contact-section address {
-  font-style: normal;
-  line-height: 1.6;
-}
-
-.contact-section h2 {
-  color: #ffffff;
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
 .stat-number {
   font-size: 48px;
   font-weight: 700;
@@ -1492,6 +1528,8 @@ html, body {
 .delay-5 { transition-delay: 0.5s; }
 .delay-6 { transition-delay: 0.6s; }
 
+/*═════════════════ CSS ИСПРАВЛЕНИЯ СПЕЦИАЛЬНОСТЕЙ НОВОСТЕЙ И АНОНСОВ С ПОЗИЦИОНИРОВАНИЕМ ═════════════════*/
+
 .specialties-section h2,
 .news-section h2,
 .announcements-title,
@@ -1553,13 +1591,49 @@ html, body {
   transform: translateY(0);
 }
 
+html, body {
+  background: #ffffff !important;
+}
+
+.blue-bg-under {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 139px; /* высота голубой области */
+  width: 100%;
+  background: #1565C0;
+  z-index: 0;
+}
+
+/* Удаляем серую огромную кнопку-фон */
+.header-overlay-button {
+  display: none !important;
+}
+
+/* Вся средняя зона */
+.header-right-content,
+.header-buttons-wrapper {
+  flex-shrink: 0;
+}
+
+/* Отклю резиновую верстку для секций */
+.specialties-section,
+.news-section,
+.announcements-section {
+  width: 1920px !important;
+  max-width: 1920px !important;
+  min-width: 1920px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+}
+
   </style>
 </head>
 <body>
 
-  <!-- ======== МЕНЮ СОЦИАЛЬНЫХ СЕТЕЙ ======== -->
+<!-- ======== МЕНЮ СОЦИАЛЬНЫХ СЕТЕЙ ======== -->
 <div class="social-menu">
-  <!-- VK -->
+  <!-- ВК ЕКАТЕРИНА МИЗУЛИНА -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
       <img src="top-line\vk-icon.png" alt="VK">
@@ -1572,7 +1646,7 @@ html, body {
     </div>
   </div>
 
-  <!-- YouTube -->
+  <!-- ЮТ -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
       <img src="top-line\yt-icon.png" alt="YouTube">
@@ -1583,7 +1657,7 @@ html, body {
     </div>
   </div>
 
-  <!-- Telegram -->
+  <!-- ТГ -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
       <img src="top-line\telegram-icon.png" alt="Telegram">
@@ -1594,7 +1668,7 @@ html, body {
     </div>
   </div>
 
-<!-- Кнопка для слабовидящих -->
+<!-- ======== КНОПКА ДОСТУПНОСТИ ======== -->
   <div class="accessibility-switcher">
     <button class="accessibility-btn" aria-label="Режим для слабовидящих">
       <img src="top-line\eye.png" alt="Режим для слабовидящих">
@@ -1603,6 +1677,7 @@ html, body {
 </div>
 
   <!-- ======== ШАПКА ======== -->
+   <div class="blue-bg-under"></div>
 <header class="site-header">
   <div class="header-left">
     <img src="first-banner-and-head\logo.png" alt="Логотип" class="logo">
@@ -1698,8 +1773,9 @@ html, body {
   </div>
 </div>
 
+<div class="menu-bg-fixed"></div>
 
-    <!-- Кнопка смены языка -->
+<!-- ======== КНОПКА СМЕНЫ ЯЗЫКА ======== -->
     <div class="language-switcher">
       <button class="header-btn language-btn">RU</button>
       <div class="lang-menu">
@@ -1718,26 +1794,18 @@ html, body {
       </div>
     </div>
     
-    <!-- ВЫНОСИМ КНОПКИ И ПРАВОГО БЛОКА ОТДЕЛЬНА ДРУК ОТ ДРУГА-->
-  <div class="header-right-content">
-
-      <div class="header-buttons-wrapper">
-  <!-- БОЛЬШАЯ НЕКЛИКАБЕЛЬНАЯ КНОПКА -->
-  <div class="header-overlay-button">
-  </div>
-
-      <!-- БЛОК СПРАВА ОТ КНОПОК -->
+<!-- ======== БЛОК СПРАВА ОТ КНОПОК ======== -->
       <div class="header-right-block"></div>
     </div>
   </div>
 </header>
 
-  <!-- ======== СЕРАЯ ПАНЕЛЬ МЕНЮ ======== -->
+  <!-- ======== КНОПКИ НАД БАННЕРОМ С РАКЕТОЙ ======== -->
    
 <div class="subnav top-menu">
   <ul>
     <li>
-      <a href="#">
+      <a href="Кнопки с иконками/Личный кабинет/личный кабинет.html">
         <img src="button-icons\icon1.png" alt="Личный кабинет" class="menu-icon">
         Личный кабинет
       </a>
@@ -1781,13 +1849,13 @@ html, body {
   </ul>
 </div>
 
-<!-- ======== БАННЕР ======== -->
+<!-- ======== БАННЕР С РАКЕТОЙ ======== -->
 <section class="college-banner">
   <div class="banner-left"></div>
   <div class="banner-right"></div>
 </section>
 
-<!-- ========СЕРОЕ МЕНЮ ======== -->
+<!-- ======== КНОПКИ ПОД БАННЕРОМ С РАКЕТОЙ ======== -->
 <div class="subnav bottom-menu">
   <ul>
     <li><a href="#">Студенту</a></li>
@@ -1809,7 +1877,8 @@ html, body {
     
     <div class="specialties-slider-wrapper">
       <div class="specialties-slider" id="specialties-slider">
-        <!-- Специальность 1 -->
+
+<!-- Специальность 1 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_1.jpg" alt="Сетевое и системное администрирование">
@@ -1821,7 +1890,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 2 -->
+<!-- Специальность 2 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_2.jpg" alt="Информационные системы и программирование">
@@ -1833,7 +1902,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 3 -->
+<!-- Специальность 3 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_3.jpg" alt="Обеспечение информационной безопасности телекоммуникационных систем">
@@ -1846,7 +1915,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 4 -->
+<!-- Специальность 4 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_4.jpg" alt="Обеспечение информационной безопасности автоматизированных систем">
@@ -1859,7 +1928,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 5 -->
+<!-- Специальность 5 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_5.jpg" alt="Эксплуатация и обслуживание электрического и электромеханического оборудования">
@@ -1871,7 +1940,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 6 -->
+<!-- Специальность 6 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_6.jpg" alt="Специальные машины и устройства">
@@ -1883,7 +1952,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 7 -->
+<!-- Специальность 7 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_7.jpg" alt="Мехатроника и робототехника">
@@ -1895,7 +1964,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 8 -->
+<!-- Специальность 8 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_8.jpg" alt="Технология машиностроения">
@@ -1907,7 +1976,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 9 -->
+<!-- Специальность 9 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_9.jpg" alt="Сварочное производство">
@@ -1919,7 +1988,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 10 -->
+<!-- Специальность 10 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_10.jpg" alt="Сооружение и эксплуатация газонефтепроводов и газонефтехранилищ">
@@ -1931,7 +2000,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 11 -->
+<!-- Специальность 11 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_11.jpg" alt="Техническое обслуживание авиационных двигателей">
@@ -1943,7 +2012,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 12 -->
+<!-- Специальность 12 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_12.jpg" alt="Метрологический контроль средств измерений">
@@ -1955,7 +2024,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 13 -->
+<!-- Специальность 13 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_13.jpg" alt="Экономика и бухгалтерский учет">
@@ -1967,7 +2036,7 @@ html, body {
           </div>
         </div>
         
-        <!-- Специальность 14 -->
+<!-- Специальность 14 -->
         <div class="specialty-item">
           <div class="image-container">
             <img src="specialties/path_to_image_14.jpg" alt="Социальная работа">
@@ -1990,7 +2059,9 @@ html, body {
   </div>
 </section>
 
-<!--Новости-->
+<div class="specialties-bg"></div>
+
+<!-- ======== НОВОСТИ ======== -->
 <section class="news-section">
   <h2>Новости</h2>
 
@@ -2079,7 +2150,7 @@ html, body {
   <div class="news-dots" id="news-dots"></div>
 </section>
 
-<!-- ======== СЕКЦИЯ "АЭРОКОС В ЧИСЛАХ" ======== -->
+<!-- ======== АЭРОКОС В ЧИСЛАХ ======== -->
 <section class="stats-section">
   <div class="stats-container">
     <h2 class="stats-title">Аэрокосмический колледж в числах</h2>
@@ -2166,12 +2237,12 @@ html, body {
   </div>
 </section>
 
-
   <main>
 
     <!-- Объединенный подвал с контактами -->
 <footer class="site-footer">
   <div class="container">
+
     <!-- Контакты -->
     <div class="footer-contacts">
       <div class="contact-item">
@@ -2298,7 +2369,7 @@ function animateNumbers() {
   observer.observe(statsSection);
 }
 
-    // ===== АНИМАЦИЯ ЧИСЕЛ ДЛЯ СЕКЦИИ "АЭРОКОС В ЧИСЛАХ" =====
+// ===== АНИМАЦИЯ ЧИСЕЛ "АЭРОКОС В ЧИСЛАХ" =====
 function animateNumbers() {
   const statsSection = document.querySelector('.stats-section');
   const statItems = document.querySelectorAll('.stat-item');
@@ -2389,7 +2460,7 @@ document.addEventListener('DOMContentLoaded', function() {
   animateNumbers();
 });
 
-    // ===== УЛУЧШЕННЫЙ СЛАЙДЕР СПЕЦИАЛЬНОСТЕЙ =====
+// ===== СЛАЙДЕР СПЕЦИАЛЬНОСТЕЙ =====
 document.addEventListener('DOMContentLoaded', function() {
   const slider = document.querySelector('.specialties-slider');
   const sliderWrapper = document.querySelector('.specialties-slider-wrapper');
@@ -2444,7 +2515,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
 
   function updateSlider() {
-    const itemWidth = items[0].offsetWidth + 20; 
+    const itemWidth = items[0].offsetWidth + 20; // width + gap
     const translateX = -currentIndex * itemWidth * itemsPerView;
     slider.style.transform = `translateX(${translateX}px)`;
     
@@ -2499,7 +2570,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
       
-      // ===== СЛАЙДЕР НОВОСТЕЙ =====
+// ===== СЛАЙДЕР НОВОСТЕЙ =====
       (function(){
         const newsSlider = document.getElementById('news-slider');
         const newsPrevBtn = document.getElementById('news-prev');
@@ -2576,14 +2647,13 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
 
-
         updateNewsPerView();
         createNewsDots();
 
         setTimeout(updateNewsSlider, 50);
       })();
 
-      // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ =====
+// ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ =====
 
 document.querySelectorAll('.language-switcher').forEach(switcher => {
   const langOptions = switcher.querySelectorAll('.lang-option');
@@ -2602,8 +2672,6 @@ document.querySelectorAll('.language-switcher').forEach(switcher => {
     });
   });
 });
-
-      
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
     });
@@ -2612,3 +2680,4 @@ document.querySelectorAll('.language-switcher').forEach(switcher => {
 
 </body>
 </html>
+    

@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Аэрокосмический колледж - Внеучебная жизнь</title>
+
+  <style>
+    :root{
+      --muted: #ffffff;
+      --bg: #ffffff;
+      --card-bg: #fff;
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:#111;background:var(--bg);line-height:1.5}
+    .container{max-width:var(--maxw);margin:30px auto;padding:0 16px}
+
+/*═════════════════ ШАПКА ═════════════════*/
+
+     .site-header {
+      background: linear-gradient(to right, #1565C0 100%);
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 20px;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      position: relative;
+    }
+    
+    .header-left {
+      background: #1565C0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+    .logo{width:64px;height:64px;object-fit:cover;border-radius:8px}
+    .title-wrap{display:flex;flex-direction:column}
+    .org-name{font-weight:700;color:#ffffff}
+    .org-sub{font-size:13px;color:var(--muted)}
+    
+    .main-nav{position:relative}
+    .nav-toggle{display:none;background:none;border:0;font-size:16px}
+    .nav-list{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+    .nav-list a{color:#111;text-decoration:none;font-weight:600;padding:6px 8px;border-radius:6px}
+    .nav-list a:hover{background:#f0f0f0}
+    
+    .has-sub{position:relative}
+    .has-sub .sub{display:none;position:absolute;left:0;top:calc(100% + 8px);background:var(--card-bg);box-shadow:0 6px 20px rgba(0,0,0,.06);padding:8px;border-radius:8px;min-width:220px}
+    .has-sub:hover .sub{display:block}
+    .sub li{display:block;margin:0}
+    .sub a{display:block;padding:8px 12px;color:#111}
+    
+    .btn{display:inline-block;padding:10px 18px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700}
+    
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+    .card{background:var(--card-bg);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    .card h3{margin:0 0 8px}
+    .card-link{color:var(--accent);font-weight:700;text-decoration:none}
+    
+    .site-footer{background:#222;color:#fff;padding:18px 16px;text-align:center;margin-top:30px}
+    .footer-links a{color:#fff;text-decoration:underline;font-size:14px}
+
+ /* Контейнер всей шапки: фиксированная ширина */
+.site-header {
+  width: 1920px;
+  max-width: 1920px;    
+  min-width: 1920px;    
+  margin: 0 auto;
+  overflow: visible;    
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Левая часть с логотипом */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #1565C0;
+  flex-shrink: 0;
+}
+
+/*═════════════════ КНОПКИ С ИКОНКАМИ ═════════════════*/
+
+     .subnav ul {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+    
+    .subnav li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 150px;
+    }
+    
+    .menu-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 5px;
+    }
+    
+    .subnav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+      height: 100px;
+      justify-content: center;
+      text-align: center;
+      white-space: normal;
+      width: 100%;
+      padding: 10px 5px;
+      border-radius: 0px;
+      transition: all 0.3s ease;
+    }
+    
+    .subnav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .subnav a:first-child {
+      text-align: center;
+    }
+
+/*═════════════════ БАННЕР С РАКЕТОЙ ═════════════════*/
+
+    .college-banner {
+      display: flex;
+      width: 100%;
+      height: 450px;
+    }
+    
+    .banner-left {
+      background-image: url("first-banner-and-head/left-banner.png"); 
+      width: 36%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 0px 20px;        /* Высота блока */
+    }
+    
+    .banner-right {
+      background-image: url('first-banner-and-head/college-banner.jpg');
+      background-size: cover;
+      background-position: center;
+      width: 64%;
+    }
+    
+    .banner-left h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .first-word {
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: -10px;
+    }
+    
+    .second-word {
+      font-size: 30px;
+      font-weight: 400;
+    }
+
+/*═════════════════ КНОПКИ НАД БАННЕРОМ С РАКЕТОЙ ═════════════════*/
+
+    .subnav.top-menu {
+  width: 100%;
+  background-color: #f2f2f2;  /* Цвет фона меню с кнопками */
+  border-top: none;
+  border-bottom: none;
+}
+
+.subnav.top-menu ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: nowrap;
+  gap: 0px;
+}
+
+.subnav.top-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.subnav.top-menu a:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.subnav.bottom-menu {
+  width: 100%;
+  background-color: #ffffff;  /* Цвет фона меню с кнопками */
+  border-top: none;
+  border-bottom: none;
+}
+
+.subnav.bottom-menu ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: nowrap;
+  gap: 0px;  /* Расстояние между кнопками */
+}
+
+.subnav.bottom-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;               /* Высота нижних кнопок */
+  text-decoration: none;
+  color: #000000;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.subnav.bottom-menu a:hover {
+  background-color: #e0e0e0;  /* цвет при наведении */
+  color: #000000;
+}
+
+/*═════════════════ КНОПКИ В ШАПКЕ ═════════════════*/
+
+/* 1 группа кнопок */
+.header-buttons-group1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
+  margin-left: 92px;
+}
+
+/* 2 группа кнопок */
+.header-buttons-group2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
+  margin-left: -18px;
+}
+
+/* 3 группа кнопок */
+.header-buttons-group3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки */
+  gap: 2px; /* Отступы между кнопками */
+  margin-left: -18px;
+}
+
+/* Кнопки */
+.header-btn {
+  display: block;
+  padding: 16px 9px;
+  background-color: #e9e8e8;
+  color: #000;
+  font-weight: 800;
+  font-size: 11px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  white-space: nowrap;
+  z-index: 1003;
+
+  /* НОВЫЙ ШРИФТ */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Отступы между кнопками */
+  margin-bottom: 0px;
+}
+
+/*Подсветка кнопок при наведении */
+.subnav a:hover,
+.header-btn:hover {
+  background-color: #333;
+  color: #ffffff;
+  transform: translateY(0);
+}
+
+.header-btn-dropdown {
+  position: relative;
+  z-index: 2000;
+}
+
+.header-btn-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 230px;
+  max-width: 300px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3000;
+  transform: none;
+  border-left: 5px solid #1565C0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.header-btn-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header-btn-dropdown .dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header-btn-dropdown .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.header-btn-dropdown .dropdown-item:hover {
+  background-color: #e4e3e3;
+  color: #1565C0;
+}
+
+.header-buttons-group1,
+.header-buttons-group2,
+.header-buttons-group3 {
+  position: static;
+  overflow: visible;
+  z-index: 1004;
+}
+
+.header-btn {
+  display: block;
+  padding: 16px 9px;
+  background-color: #e9e8e8;
+  color: #000;
+  font-weight: 800;
+  font-size: 11px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
+  z-index: 1011;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+.header-left {
+  background: #1565C0; /*Цвет фона логотипа*/
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  overflow: visible !important;
+   z-index: 10010;
+}
+
+.header-buttons-group1,
+.header-buttons-group2,
+.header-buttons-group3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+/* Кнопки */
+.header-btn {
+  white-space: nowrap;   /* запрет переноса текста */
+  flex-shrink: 0;        /* кнопка никогда не сжимается */
+}
+
+/* ===== Фиксированный фон под меню ===== */
+.menu-bg-fixed {
+  position: absolute;
+  top: 00px;
+  right: 123px;
+  height: 99px;
+  width: 1117px;
+  background: #ececec;
+  z-index: -1;
+}
+
+
+/*═════════════════ СОЦИАЛЬНЫЕ ИКОНКИ  ═════════════════*/
+
+    .social-menu {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 4px 0;
+      background-color: #ffffff;
+      position: relative;
+      z-index: 1001;
+    }
+    
+    .social-dropdown {
+      position: relative;
+    }
+    
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      border-radius: 0px;
+      transition: background-color 0.2s ease;
+    }
+    
+    .social-icon img {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.2s ease;
+    }
+    
+    .social-icon:hover img {
+      transform: scale(1.1);
+    }
+    
+    .social-icon:hover {
+      background-color: #f8f8f8;
+    }
+
+.social-dropdown .dropdown-item {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.social-dropdown .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      min-width: 160px;
+      border-radius: 0px;
+      padding: 6px 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      z-index: 1002;
+      margin-top: 2px;
+      border-left: 5px solid #1565C0;
+    }
+    
+    .social-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      margin-top: 5px;
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 8px 12px;
+      color: #333;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+/*═════════════════ КНОПКА ДОСТУПНОСТИ ═════════════════*/
+
+.accessibility-switcher {
+  position: absolute;
+  right: 30px;
+  top: 0px; 
+}
+
+.accessibility-btn {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 0px;
+  transition: background-color 0.2s ease;
+}
+
+.accessibility-btn img {
+  width: 25px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.accessibility-btn:hover img {
+  transform: scale(1.1);
+}
+
+.accessibility-btn:hover {
+  background-color: #1565C0;
+}
+
+/*═════════════════ КНОПКА СМЕНЫ ЯЗЫКА ═════════════════*/
+   
+    /* Стили для самой кнопки смены языка */
+    .language-switcher .language-btn {
+      width: 100px;
+      height: 100px;
+      background-color: #333;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 20px;
+      border-radius: 0px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s, color 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    /* Эффект при наведении на кнопку */
+    .language-switcher .language-btn:hover {
+      background-color: #1565C0;
+      color: #ffffff;
+    }
+    
+    /* Выпадающее меню языков ВЛЕВО */
+    .lang-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      min-width: 180px;
+      box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 0;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1003;
+      border-left: 5px solid #1565C0;
+    }
+    
+    .language-switcher:hover .lang-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    /* Варианты языков */
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+    
+    .lang-option:hover {
+      background-color: #1565C0;
+      color: white;
+    }
+    
+    .lang-flag {
+      width: 24px;
+      height: 18px;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+    
+    .lang-name {
+      font-weight: 500;
+      flex: 1;
+    }
+    
+/*Активный язык в выпадающем меню — белый текст*/
+.language-switcher .dropdown-menu .dropdown-item.active,
+.language-switcher .lang-option.active {
+  color: #fff !important;
+  background-color: #1565C0 !important;
+}
+
+/* Кнопка языка всегда справа */
+.language-switcher {
+  position: absolute;
+  top:50%;
+  flex-shrink: 0;
+  right: 23px;
+  transform: translateY(-50%);
+  z-index: 5000;
+}
+
+/*═════════════════ ОБЩИЙ CSS ДЛЯ КНОПКИ СМЕНЫ ЯЗЫКА И СОЦИАЛЬНЫХ ИКОНОК ═════════════════*/
+
+.social-dropdown .dropdown-item,
+.lang-menu .lang-option,
+.language-switcher .dropdown-item {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.social-dropdown .dropdown-item:last-child,
+.lang-menu .lang-option:last-child,
+.language-switcher .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.social-dropdown .dropdown-item:hover,
+.lang-menu .lang-option:hover,
+.language-switcher .dropdown-item:hover {
+  background-color: #e4e3e3;
+  color: #1565C0;
+}
+
+.social-dropdown .social-icon:hover,
+.social-dropdown .social-icon:focus {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/*═════════════════ CSS ПОДВАЛА ═════════════════*/
+
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 16px 30px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.contact-section .container,
+.site-footer .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Ссылки */
+.contact-section a,
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-section a:hover,
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.contact-section address {
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.contact-section h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Отклю резиновую верстку для секций */
+.specialties-section,
+.news-section,
+.announcements-section {
+  width: 1920px !important;
+  max-width: 1920px !important;
+  min-width: 1920px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+}
+
+/*═════════════════ ЗАПРЕТ НА ВЫДЕЛЕНИЕ КАРТИНОК ИКОНОК И КНОПОКИ ═════════════════*/
+.header-btn,
+.subnav a,
+.slider-arrow,
+.accessibility-btn,
+.language-btn,
+.social-icon,
+.dropdown-item,
+.lang-option,
+.nav-list a,
+.btn,
+.card-link,
+.news-link,
+.news-image,
+.specialty-link,
+.announcements-all-btn,
+.announcement-banner,
+.logo,
+.contact-icon,
+.stat-icon,
+.social-icon img,
+.image-container img,
+.menu-icon {
+
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*═════════════════ ОТКЛ ГОРИЗОНТАЛЬНОГО СКРОЛА ═════════════════*/
+
+html, body { 
+  overflow-x: hidden; 
+}
+
+/*═════════════════ НАЧАЛО HTML БЛОКА ═════════════════*/
+
+  </style>
+</head>
+<body>
+
+<!-- ======== МЕНЮ СОЦИАЛЬНЫХ СЕТЕЙ ======== -->
+<div class="social-menu">
+  <!-- ВК ЕКАТЕРИНА МИЗУЛИНА -->
+  <div class="social-dropdown">
+    <a href="#" class="social-icon dropdown-toggle">
+      <img src="../Верхние иконки/vk-icon.png" alt="VK">
+    </a>
+    <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
+      <a href="https://vk.com/media_ak" target="_blank" class="dropdown-item">Аэрокосмический колледж</a>
+      <a href="https://vk.com/sibgu_ru" target="_blank" class="dropdown-item">Университет Решетнёва</a>
+      <a href="https://vk.com/sibsau_muta" target="_blank" class="dropdown-item">Студенту</a>
+      <a href="https://vk.com/club42768501" target="_blank" class="dropdown-item">АК-Барс Патриот СибГУ</a>
+    </div>
+  </div>
+
+  <!-- ЮТ -->
+  <div class="social-dropdown">
+    <a href="#" class="social-icon dropdown-toggle">
+      <img src="../Верхние иконки/yt-icon.png" alt="YouTube">
+    </a>
+    <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
+      <a href="1" target="_blank" class="dropdown-item">1</a>
+      <a href="2" target="_blank" class="dropdown-item">2</a>
+    </div>
+  </div>
+
+  <!-- ТГ -->
+  <div class="social-dropdown">
+    <a href="#" class="social-icon dropdown-toggle">
+      <img src="../Верхние иконки/telegram-icon.png" alt="Telegram">
+    </a>
+    <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
+      <a href="https://t.me/reshetnevuniversity" target="_blank" class="dropdown-item">Университет Решетнёва</a>
+      <a href="https://t.me/reshu_ru" target="_blank" class="dropdown-item">Абитуриенту</a>
+    </div>
+  </div>
+
+<!-- ======== КНОПКА ДОСТУПНОСТИ ======== -->
+  <div class="accessibility-switcher">
+    <button class="accessibility-btn" aria-label="Режим для слабовидящих">
+      <img src="../Верхние иконки/eye.png" alt="Режим для слабовидящих">
+    </button>
+  </div>
+</div>
+
+  <!-- ======== ШАПКА ======== -->
+   <div class="blue-bg-under"></div>
+<header class="site-header">
+  <div class="header-left">
+    <img src="../Шапка и баннер/logo.png" alt="Логотип" class="logo">
+    <div class="title-wrap">
+      <div class="org-name">Аэрокосмический колледж при СибГУ им. М.Ф. Решетнёва</div>
+      <div class="org-sub">Университет Решетнёва</div>
+    </div>
+
+    <!-- === ГРУППА 1 === -->
+<div class="header-buttons-group1">
+  <!-- Без меню -->
+  <a href="Околледже.html" class="header-btn">О КОЛЛЕДЖЕ</a>
+  <a href="Приоритет2030.html" class="header-btn">ПРИОРИТЕТ 2030</a>
+
+  <!-- С меню -->
+  <div class="header-btn-dropdown">
+    <a href="ВЖ.html" class="header-btn">ВНЕУЧЕБНАЯ ЖИЗНЬ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Культурная жизнь</a>
+      <a href="#" class="dropdown-item">Общественная жизнь</a>
+      <a href="#" class="dropdown-item">Спорт</a>
+      <a href="#" class="dropdown-item">Противодействие коррупции</a>
+      <a href="#" class="dropdown-item">Безопасность</a>
+    </div>
+  </div>
+
+  <div class="header-btn-dropdown">
+    <a href="Университет.html" class="header-btn">УНИВЕРСИТЕТ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Миссия</a>
+      <a href="#" class="dropdown-item">История</a>
+      <a href="#" class="dropdown-item">Руководство</a>
+      <a href="#" class="dropdown-item">Структура</a>
+      <a href="#" class="dropdown-item">Международное сотрудничество</a>
+    </div>
+  </div>
+</div>
+
+<!-- === ГРУППА 2 === -->
+<div class="header-buttons-group2">
+  <!-- Без меню -->
+  <a href="Партнёры.html" class="header-btn">ПАРТНЁРЫ</a>
+  <a href="Библиотека.html" class="header-btn">БИБЛИОТЕКА</a>
+
+  <!-- С меню -->
+  <div class="header-btn-dropdown">
+    <a href="Образование.html" class="header-btn">ОБРАЗОВАНИЕ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Специальности</a>
+      <a href="#" class="dropdown-item">Дополнительное образование</a>
+      <a href="#" class="dropdown-item">Дистанционное обучение</a>
+      <a href="#" class="dropdown-item">Расписание учебных занятий</a>
+    </div>
+  </div>
+
+  <div class="header-btn-dropdown">
+    <a href="НИИ.html" class="header-btn">НАУКИ И ИННОВАЦИИ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Научные издания</a>
+      <a href="#" class="dropdown-item">научно-исследовательская деятельность</a>
+      <a href="#" class="dropdown-item">Конкурсы и гранты</a>
+      <a href="#" class="dropdown-item">Научные мероприятия и публикация</a>
+      <a href="#" class="dropdown-item">Патенты</a>
+    </div>
+  </div>
+</div>
+
+<!-- === ГРУППА 3 === -->
+<div class="header-buttons-group3">
+  <!-- Без меню -->
+  <a href="Документы.html" class="header-btn">ДОКУМЕНТЫ</a>
+  <a href="ЭО.html" class="header-btn">ЭЛЕКТРОННОЕ ОБУЧЕНИЕ</a>
+
+  <!-- С меню -->
+  <div class="header-btn-dropdown">
+    <a href="Фотогалерея.html" class="header-btn">ФОТОГАЛЕРЕЯ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Фото</a>
+      <a href="#" class="dropdown-item">Видео</a>
+    </div>
+  </div>
+
+  <div class="header-btn-dropdown">
+    <a href="Новости.html" class="header-btn">НОВОСТИ</a>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item">Все новости</a>
+      <a href="#" class="dropdown-item">Популярные новости</a>
+      <a href="#" class="dropdown-item">Прошедшие события</a>
+      <a href="#" class="dropdown-item">Анонсы</a>
+      <a href="#" class="dropdown-item">Объявления</a>
+      <a href="#" class="dropdown-item">Федеральные новости</a>
+    </div>
+  </div>
+</div>
+
+<div class="menu-bg-fixed"></div>
+
+<!-- ======== КНОПКА СМЕНЫ ЯЗЫКА ======== -->
+    <div class="language-switcher">
+      <button class="header-btn language-btn">RU</button>
+      <div class="lang-menu">
+        <div class="lang-option active" data-lang="ru">
+          <img src="../Флаги/flagsru.png" alt="Русский" class="lang-flag">
+          <span class="lang-name">Русский</span>
+        </div>
+        <div class="lang-option" data-lang="en">
+          <img src="../Флаги/flagsen.png" alt="English" class="lang-flag">
+          <span class="lang-name">English</span>
+        </div>
+        <div class="lang-option" data-lang="zh">
+          <img src="../Флаги/flagszh.png" alt="中文" class="lang-flag">
+          <span class="lang-name">中文</span>
+        </div>
+      </div>
+    </div>
+    
+<!-- ======== БЛОК СПРАВА ОТ КНОПОК ======== -->
+      <div class="header-right-block"></div>
+    </div>
+  </div>
+</header>
+
+  <!-- ======== КНОПКИ НАД БАННЕРОМ С РАКЕТОЙ ======== -->
+   
+<div class="subnav top-menu">
+  <ul>
+    <li>
+      <a href="../Кнопки с иконками/Личный кабинет/личный кабинет.html">
+        
+        <img src="../Вторые кнопки/icon1.png" alt="Личный кабинет" class="menu-icon">
+        Личный кабинет
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="../Вторые кнопки/icon2.png" alt="Почта" class="menu-icon">
+        Почта
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="../Вторые кнопки/icon3.png" alt="Расписание" class="menu-icon">
+        Расписание
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="../Вторые кнопки/icon4.png" alt="Библиотека" class="menu-icon">
+        Библиотека
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="../Вторые кнопки/icon5.png" alt="Обращения" class="menu-icon">
+        Обращения
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="../Вторые кнопки/icon6.png" alt="Оплата услуг" class="menu-icon">
+        Оплата услуг
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="../Вторые кнопки/icon7.png" alt="Доп. образование" class="menu-icon">
+        Доп. образование
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- ======== БАННЕР С РАКЕТОЙ ======== -->
+<section class="college-banner">
+  <div class="banner-left"></div>
+  <div class="banner-right"></div>
+</section>
+
+<!-- ======= КОНТЕНТ СТРАНИЦЫ ======= -->
+
+<section style="padding:60px 120px;">
+  <h1 style="font-size:40px; font-weight:800;">Внеучебная жизнь</h1>
+  <p style="font-size:22px; max-width:900px; line-height:1.6;">
+    На этой странице будет размещена информация о мероприятиях, кружках, олимпиадах,
+    спортивной и общественной деятельности студентов.
+  </p>
+</section>
+
+    <!-- Объединенный подвал с контактами -->
+<footer class="site-footer">
+  <div class="container">
+
+    <!-- Контакты -->
+    <div class="footer-contacts">
+      <div class="contact-item">
+        <img src="../Подвал/phone-icon.png" alt="Телефон" class="contact-icon">
+        <span>Телефон: +7 (391) 206-00-70</span>
+      </div>
+      <div class="contact-item">
+        <img src="../Подвал/email-icon.png" alt="Email" class="contact-icon">
+        <span>Email: priemsibsau@sibsau.ru</span>
+      </div>
+      <div class="contact-item">
+        <img src="../Подвал/address-icon.png" alt="Адрес" class="contact-icon">
+        <span>Адрес: 660037, Красноярский край, г. Красноярск, проспект им. газеты Красноярский рабочий, 31, корпус «К», каб. 314</span>
+      </div>
+    </div>
+    
+    <!-- Копирайт -->
+    <div class="footer-info">
+      <div>© <span id="year"></span> Аэрокосмический колледж при СибГУ им. М.Ф. Решетнёва</div>
+      <div class="footer-links"><a href="#">Политика конфиденциальности</a></div>
+    </div>
+  </div>
+</footer>
+
+  <script>
+
+    // ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ЭЛЕМЕНТОВ ПРИ СКРОЛЛЕ =====
+function initScrollAnimations() {
+  const animatedElements = document.querySelectorAll(
+    '.specialties-section h2, ' +
+    '.news-section h2, ' +
+    '.announcements-title, ' +
+    '.stats-title, ' +
+    '.news-card, ' +
+    '.announcement-card, ' +
+    '.announcement-banner, ' +
+    '.specialty-item, ' +
+    '.stat-item'
+  );
+
+  const options = {
+    root: null,
+    rootMargin: '-10% 0px -10% 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 100);
+        
+        if (entry.target.classList.contains('stat-item')) {
+          const statNumber = entry.target.querySelector('.stat-number');
+          if (statNumber && !statNumber.classList.contains('animated')) {
+            const finalValues = [3000, 13, 245, 155, 655, 546];
+            const index = Array.from(document.querySelectorAll('.stat-item')).indexOf(entry.target);
+            if (index !== -1 && finalValues[index]) {
+              setTimeout(() => {
+                animateNumber(statNumber, finalValues[index]);
+              }, 300);
+            }
+          }
+        }
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  animatedElements.forEach(element => {
+    observer.observe(element);
+  });
+}
+
+function animateNumber(element, finalValue) {
+  if (element.classList.contains('animated')) return;
+  
+  const duration = 2000;
+  const frameDuration = 1000 / 60;
+  const totalFrames = Math.round(duration / frameDuration);
+  let frame = 0;
+  
+  let startValue = 0;
+
+  element.classList.add('animated');
+  
+  const counter = setInterval(() => {
+    frame++;
+    
+    const progress = frame / totalFrames;
+    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+    const currentValue = Math.round(startValue + (finalValue - startValue) * easeOutQuart);
+    
+    element.textContent = currentValue.toLocaleString();
+    
+    if (frame === totalFrames) {
+      clearInterval(counter);
+      element.textContent = finalValue.toLocaleString();
+    }
+  }, frameDuration);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+  initScrollAnimations();
+  
+  animateNumbers();
+});
+
+function animateNumbers() {
+  const statsSection = document.querySelector('.stats-section');
+  if (!statsSection) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(statsSection);
+}
+
+// ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ =====
+
+document.querySelectorAll('.language-switcher').forEach(switcher => {
+  const langOptions = switcher.querySelectorAll('.lang-option');
+  const currentLangBtn = switcher.querySelector('.language-btn');
+
+  langOptions.forEach(option => {
+    option.addEventListener('click', function () {
+      const lang = this.getAttribute('data-lang');
+
+      currentLangBtn.textContent = lang.toUpperCase();
+
+      langOptions.forEach(opt => opt.classList.remove('active'));
+      this.classList.add('active');
+
+      console.log(`Язык изменен на: ${lang}`);
+    });
+  });
+});
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
+    

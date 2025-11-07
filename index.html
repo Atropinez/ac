@@ -155,7 +155,7 @@
     }
     
     .banner-left {
-      background-image: url("first-banner-and-head/left-banner.png"); 
+      background-image: url("Шапка и баннер/left-banner.png"); 
       width: 36%;
       background-size: cover;
       background-position: center;
@@ -164,7 +164,7 @@
     }
     
     .banner-right {
-      background-image: url('first-banner-and-head/college-banner.jpg');
+      background-image: url('Шапка и баннер/college-banner.jpg');
       background-size: cover;
       background-position: center;
       width: 64%;
@@ -766,7 +766,7 @@
 }
 
 .header-left {
-  background: #1565C0;
+  background: #1565C0; /*Цвет фона логотипа*/
   display: flex;
   align-items: center;
   gap: 20px;
@@ -916,13 +916,6 @@
 
 /*═════════════════ КНОПКА СМЕНЫ ЯЗЫКА ═════════════════*/
 
-    .language-switcher {
-      position: absolute;
-      right: 500px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 1011;
-    }
     
     /* Стили для самой кнопки смены языка */
     .language-switcher .language-btn {
@@ -1016,16 +1009,9 @@
 /* Кнопка языка всегда справа */
 .language-switcher {
   position: absolute;
-  right: 0;
   top:50%;
-  transform: translateY(-50%);
   flex-shrink: 0;
-}
-
-.language-switcher {
-  position: absolute;
   right: 23px;
-  top: 50%;
   transform: translateY(-50%);
   z-index: 5000;
 }
@@ -1101,7 +1087,6 @@
       background-color: #1565C0;
     }
 
-    /*Убираем горизонтальный скролл и пустое место справа */ 
 html, body { 
   overflow-x: hidden; 
 }
@@ -1605,11 +1590,6 @@ html, body {
   z-index: 0;
 }
 
-/* Удаляем серую огромную кнопку-фон */
-.header-overlay-button {
-  display: none !important;
-}
-
 /* Вся средняя зона */
 .header-right-content,
 .header-buttons-wrapper {
@@ -1627,6 +1607,40 @@ html, body {
   position: relative !important;
 }
 
+/*═════════════════ ЗАПРЕТ НА ВЫДЕЛЕНИЕ КАРТИНОК ИКОНОК И КНОПОКИ ═════════════════*/
+.header-btn,
+.subnav a,
+.slider-arrow,
+.accessibility-btn,
+.language-btn,
+.social-icon,
+.dropdown-item,
+.lang-option,
+.nav-list a,
+.btn,
+.card-link,
+.news-link,
+.news-image,
+.specialty-link,
+.announcements-all-btn,
+.announcement-banner,
+.logo,
+.contact-icon,
+.stat-icon,
+.social-icon img,
+.image-container img,
+.menu-icon {
+
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*═════════════════ НАЧАЛО HTML БЛОКА ═════════════════*/
+
   </style>
 </head>
 <body>
@@ -1636,7 +1650,7 @@ html, body {
   <!-- ВК ЕКАТЕРИНА МИЗУЛИНА -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
-      <img src="top-line\vk-icon.png" alt="VK">
+      <img src="Верхние иконки\vk-icon.png" alt="VK">
     </a>
     <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
       <a href="https://vk.com/media_ak" target="_blank" class="dropdown-item">Аэрокосмический колледж</a>
@@ -1649,7 +1663,7 @@ html, body {
   <!-- ЮТ -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
-      <img src="top-line\yt-icon.png" alt="YouTube">
+      <img src="Верхние иконки\yt-icon.png" alt="YouTube">
     </a>
     <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
       <a href="1" target="_blank" class="dropdown-item">1</a>
@@ -1660,7 +1674,7 @@ html, body {
   <!-- ТГ -->
   <div class="social-dropdown">
     <a href="#" class="social-icon dropdown-toggle">
-      <img src="top-line\telegram-icon.png" alt="Telegram">
+      <img src="Верхние иконки\telegram-icon.png" alt="Telegram">
     </a>
     <div class="dropdown-menu" style="left: 50%; transform: translateX(-50%);">
       <a href="https://t.me/reshetnevuniversity" target="_blank" class="dropdown-item">Университет Решетнёва</a>
@@ -1671,7 +1685,7 @@ html, body {
 <!-- ======== КНОПКА ДОСТУПНОСТИ ======== -->
   <div class="accessibility-switcher">
     <button class="accessibility-btn" aria-label="Режим для слабовидящих">
-      <img src="top-line\eye.png" alt="Режим для слабовидящих">
+      <img src="Верхние иконки\eye.png" alt="Режим для слабовидящих">
     </button>
   </div>
 </div>
@@ -1680,7 +1694,7 @@ html, body {
    <div class="blue-bg-under"></div>
 <header class="site-header">
   <div class="header-left">
-    <img src="first-banner-and-head\logo.png" alt="Логотип" class="logo">
+    <img src="Шапка и баннер\logo.png" alt="Логотип" class="logo">
     <div class="title-wrap">
       <div class="org-name">Аэрокосмический колледж при СибГУ им. М.Ф. Решетнёва</div>
       <div class="org-sub">Университет Решетнёва</div>
@@ -1694,7 +1708,7 @@ html, body {
 
   <!-- С меню -->
   <div class="header-btn-dropdown">
-    <a href="#" class="header-btn">ВНЕУЧЕБНАЯ ЖИЗНЬ</a>
+    <a href="Первые кнопки/vneuchebnaya.html" class="header-btn">ВНЕУЧЕБНАЯ ЖИЗНЬ</a>
     <div class="dropdown-menu">
       <a href="#" class="dropdown-item">Культурная жизнь</a>
       <a href="#" class="dropdown-item">Общественная жизнь</a>
@@ -1780,15 +1794,15 @@ html, body {
       <button class="header-btn language-btn">RU</button>
       <div class="lang-menu">
         <div class="lang-option active" data-lang="ru">
-          <img src="flags-countries/flagsru.png" alt="Русский" class="lang-flag">
+          <img src="Флаги/flagsru.png" alt="Русский" class="lang-flag">
           <span class="lang-name">Русский</span>
         </div>
         <div class="lang-option" data-lang="en">
-          <img src="flags-countries\flagsen.png" alt="English" class="lang-flag">
+          <img src="Флаги\flagsen.png" alt="English" class="lang-flag">
           <span class="lang-name">English</span>
         </div>
         <div class="lang-option" data-lang="zh">
-          <img src="flags-countries\flagszh.png" alt="中文" class="lang-flag">
+          <img src="Флаги\flagszh.png" alt="中文" class="lang-flag">
           <span class="lang-name">中文</span>
         </div>
       </div>
@@ -1806,43 +1820,43 @@ html, body {
   <ul>
     <li>
       <a href="Кнопки с иконками/Личный кабинет/личный кабинет.html">
-        <img src="button-icons\icon1.png" alt="Личный кабинет" class="menu-icon">
+        <img src="Вторые кнопки\icon1.png" alt="Личный кабинет" class="menu-icon">
         Личный кабинет
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="button-icons\icon2.png" alt="Почта" class="menu-icon">
+        <img src="Вторые кнопки\icon2.png" alt="Почта" class="menu-icon">
         Почта
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="button-icons\icon3.png" alt="Расписание" class="menu-icon">
+        <img src="Вторые кнопки\icon3.png" alt="Расписание" class="menu-icon">
         Расписание
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="button-icons\icon4.png" alt="Библиотека" class="menu-icon">
+        <img src="Вторые кнопки\icon4.png" alt="Библиотека" class="menu-icon">
         Библиотека
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="button-icons\icon5.png" alt="Обращения" class="menu-icon">
+        <img src="Вторые кнопки\icon5.png" alt="Обращения" class="menu-icon">
         Обращения
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="button-icons\icon6.png" alt="Оплата услуг" class="menu-icon">
+        <img src="Вторые кнопки\icon6.png" alt="Оплата услуг" class="menu-icon">
         Оплата услуг
       </a>
     </li>
     <li>
       <a href="#">
-        <img src="button-icons\icon7.png" alt="Доп. образование" class="menu-icon">
+        <img src="Вторые кнопки\icon7.png" alt="Доп. образование" class="menu-icon">
         Доп. образование
       </a>
     </li>
@@ -1881,7 +1895,7 @@ html, body {
 <!-- Специальность 1 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_1.jpg" alt="Сетевое и системное администрирование">
+            <img src="Специальности/path_to_image_1.jpg" alt="Сетевое и системное администрирование">
             <p class="profession-name">Сетевое и системное администрирование</p>
             <div class="overlay">
               <p>Специалист по сетевому и системному администрированию обеспечивает стабильную работу IT-инфраструктуры организации. Занимается проектированием, настройкой и обслуживанием компьютерных сетей, серверов, рабочих станций. Осуществляет мониторинг сетевого оборудования, устраняет неисправности, обеспечивает информационную безопасность. Работает с сетевыми протоколами, операционными системами, системами виртуализации. Востребован в IT-компаниях, банках, государственных учреждениях, крупных корпорациях.</p>
@@ -1893,7 +1907,7 @@ html, body {
 <!-- Специальность 2 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_2.jpg" alt="Информационные системы и программирование">
+            <img src="Специальности/path_to_image_2.jpg" alt="Информационные системы и программирование">
             <p class="profession-name">Информационные системы и программирование</p>
             <div class="overlay">
               <p>Разработчик, который создаёт программное обеспечение и комплексные системы для управления бизнес-процессами. Владеет языками программирования, базами данных, веб-технологиями. Разрабатывает приложения для автоматизации работы предприятий, мобильные приложения, веб-сервисы. Участвует в полном цикле создания ПО: от анализа требований до тестирования и внедрения. Может работать программистом, веб-разработчиком, системным аналитиком в IT-компаниях, стартапах, digital-агентствах.</p>
@@ -1905,7 +1919,7 @@ html, body {
 <!-- Специальность 3 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_3.jpg" alt="Обеспечение информационной безопасности телекоммуникационных систем">
+            <img src="Специальности/path_to_image_3.jpg" alt="Обеспечение информационной безопасности телекоммуникационных систем">
             <p class="profession-name">Обеспечение информационной безопасности телекоммуникационных систем</p>
             <div class="overlay">
               <p>Обеспечение информационной безопасности телекоммуникационных систем
@@ -1918,7 +1932,7 @@ html, body {
 <!-- Специальность 4 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_4.jpg" alt="Обеспечение информационной безопасности автоматизированных систем">
+            <img src="Специальности/path_to_image_4.jpg" alt="Обеспечение информационной безопасности автоматизированных систем">
             <p class="profession-name">Обеспечение информационной безопасности автоматизированных систем</p>
             <div class="overlay">
               <p>Обеспечение информационной безопасности автоматизированных систем
@@ -1931,7 +1945,7 @@ html, body {
 <!-- Специальность 5 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_5.jpg" alt="Эксплуатация и обслуживание электрического и электромеханического оборудования">
+            <img src="Специальности/path_to_image_5.jpg" alt="Эксплуатация и обслуживание электрического и электромеханического оборудования">
             <p class="profession-name">Эксплуатация и обслуживание электрического и электромеханического оборудования</p>
             <div class="overlay">
               <p>Технический эксперт, который обеспечивает бесперебойную и безопасную работу электродвигателей, генераторов и систем энергоснабжения. Выполняет монтаж, наладку, ремонт электрооборудования. Диагностирует неисправности, проводит техническое обслуживание, обеспечивает электробезопасность. Работает с системами автоматики, релейной защиты, силовой электроникой. Востребован на промышленных предприятиях, энергетических компаниях, в жилищно-коммунальном хозяйстве.</p>
@@ -1943,7 +1957,7 @@ html, body {
 <!-- Специальность 6 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_6.jpg" alt="Специальные машины и устройства">
+            <img src="Специальности/path_to_image_6.jpg" alt="Специальные машины и устройства">
             <p class="profession-name">Специальные машины и устройства</p>
             <div class="overlay">
               <p>Инженер или техник, который занимается проектированием, эксплуатацией и ремонтом узкоспециализированной техники. Работает с промышленными роботами, автоматическими линиями, подъемно-транспортным оборудованием. Разрабатывает техническую документацию, проводит испытания, оптимизирует рабочие процессы. Владеет навыками чтения чертежей, работы с измерительными приборами, основами механики. Работает на машиностроительных заводах, в логистических компаниях, на производственных предприятиях.</p>
@@ -1955,7 +1969,7 @@ html, body {
 <!-- Специальность 7 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_7.jpg" alt="Мехатроника и робототехника">
+            <img src="Специальности/path_to_image_7.jpg" alt="Мехатроника и робототехника">
             <p class="profession-name">Мехатроника и робототехника</p>
             <div class="overlay">
               <p>Инженер, который создаёт и обслуживает сложные автоматизированные системы и роботов. Разрабатывает мехатронные модули, программирует промышленных роботов, настраивает системы автоматизации. Интегрирует механические, электронные и программные компоненты в единые комплексы. Работает с датчиками, приводами, системами управления. Востребован в автомобилестроении, аэрокосмической отрасли, на высокотехнологичных производствах, в научно-исследовательских центрах.</p>
@@ -1967,7 +1981,7 @@ html, body {
 <!-- Специальность 8 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_8.jpg" alt="Технология машиностроения">
+            <img src="Специальности/path_to_image_8.jpg" alt="Технология машиностроения">
             <p class="profession-name">Технология машиностроения</p>
             <div class="overlay">
               <p>Инженер, который разрабатывает и оптимизирует процессы изготовления деталей и сборки машин и механизмов. Создает технологические маршруты обработки, выбирает оборудование и инструмент, рассчитывает режимы резания. Контролирует качество продукции, внедряет современные производственные технологии. Владеет CAD/CAM системами, знает материаловедение, теорию резания. Работает на машиностроительных предприятиях, в конструкторских бюро, научно-производственных объединениях.</p>
@@ -1979,7 +1993,7 @@ html, body {
 <!-- Специальность 9 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_9.jpg" alt="Сварочное производство">
+            <img src="Специальности/path_to_image_9.jpg" alt="Сварочное производство">
             <p class="profession-name">Сварочное производство</p>
             <div class="overlay">
               <p>Технолог, который разрабатывает, контролирует и выполняет процессы неразъёмного соединения деталей. Владеет различными видами сварки: дуговой, контактной, газовой, плазменной. Разрабатывает технологические процессы, выбирает материалы и оборудование, контролирует качество сварных швов. Проводит дефектоскопию, сертификацию сварщиков. Востребован в судостроении, авиакосмической отрасли, нефтегазовом комплексе, строительстве.</p>
@@ -1991,7 +2005,7 @@ html, body {
 <!-- Специальность 10 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_10.jpg" alt="Сооружение и эксплуатация газонефтепроводов и газонефтехранилищ">
+            <img src="Специальности/path_to_image_10.jpg" alt="Сооружение и эксплуатация газонефтепроводов и газонефтехранилищ">
             <p class="profession-name">Сооружение и эксплуатация газонефтепроводов и газонефтехранилищ</p>
             <div class="overlay">
               <p>Инженер, который обеспечивает бесперебойную и безопасную транспортировку и хранение нефти и газа. Проектирует трубопроводные системы, рассчитывает режимы перекачки, организует строительство и ремонт. Контролирует техническое состояние оборудования, обеспечивает экологическую безопасность. Работает с насосными станциями, системами КИПиА, средствами защиты. Востребован в нефтегазовых компаниях, проектных институтах, сервисных организациях.</p>
@@ -2003,7 +2017,7 @@ html, body {
 <!-- Специальность 11 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_11.jpg" alt="Техническое обслуживание авиационных двигателей">
+            <img src="Специальности/path_to_image_11.jpg" alt="Техническое обслуживание авиационных двигателей">
             <p class="profession-name">Техническое обслуживание авиационных двигателей</p>
             <div class="overlay">
               <p>Инженер или техник, который обеспечивает исправность, надежность и готовность к полетам силовых установок. Выполняет диагностику, ремонт, техническое обслуживание авиадвигателей. Работает с газотурбинными, поршневыми, реактивными двигателями. Владеет методами неразрушающего контроля, читает техническую документацию, соблюдает авиационные правила. Работает в авиакомпаниях, аэропортах, ремонтных предприятиях, конструкторских бюро.</p>
@@ -2012,10 +2026,10 @@ html, body {
           </div>
         </div>
         
-<!-- Специальность 12 -->
+<!-- Специальность 12 --> 
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_12.jpg" alt="Метрологический контроль средств измерений">
+            <img src="Специальности/path_to_image_12.jpg" alt="Метрологический контроль средств измерений">
             <p class="profession-name">Метрологический контроль средств измерений</p>
             <div class="overlay">
               <p>Эксперт, который обеспечивает единство и точность измерений в народном хозяйстве. Поверяет, калибрует, ремонтирует измерительные приборы. Разрабатывает методики поверки, ведет нормативную документацию, внедряет новые средства измерений. Работает с эталонами, измерительными комплексами, системами качества. Востребован на промышленных предприятиях, в метрологических службах, органах по сертификации, научных институтах.</p>
@@ -2027,7 +2041,7 @@ html, body {
 <!-- Специальность 13 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_13.jpg" alt="Экономика и бухгалтерский учет">
+            <img src="Специальности/path_to_image_13.jpg" alt="Экономика и бухгалтерский учет">
             <p class="profession-name">Экономика и бухгалтерский учет</p>
             <div class="overlay">
               <p>Эксперт, который обеспечивает эффективное управление финансовыми ресурсами организации. Ведет бухгалтерский и налоговый учет, составляет отчетность, анализирует финансовую деятельность. Проводит аудит, оптимизирует налогообложение, управляет затратами. Владеет системами электронной отчетности, знает законодательство, работает с финансовыми инструментами. Может работать бухгалтером, экономистом, финансовым аналитиком в компаниях различных отраслей.</p>
@@ -2039,7 +2053,7 @@ html, body {
 <!-- Специальность 14 -->
         <div class="specialty-item">
           <div class="image-container">
-            <img src="specialties/path_to_image_14.jpg" alt="Социальная работа">
+            <img src="Специальности/path_to_image_14.jpg" alt="Социальная работа">
             <p class="profession-name">Социальная работа</p>
             <div class="overlay">
               <p>Профессионал, который оказывает комплексную помощь и поддержку незащищённым слоям населения. Работает с семьями, детьми, пожилыми людьми, инвалидами. Организует социальные услуги, консультирует по вопросам льгот и выплат, ведет проектную деятельность. Владеет методами социальной диагностики, психологического консультирования, организации волонтерской деятельности. Работает в социальных службах, центрах помощи, образовательных учреждениях, некоммерческих организациях.</p>
@@ -2072,7 +2086,7 @@ html, body {
       <div class="news-slider" id="news-slider">
         <article class="news-card">
           <div class="news-image">
-            <img src="news/news1.jpg" alt="Новость 1">
+            <img src="Новости/news1.jpg" alt="Новость 1">
             <time class="news-date">23.10.2025</time>
           </div>
           <div class="news-info">
@@ -2084,7 +2098,7 @@ html, body {
 
         <article class="news-card">
           <div class="news-image">
-            <img src="news/news2.jpg" alt="Новость 2">
+            <img src="Новости/news2.jpg" alt="Новость 2">
             <time class="news-date">15.09.2025</time>
           </div>
           <div class="news-info">
@@ -2096,7 +2110,7 @@ html, body {
 
         <article class="news-card">
           <div class="news-image">
-            <img src="news/news3.jpg" alt="Новость 3">
+            <img src="Новости/news3.jpg" alt="Новость 3">
             <time class="news-date">09.05.2025</time>
           </div>
           <div class="news-info">
@@ -2108,7 +2122,7 @@ html, body {
 
         <article class="news-card">
           <div class="news-image">
-            <img src="news/news4.jpg" alt="Новость 4">
+            <img src="Новости/news4.jpg" alt="Новость 4">
             <time class="news-date">20.04.2025</time>
           </div>
           <div class="news-info">
@@ -2120,7 +2134,7 @@ html, body {
 
         <article class="news-card">
           <div class="news-image">
-            <img src="news/news5.jpg" alt="Новость 5">
+            <img src="Новости/news5.jpg" alt="Новость 5">
             <time class="news-date">10.04.2025</time>
           </div>
           <div class="news-info">
@@ -2132,7 +2146,7 @@ html, body {
 
         <article class="news-card">
           <div class="news-image">
-            <img src="news/news6.jpg" alt="Новость 6">
+            <img src="Новости/news6.jpg" alt="Новость 6">
             <time class="news-date">05.04.2025</time>
           </div>
           <div class="news-info">
@@ -2158,7 +2172,7 @@ html, body {
       <div class="stat-item">
         <div class="stat-content">
           <div class="stat-number">0</div>
-          <img src="aerocos-in-numbers/students-icon.png" alt="Обучающиеся" class="stat-icon">
+          <img src="Аэрокос в числах/students-icon.png" alt="Обучающиеся" class="stat-icon">
         </div>
         <div class="stat-label">обучающихся</div>
       </div>
@@ -2166,7 +2180,7 @@ html, body {
       <div class="stat-item">
         <div class="stat-content">
           <div class="stat-number">0</div>
-          <img src="aerocos-in-numbers/Candidate-Sciences-icon.png" alt="Кандидаты наук" class="stat-icon">
+          <img src="Аэрокос в числах/Candidate-Sciences-icon.png" alt="Кандидаты наук" class="stat-icon">
         </div>
         <div class="stat-label">кандидатов наук</div>
       </div>
@@ -2174,7 +2188,7 @@ html, body {
       <div class="stat-item">
         <div class="stat-content">
           <div class="stat-number">0</div>
-          <img src="aerocos-in-numbers/paid-seats-icon.png" alt="Платные места" class="stat-icon">
+          <img src="Аэрокос в числах/paid-seats-icon.png" alt="Платные места" class="stat-icon">
         </div>
         <div class="stat-label">Платных мест</div>
       </div>
@@ -2182,7 +2196,7 @@ html, body {
       <div class="stat-item">
         <div class="stat-content">
           <div class="stat-number">0</div>
-          <img src="aerocos-in-numbers/professor-icon.png" alt="Профессора" class="stat-icon">
+          <img src="Аэрокос в числах/professor-icon.png" alt="Профессора" class="stat-icon">
         </div>
         <div class="stat-label">профессоров и преподавателей</div>
       </div>
@@ -2190,7 +2204,7 @@ html, body {
       <div class="stat-item">
         <div class="stat-content">
           <div class="stat-number">0</div>
-          <img src="aerocos-in-numbers/budget-places-icon.png" alt="Бюджетные места" class="stat-icon">
+          <img src="Аэрокос в числах/budget-places-icon.png" alt="Бюджетные места" class="stat-icon">
         </div>
         <div class="stat-label">Бюджетных мест</div>
       </div>
@@ -2198,7 +2212,7 @@ html, body {
       <div class="stat-item">
         <div class="stat-content">
           <div class="stat-number">0</div>
-          <img src="aerocos-in-numbers/graduates-icon.png" alt="Выпускники" class="stat-icon">
+          <img src="Аэрокос в числах/graduates-icon.png" alt="Выпускники" class="stat-icon">
         </div>
         <div class="stat-label">Выпускников за год</div>
       </div>
@@ -2211,7 +2225,7 @@ html, body {
   <h2 class="announcements-title">Анонсы</h2>
   <div class="announcements-container">
     <div class="announcements-left">
-      <img src="announcement/banner-announcement.jpg" alt="Баннер" class="announcement-banner">
+      <img src="Аннонсы/banner-announcement.jpg" alt="Баннер" class="announcement-banner">
     </div>
     <div class="announcements-right">
       <div class="announcement-card">
@@ -2246,15 +2260,15 @@ html, body {
     <!-- Контакты -->
     <div class="footer-contacts">
       <div class="contact-item">
-        <img src="bottom-line/phone-icon.png" alt="Телефон" class="contact-icon">
+        <img src="Подвал/phone-icon.png" alt="Телефон" class="contact-icon">
         <span>Телефон: +7 (391) 206-00-70</span>
       </div>
       <div class="contact-item">
-        <img src="bottom-line/email-icon.png" alt="Email" class="contact-icon">
+        <img src="Подвал/email-icon.png" alt="Email" class="contact-icon">
         <span>Email: priemsibsau@sibsau.ru</span>
       </div>
       <div class="contact-item">
-        <img src="bottom-line/address-icon.png" alt="Адрес" class="contact-icon">
+        <img src="Подвал/address-icon.png" alt="Адрес" class="contact-icon">
         <span>Адрес: 660037, Красноярский край, г. Красноярск, проспект им. газеты Красноярский рабочий, 31, корпус «К», каб. 314</span>
       </div>
     </div>

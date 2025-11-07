@@ -519,13 +519,13 @@
   opacity: 0.6;
 }
 
-/* ===== Фиксированный фон под специа ===== */
+/* ===== Фиксированный фон под специаности ===== */
 .specialties-bg {
   position: absolute;
   left: 0;
   width: 100vw;
-  height: 757px;
-  top: 758px;
+  height: 758px;
+  top: 757px;
   background: #333; 
   z-index: 0;
 }
@@ -542,7 +542,7 @@
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   color: #1565C0;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
   text-align: left;
   padding-left: 20px;
   
@@ -623,16 +623,6 @@
 
 .news-link:hover {
   color: #003366;
-}
-/* Адаптив */
-@media (max-width: 1100px) {
-  .news-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 800px) {
-  .news-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .news-grid { grid-template-columns: 1fr; }
 }
 
 /*═════════════════ КНОПКИ В ШАПКЕ ═════════════════*/
@@ -916,7 +906,6 @@
 
 /*═════════════════ КНОПКА СМЕНЫ ЯЗЫКА ═════════════════*/
 
-    
     /* Стили для самой кнопки смены языка */
     .language-switcher .language-btn {
       width: 100px;
@@ -1146,7 +1135,7 @@ html, body {
 .site-footer {
   background-color: #333;
   color: #fff;
-  padding: 50px 16px 30px;
+  padding: 20px 16px 10px;
   text-align: center;
   margin-top: 0;
 }
@@ -1262,7 +1251,7 @@ html, body {
 
 .announcement-card h3 {
   margin: 0 0 10px 0;
-  color: #1565C0;
+  color: #000000;
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -1576,18 +1565,15 @@ html, body {
   transform: translateY(0);
 }
 
-html, body {
-  background: #ffffff !important;
-}
 
 .blue-bg-under {
   position: absolute;
   top: 0;
   left: 0;
-  height: 139px; /* высота голубой области */
+  height: 139px;
   width: 100%;
   background: #1565C0;
-  z-index: 0;
+  z-index: -1;
 }
 
 /* Вся средняя зона */
@@ -1637,6 +1623,12 @@ html, body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+/*═════════════════ РАССТОЯНИЕ ЗАГОЛОВКА НОВОСТИ И СПЕЦИАЛЬНОСТИ 100PX ═════════════════*/
+
+.news-section {
+  margin-top: 100px !important;
 }
 
 /*═════════════════ НАЧАЛО HTML БЛОКА ═════════════════*/
@@ -1694,21 +1686,23 @@ html, body {
    <div class="blue-bg-under"></div>
 <header class="site-header">
   <div class="header-left">
+  <a href="index.html" class="logo-link">
     <img src="Шапка и баннер\logo.png" alt="Логотип" class="logo">
-    <div class="title-wrap">
-      <div class="org-name">Аэрокосмический колледж при СибГУ им. М.Ф. Решетнёва</div>
-      <div class="org-sub">Университет Решетнёва</div>
-    </div>
+  </a>
+  <div class="title-wrap">
+    <div class="org-name">Аэрокосмический колледж при СибГУ им. М.Ф. Решетнёва</div>
+    <div class="org-sub">Университет Решетнёва</div>
+  </div>
 
     <!-- === ГРУППА 1 === -->
 <div class="header-buttons-group1">
   <!-- Без меню -->
-  <a href="#" class="header-btn">О КОЛЛЕДЖЕ</a>
-  <a href="#" class="header-btn">ПРИОРИТЕТ 2030</a>
+  <a href="Первые кнопки/О колледже.html" class="header-btn">О КОЛЛЕДЖЕ</a>
+  <a href="Первые кнопки/Приоритет2030.html" class="header-btn">ПРИОРИТЕТ 2030</a>
 
   <!-- С меню -->
   <div class="header-btn-dropdown">
-    <a href="Первые кнопки/vneuchebnaya.html" class="header-btn">ВНЕУЧЕБНАЯ ЖИЗНЬ</a>
+    <a href="Первые кнопки/Внеучебная.html" class="header-btn">ВНЕУЧЕБНАЯ ЖИЗНЬ</a>
     <div class="dropdown-menu">
       <a href="#" class="dropdown-item">Культурная жизнь</a>
       <a href="#" class="dropdown-item">Общественная жизнь</a>
@@ -1719,7 +1713,7 @@ html, body {
   </div>
 
   <div class="header-btn-dropdown">
-    <a href="#" class="header-btn">УНИВЕРСИТЕТ</a>
+    <a href="Первые кнопки/Университет.html" class="header-btn">УНИВЕРСИТЕТ</a>
     <div class="dropdown-menu">
       <a href="#" class="dropdown-item">Миссия</a>
       <a href="#" class="dropdown-item">История</a>
@@ -1733,12 +1727,12 @@ html, body {
 <!-- === ГРУППА 2 === -->
 <div class="header-buttons-group2">
   <!-- Без меню -->
-  <a href="#" class="header-btn">ПАРТНЁРЫ</a>
+  <a href="Первые кнопки/Партнёры.html" class="header-btn">ПАРТНЁРЫ</a>
   <a href="#" class="header-btn">БИБЛИОТЕКА</a>
 
   <!-- С меню -->
   <div class="header-btn-dropdown">
-    <a href="#" class="header-btn">ОБРАЗОВАНИЕ</a>
+    <a href="Первые кнопки/Образование.html" class="header-btn">ОБРАЗОВАНИЕ</a>
     <div class="dropdown-menu">
       <a href="#" class="dropdown-item">Специальности</a>
       <a href="#" class="dropdown-item">Дополнительное образование</a>
@@ -1748,7 +1742,7 @@ html, body {
   </div>
 
   <div class="header-btn-dropdown">
-    <a href="#" class="header-btn">НАУКИ И ИННОВАЦИИ</a>
+    <a href="Первые кнопки/НИИ.html" class="header-btn">НАУКИ И ИННОВАЦИИ</a>
     <div class="dropdown-menu">
       <a href="#" class="dropdown-item">Научные издания</a>
       <a href="#" class="dropdown-item">научно-исследовательская деятельность</a>
@@ -1762,12 +1756,12 @@ html, body {
 <!-- === ГРУППА 3 === -->
 <div class="header-buttons-group3">
   <!-- Без меню -->
-  <a href="#" class="header-btn">ДОКУМЕНТЫ</a>
-  <a href="#" class="header-btn">ЭЛЕКТРОННОЕ ОБУЧЕНИЕ</a>
+  <a href="Первые кнопки/Документы.html" class="header-btn">ДОКУМЕНТЫ</a>
+  <a href="Первые кнопки/ЭО.html" class="header-btn">ЭЛЕКТРОННОЕ ОБУЧЕНИЕ</a>
 
   <!-- С меню -->
   <div class="header-btn-dropdown">
-    <a href="#" class="header-btn">ФОТОГАЛЕРЕЯ</a>
+    <a href="Первые кнопки/Фотогалерея.html" class="header-btn">ФОТОГАЛЕРЕЯ</a>
     <div class="dropdown-menu">
       <a href="#" class="dropdown-item">Фото</a>
       <a href="#" class="dropdown-item">Видео</a>
@@ -1775,7 +1769,7 @@ html, body {
   </div>
 
   <div class="header-btn-dropdown">
-    <a href="#" class="header-btn">НОВОСТИ</a>
+    <a href="Первые кнопки/Новости.html" class="header-btn">НОВОСТИ</a>
     <div class="dropdown-menu">
       <a href="#" class="dropdown-item">Все новости</a>
       <a href="#" class="dropdown-item">Популярные новости</a>
@@ -1819,43 +1813,43 @@ html, body {
 <div class="subnav top-menu">
   <ul>
     <li>
-      <a href="Кнопки с иконками/Личный кабинет/личный кабинет.html">
+      <a href="Кнопки с иконками/личный кабинет.html">
         <img src="Вторые кнопки\icon1.png" alt="Личный кабинет" class="menu-icon">
         Личный кабинет
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="Кнопки с иконками/Почта.html">
         <img src="Вторые кнопки\icon2.png" alt="Почта" class="menu-icon">
         Почта
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="Кнопки с иконками/Расписание.html">
         <img src="Вторые кнопки\icon3.png" alt="Расписание" class="menu-icon">
         Расписание
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="Кнопки с иконками/Библиотека.html">
         <img src="Вторые кнопки\icon4.png" alt="Библиотека" class="menu-icon">
         Библиотека
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="Кнопки с иконками/Обращения.html">
         <img src="Вторые кнопки\icon5.png" alt="Обращения" class="menu-icon">
         Обращения
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="Кнопки с иконками/Оплата услуг.html">
         <img src="Вторые кнопки\icon6.png" alt="Оплата услуг" class="menu-icon">
         Оплата услуг
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="Кнопки с иконками/Доп образование.html">
         <img src="Вторые кнопки\icon7.png" alt="Доп. образование" class="menu-icon">
         Доп. образование
       </a>
@@ -2090,8 +2084,8 @@ html, body {
             <time class="news-date">23.10.2025</time>
           </div>
           <div class="news-info">
-            <h3 class="news-title">Открытый кубок по хоккею</h3>
-            <p class="news-excerpt">Роботы, космос и хоккей. Открытый кубок по хоккею с мячом среди любительских команд прошел при поддержке Университета Решетнёва.</p>
+            <h3 class="news-title">Роботы, космос и хоккей. Открытый кубок по хоккею с мячом среди любительских команд прошел при поддержке Университета Решетнёва.</h3>
+            <p class="news-excerpt"></p> <!--Описание-->
             <a href="#" class="news-link">Подробнее</a>
           </div>
         </article>
@@ -2103,7 +2097,7 @@ html, body {
           </div>
           <div class="news-info">
             <h3 class="news-title">Студенты Университета Решетнёва вошли в число именных стипендиатов Горно-химического комбината</h3>
-            <p class="news-excerpt">Приглашаем абитуриентов и родителей на экскурсию по колледжу.</p>
+            <p class="news-excerpt"></p> <!--Описание-->
             <a href="#" class="news-link">Подробнее</a>
           </div>
         </article>
@@ -2111,11 +2105,11 @@ html, body {
         <article class="news-card">
           <div class="news-image">
             <img src="Новости/news3.jpg" alt="Новость 3">
-            <time class="news-date">09.05.2025</time>
+            <time class="news-date">12.09.2025</time>
           </div>
           <div class="news-info">
-            <h3 class="news-title">Премьера клипа IvanZolo2004 "Вайперр"</h3>
-            <p class="news-excerpt">Трек «Вайперр» вышел 24 октября 2025 года, а клип — 26 октября 2025 года.</p>
+            <h3 class="news-title">Зарница 2.0. Команда Аэрокосмического колледжа вошла в топ -7 лучших участников."</h3>
+            <p class="news-excerpt"></p> <!--Описание-->
             <a href="#" class="news-link">Подробнее</a>
           </div>
         </article>
@@ -2123,11 +2117,11 @@ html, body {
         <article class="news-card">
           <div class="news-image">
             <img src="Новости/news4.jpg" alt="Новость 4">
-            <time class="news-date">20.04.2025</time>
+            <time class="news-date">27.08.2025</time>
           </div>
           <div class="news-info">
-            <h3 class="news-title">4</h3>
-            <p class="news-excerpt">4</p>
+            <h3 class="news-title">Профессионалы. Студенты Аэрокосмического колледжа выступают в составе сборной Красноярского края в финале чемпионата</h3>
+            <p class="news-excerpt"></p> <!--Описание-->
             <a href="#" class="news-link">Подробнее</a>
           </div>
         </article>
@@ -2135,11 +2129,11 @@ html, body {
         <article class="news-card">
           <div class="news-image">
             <img src="Новости/news5.jpg" alt="Новость 5">
-            <time class="news-date">10.04.2025</time>
+            <time class="news-date">04.08.2025</time>
           </div>
           <div class="news-info">
-            <h3 class="news-title">5</h3>
-            <p class="news-excerpt">5</p>
+            <h3 class="news-title">В команде будущего. Студент Аэрокосмического колледжа вошел в число победителей чемпионата «Молодые профессионалы Роскосмоса – 2025»</h3>
+            <p class="news-excerpt"></p> <!--Описание-->
             <a href="#" class="news-link">Подробнее</a>
           </div>
         </article>
@@ -2147,11 +2141,11 @@ html, body {
         <article class="news-card">
           <div class="news-image">
             <img src="Новости/news6.jpg" alt="Новость 6">
-            <time class="news-date">05.04.2025</time>
+            <time class="news-date">10.07.2025</time>
           </div>
           <div class="news-info">
-            <h3 class="news-title">6</h3>
-            <p class="news-excerpt">6</p>
+            <h3 class="news-title">Блестящая победа! Команда «АК БАРС» стала победителем окружного этапа Всероссийской военно-патриотической игры «Зарница 2.0» в Сибирском федеральном округе</h3>
+            <p class="news-excerpt"></p> <!--Описание-->
             <a href="#" class="news-link">Подробнее</a>
           </div>
         </article>
@@ -2229,18 +2223,18 @@ html, body {
     </div>
     <div class="announcements-right">
       <div class="announcement-card">
-        <h3>Анонс 1</h3>
-        <p>Краткое описание анонса...</p>
+        <h3>Спросите космонавта! В Университете Решетнёва пройдут встречи с космонавтом Кириллом Песковым.</h3>
+        <p></p> <!--Описание-->
         <a href="#">Подробнее</a>
       </div>
       <div class="announcement-card">
-        <h3>Анонс 2</h3>
-        <p>Краткое описание анонса...</p>
+        <h3>Социальный интеллект. Университет Решетнёва приглашает школьников и студентов к участию в региональном конкурсе.</h3>
+        <p></p> <!--Описание-->
         <a href="#">Подробнее</a>
       </div>
       <div class="announcement-card">
-        <h3>Анонс 3</h3>
-        <p>Краткое описание анонса...</p>
+        <h3>МедиаЛидер-2025. Подходит к завершению прием заявок для участия в конкурсе на соискание премии студенческих СМИ.</h3>
+        <p></p> <!--Описание-->
         <a href="#">Подробнее</a>
       </div>
 
@@ -2689,6 +2683,63 @@ document.querySelectorAll('.language-switcher').forEach(switcher => {
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
     });
+
+    //  АКТИВНАЯ КНОПКА НАВИГАЦИИ 
+function setActiveNavigation() {
+
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  
+  document.querySelectorAll('.header-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.classList.remove('active');
+  });
+  
+  let activeButtonId = '';
+  
+  const pageToButtonMap = {
+    'Университет.html': 'university-btn',
+    'О колледже.html': 'about-btn',
+    'Приоритет2030.html': 'priority-btn',
+    'Внеучебная.html': 'extracurricular-btn',
+    'Партнёры.html': 'partners-btn',
+    'Образование.html': 'education-btn',
+    'НИИ.html': 'science-btn',
+    'Документы.html': 'documents-btn',
+    'ЭО.html': 'eo-btn',
+    'Фотогалерея.html': 'gallery-btn',
+    'Новости.html': 'news-btn'
+  };
+  
+  activeButtonId = pageToButtonMap[currentPage];
+
+  if (activeButtonId) {
+    const activeButton = document.getElementById(activeButtonId);
+    if (activeButton) {
+      activeButton.classList.add('active');
+    }
+  }
+  
+  checkDropdownItems();
+}
+
+function checkDropdownItems() {
+  const dropdownItems = document.querySelectorAll('.dropdown-item');
+  const currentPage = window.location.pathname.split('/').pop();
+  
+  dropdownItems.forEach(item => {
+    const itemHref = item.getAttribute('href');
+    if (itemHref && (itemHref === currentPage || itemHref.includes(currentPage))) {
+      item.classList.add('active');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setActiveNavigation();
+});
 
   </script>
 
